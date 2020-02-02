@@ -30,13 +30,31 @@ function lineBot(req, res) {
     );
   }
   Promise.all(promises).then(console.log("pass"));
+
+
 }
 
 // 追加
 function echoman(ev) {
-  // const pro =  await client.getProfile(ev.source.userId);
-  return client.replyMessage(ev.replyToken, {
-    type: "text",
-    text: `今「${ev.message.text}」って言いました？`
-  })
+
+  const userMessage = ev.message.text;
+
+  let message;
+  message = {
+      type: "text",
+      text: userMessage
+  };
+
+  const pro = client.getProfile(ev.source.userId);
+
+  if (userMessage == "振り返り"){
+    return client.replyMessage(ev.replyToken, {
+      type: "text",
+      text: `${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！`
+    })
+    return client.replyMessage(ev.replyToken, {
+      type: "text",
+      text: `本日も予定通り学習できましたか？`
+    })
+  }
 }
