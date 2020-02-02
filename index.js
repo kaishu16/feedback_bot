@@ -35,7 +35,7 @@ function lineBot(req, res) {
 }
 
 // 追加
-function echoman(ev) {
+async function echoman(ev) {
 
   const userMessage = ev.message.text;
 
@@ -45,7 +45,7 @@ function echoman(ev) {
       text: userMessage
   };
 
-  const pro = client.getProfile(ev.source.userId);
+  const pro = await client.getProfile(ev.source.userId);
 
   if (userMessage == "振り返り"){
     return client.replyMessage(ev.replyToken, {
