@@ -12,9 +12,9 @@ express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
-  .get('/g/', (req, res) => res.json({method: "こんにちは、getさん"}))
-  .post('/p/', (req, res) => res.json({method: "こんにちは、postさん"}))
+  // .get('/', (req, res) => res.render('pages/index'))
+  // .get('/g/', (req, res) => res.json({method: "こんにちは、getさん"}))
+  // .post('/p/', (req, res) => res.json({method: "こんにちは、postさん"}))
   .post("/hook/", line.middleware(config), (req, res) => lineBot(req, res))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
@@ -30,13 +30,44 @@ function lineBot(req, res) {
     );
   }
   Promise.all(promises).then(console.log("pass"));
-  }
+}
 
-  // 追加
-  async function echoman(ev) {
-  const pro =  await client.getProfile(ev.source.userId);
+// 追加
+function echoman(ev) {
+  // const pro =  await client.getProfile(ev.source.userId);
   return client.replyMessage(ev.replyToken, {
-    type: "text",
-    text: `${pro.displayName}さん、今「${ev.message.text}」って言いました？`
-  })
+  "type": "template",
+  "altText": "This is a buttons template",
+  "template": {
+      "type": "buttons",
+      "thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
+      "imageAspectRatio": "rectangle",
+      "imageSize": "cover",
+      "imageBackgroundColor": "#FFFFFF",
+      "title": "Menu",
+      "text": "Please select",
+      "defaultAction": {
+          "type": "uri",
+          "label": "View detail",
+          "uri": "http://example.com/page/123"
+      },
+      "actions": [
+          {
+            "type": "postback",
+            "label": "Buy",
+            "data": "action=buy&itemid=123"
+          },
+          {
+            "type": "postback",
+            "label": "Add to cart",
+            "data": "action=add&itemid=123"
+          },
+          {
+            "type": "uri",
+            "label": "View detail",
+            "uri": "http://example.com/page/123"
+          }
+      ]
+  }
+})
 }
