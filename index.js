@@ -45,16 +45,20 @@ async function echoman(ev) {
       text: userMessage
   };
 
+
+
   const pro = await client.getProfile(ev.source.userId);
 
   if (userMessage == "振り返り"){
+    let reply = '';
+    reply = `${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！`;
+    // client.pushMessage(ev.source.userId, {
+    //     type: 'text',
+    //     text: `本日も予定通り学習できましたか？`,
+    // });
     return client.replyMessage(ev.replyToken, {
       type: "text",
-      text: `${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！`
-    })
-    return client.replyMessage(ev.replyToken, {
-      type: "text",
-      text: `本日も予定通り学習できましたか？`
-    })
+      text: reply
+    });
   }
 }
