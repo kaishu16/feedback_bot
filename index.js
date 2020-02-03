@@ -48,12 +48,11 @@ async function echoman(ev) {
 
 
   const pro = await client.getProfile(ev.source.userId);
-  const user_id = ev.source.userId;
   let reply = '';
 
   if (userMessage == "振り返り"){
     reply = `${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！`;
-    first_question(user_id);
+    first_question(ev.source.userId);
     // if (answer != NULL){
     // next_answer = second_question(user_id, answer);
     // }
