@@ -53,6 +53,7 @@ async function echoman(ev) {
   if (userMessage == "振り返り"){
     reply = `${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！`;
     answer = first_question(ev.source.userId);
+    userMessage = answer;
 
     setTimeout(() => {
       client.pushMessage(ev.source.userId, {
