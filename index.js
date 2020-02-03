@@ -54,9 +54,9 @@ async function echoman(ev) {
   if (userMessage == "振り返り"){
     reply = `${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！`;
     answer = first_question(user_id);
-    if (answer != NULL){
-    next_answer = second_question(user_id, answer);
-    }
+    // if (answer != NULL){
+    // next_answer = second_question(user_id, answer);
+    // }
 
 
     setTimeout(() => {
