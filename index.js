@@ -18,31 +18,16 @@ express()
   .post("/hook/", line.middleware(config), (req, res) => lineBot(req, res))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-async function lineBot(req, res) {
+function lineBot(req, res) {
   res.status(200).end();
   // ここから追加
   const events = req.body.events;
   const promises = [];
 
   events.forEach((event) =>{
-    const userMessage = event.message.text;
-
-    let message;
-    message = {
-        type: "text",
-        text: userMessage
-    };
-
-
-
-    const pro = await client.getProfile(event.source.userId);
-    let reply = '';
-
-    if (userMessage == "振り返り"){
-      reply = `${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！`;
       promises.push(client.replyMessage(event.replyToken, {
         type: "text",
-        text: reply
+        text: rep(event)
       }));
   }
   });
@@ -53,39 +38,34 @@ async function lineBot(req, res) {
 }
 
 // 追加
-// async function echoman(ev) {
-//
-//   const userMessage = ev.message.text;
-//
-//   let message;
-//   message = {
-//       type: "text",
-//       text: userMessage
-//   };
-//
-//
-//
-//   const pro = await client.getProfile(ev.source.userId);
-//   let reply = '';
-//
-//   if (userMessage == "振り返り"){
-//     reply = `${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！`;
-//     answer = first_question(ev.source.userId);
-//     // next_answer = second_question(ev.source.userId, answer)
-//
-//     setTimeout(() => {
-//       client.pushMessage(ev.source.userId, {
-//           type: 'text',
-//           text: `また分からない点や悩んでいることがあったら連絡ください！頑張っていきましょうー！`,
-//       });
-//     },2000);
-//   }
-//
-//   return client.replyMessage(ev.replyToken, {
-//     type: "text",
-//     text: reply
-//   });
-// }
+async function rep(ev) {
+
+  const userMessage = ev.message.text;
+
+  let message;
+  message = {
+      type: "text",
+      text: userMessage
+  };
+
+
+
+  const pro = await client.getProfile(ev.source.userId);
+  let reply = '';
+
+  if (userMessage == "振り返り"){
+    reply = `${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！`;
+
+    // setTimeout(() => {
+    //   client.pushMessage(ev.source.userId, {
+    //       type: 'text',
+    //       text: `また分からない点や悩んでいることがあったら連絡ください！頑張っていきましょうー！`,
+    //   });
+    // },2000);
+  }
+
+  return reply;
+}
 
 // function first_question(userId) {
 //   let question =
