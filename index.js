@@ -35,7 +35,7 @@ function lineBot(req, res) {
 
 
 
-    const pro = await client.getProfile(event.source.userId);
+    const pro = client.getProfile(event.source.userId);
     let reply = '';
 
     if (userMessage == "振り返り"){
@@ -46,15 +46,6 @@ function lineBot(req, res) {
       }));
   }
   });
-
-
-  // for (let i = 0, l = events.length; i < l; i++) {
-  //   const ev = events[i];
-  //   promises.push(
-  //     echoman(ev)
-  //   );
-  // }
-
 
   Promise.all(promises).then(console.log("pass"));
 
