@@ -51,8 +51,8 @@ async function echoman(ev) {
     return client.replyMessage(ev.replyToken, {
       type: "text",
       text: `${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！`
-    })
-    return client.replyMessage(ev.replyToken, {
+    }
+    {
       type: "text",
       text: `本日も予定通り学習できましたか？`
     })
