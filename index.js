@@ -88,7 +88,7 @@ async function first_question(userId) {
             }
         ]
     }
-  }
-  client.pushMessage(ev.source.userId, question);
+  };
+  client.pushMessage(userId, question);
 
 }
