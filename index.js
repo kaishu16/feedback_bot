@@ -53,6 +53,7 @@ async function echoman(ev) {
   if (userMessage == "振り返り"){
     reply = `${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！`;
     answer = first_question(ev.source.userId);
+    next_answer = second_question(userId, answer)
 
     setTimeout(() => {
       client.pushMessage(ev.source.userId, {
@@ -98,8 +99,8 @@ function first_question(userId) {
 
 }
 
-function second_question(userId, answer) {
-  if (answer == "はい"){
+function second_question(userId, ans) {
+  if (ans == "はい"){
   let yes_question =
   {
     "type": "template",
@@ -129,7 +130,7 @@ function second_question(userId, answer) {
 
   };
 
-  if (answer == "いいえ"){
+  if (ans == "いいえ"){
   let no_question =
   {
     "type": "template",
