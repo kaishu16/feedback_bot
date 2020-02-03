@@ -18,7 +18,7 @@ express()
   .post("/hook/", line.middleware(config), (req, res) => lineBot(req, res))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-async function lineBot(req, res) {
+function lineBot(req, res) {
   res.status(200).end();
   // ここから追加
   const events = req.body.events;
