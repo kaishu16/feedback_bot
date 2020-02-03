@@ -53,17 +53,17 @@ async function echoman(ev) {
   if (userMessage == "振り返り"){
     reply = `${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！`;
     first_question(ev.source.userId);
-    setTimeout(() => {
-      client.pushMessage(ev.source.userId, {
-          type: 'text',
-          text: `また分からない点や悩んでいることがあったら連絡ください！頑張っていきましょうー！`,
-      });
-    },2000);
-    return client.replyMessage(ev.replyToken, {
-      type: "text",
-      text: reply
-    });
   }
+  setTimeout(() => {
+    client.pushMessage(ev.source.userId, {
+        type: 'text',
+        text: `また分からない点や悩んでいることがあったら連絡ください！頑張っていきましょうー！`,
+    });
+  },2000);
+  return client.replyMessage(ev.replyToken, {
+    type: "text",
+    text: reply
+  });
 }
 
 function first_question(userId) {
