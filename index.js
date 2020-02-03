@@ -54,13 +54,6 @@ async function rep(ev) {
 
   if (userMessage == "振り返り"){
     reply = `${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！`;
-
-    // setTimeout(() => {
-    //   client.pushMessage(ev.source.userId, {
-    //       type: 'text',
-    //       text: `また分からない点や悩んでいることがあったら連絡ください！頑張っていきましょうー！`,
-    //   });
-    // },2000);
   }
 
   return reply;
