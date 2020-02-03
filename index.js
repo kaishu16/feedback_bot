@@ -27,6 +27,10 @@ function lineBot(req, res) {
     const ev = events[i];
     promises.push(
       echoman(ev)
+      client.pushMessage(ev.source.userId, {
+          type: 'text',
+          text: `本日も予定通り学習できましたか？`,
+      });
     );
   }
   Promise.all(promises).then(console.log("pass"));
@@ -52,10 +56,6 @@ async function echoman(ev) {
   if (userMessage == "振り返り"){
     let reply = '';
     reply = `${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！`;
-    client.pushMessage(ev.source.userId, {
-        type: 'text',
-        text: `本日も予定通り学習できましたか？`,
-    });
     return client.replyMessage(ev.replyToken, {
       type: "text",
       text: reply
