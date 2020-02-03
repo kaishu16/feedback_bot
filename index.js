@@ -89,6 +89,8 @@ async function first_question(userId) {
         ]
     }
   };
-  client.pushMessage(userId, question);
+  setTimeout(() => {
+    client.pushMessage(userId, question);
+  },2000);
 
 }
