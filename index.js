@@ -94,182 +94,182 @@ function first_question(userId) {
 
 }
 
-function second_question(userId, answer) {
-  if (answer == "yes"){
-  let yes_question =
-  {
-    "type": "template",
-    "altText": "2個目の質問",
-    "template": {
-        "type": "confirm",
-        "text": "さすがです！上手く進められた要因として何があげられますか？",
-        "actions": [
-            {
-                "type": "message",
-                "label": "はい",
-                "text": "はい"
-            },
-            {
-                "type": "message",
-                "label": "いいえ",
-                "text": "いいえ"
-            }
-        ]
-    }
-  };
-  setTimeout(() => {
-    client.pushMessage(userId, yes_question);
-  },2000);
-  };
-
-  if (answer == "no"){
-  let no_question =
-  {
-    "type": "template",
-    "altText": "2個目の質問",
-    "template": {
-        "type": "confirm",
-        "text": "なるほど！予定通り進まなかった要因として何があげられますか？",
-        "actions": [
-            {
-                "type": "message",
-                "label": "はい",
-                "text": "はい"
-            },
-            {
-                "type": "message",
-                "label": "いいえ",
-                "text": "いいえ"
-            }
-        ]
-    }
-  };
-  setTimeout(() => {
-    client.pushMessage(userId, no_question);
-  },2000);
-  };
-
-}
-
-function third_question(userId, answer) {
-  if (answer == "yes"){
-  let yes_question =
-  {
-    "type": "template",
-    "altText": "3個目の質問",
-    "template": {
-        "type": "confirm",
-        "text": "なるほど！より質の高い学習をするにはどうすれば良いでしょうか？",
-        "actions": [
-            {
-                "type": "message",
-                "label": "はい",
-                "text": "はい"
-            },
-            {
-                "type": "message",
-                "label": "いいえ",
-                "text": "いいえ"
-            }
-        ]
-    }
-  };
-  setTimeout(() => {
-    client.pushMessage(userId, yes_question);
-  },2000);
-  };
-
-  if (answer == "no"){
-  let no_question =
-  {
-    "type": "template",
-    "altText": "3個目の質問",
-    "template": {
-        "type": "confirm",
-        "text": "なるほど！予定通り進まなかった要因として何があげられますか？",
-        "actions": [
-            {
-                "type": "message",
-                "label": "はい",
-                "text": "はい"
-            },
-            {
-                "type": "message",
-                "label": "いいえ",
-                "text": "いいえ"
-            }
-        ]
-    }
-  };
-  setTimeout(() => {
-    client.pushMessage(userId, no_question);
-  },2000);
-  };
-
-}
-
-
-function last_question(userId, answer) {
-  let default = {
-    type: 'text',
-    text: `それではスケジュールノートをもとに明日の学習計画を見直していきましょう！`,
-  }
-  setTimeout(() => {
-    client.pushMessage(userId, default);
-  },2000);
-
-  if (answer == "yes"){
-  let yes_question =
-  {
-    "type": "template",
-    "altText": "最後の質問",
-    "template": {
-        "type": "confirm",
-        "text": "明日の学習計画は変更しなくても良さそうですか？",
-        "actions": [
-            {
-                "type": "message",
-                "label": "はい",
-                "text": "はい"
-            },
-            {
-                "type": "message",
-                "label": "いいえ",
-                "text": "いいえ"
-            }
-        ]
-    }
-  };
-  setTimeout(() => {
-    client.pushMessage(userId, yes_question);
-  },2000);
-  };
-
-  if (answer == "no")
-  let no_question =
-  {
-    "type": "template",
-    "altText": "最後の質問",
-    "template": {
-        "type": "confirm",
-        "text": "明日の学習計画は変更した方が良さそうですか？",
-        "actions": [
-            {
-                "type": "message",
-                "label": "はい",
-                "text": "はい"
-            },
-            {
-                "type": "message",
-                "label": "いいえ",
-                "text": "いいえ"
-            }
-        ]
-    }
-  };
-  setTimeout(() => {
-    client.pushMessage(userId, no_question);
-  },2000);
-  };
-
-}
+// function second_question(userId, answer) {
+//   if (answer == "yes"){
+//   let yes_question =
+//   {
+//     "type": "template",
+//     "altText": "2個目の質問",
+//     "template": {
+//         "type": "confirm",
+//         "text": "さすがです！上手く進められた要因として何があげられますか？",
+//         "actions": [
+//             {
+//                 "type": "message",
+//                 "label": "はい",
+//                 "text": "はい"
+//             },
+//             {
+//                 "type": "message",
+//                 "label": "いいえ",
+//                 "text": "いいえ"
+//             }
+//         ]
+//     }
+//   };
+//   setTimeout(() => {
+//     client.pushMessage(userId, yes_question);
+//   },2000);
+//   };
+//
+//   if (answer == "no"){
+//   let no_question =
+//   {
+//     "type": "template",
+//     "altText": "2個目の質問",
+//     "template": {
+//         "type": "confirm",
+//         "text": "なるほど！予定通り進まなかった要因として何があげられますか？",
+//         "actions": [
+//             {
+//                 "type": "message",
+//                 "label": "はい",
+//                 "text": "はい"
+//             },
+//             {
+//                 "type": "message",
+//                 "label": "いいえ",
+//                 "text": "いいえ"
+//             }
+//         ]
+//     }
+//   };
+//   setTimeout(() => {
+//     client.pushMessage(userId, no_question);
+//   },2000);
+//   };
+//
+// }
+//
+// function third_question(userId, answer) {
+//   if (answer == "yes"){
+//   let yes_question =
+//   {
+//     "type": "template",
+//     "altText": "3個目の質問",
+//     "template": {
+//         "type": "confirm",
+//         "text": "なるほど！より質の高い学習をするにはどうすれば良いでしょうか？",
+//         "actions": [
+//             {
+//                 "type": "message",
+//                 "label": "はい",
+//                 "text": "はい"
+//             },
+//             {
+//                 "type": "message",
+//                 "label": "いいえ",
+//                 "text": "いいえ"
+//             }
+//         ]
+//     }
+//   };
+//   setTimeout(() => {
+//     client.pushMessage(userId, yes_question);
+//   },2000);
+//   };
+//
+//   if (answer == "no"){
+//   let no_question =
+//   {
+//     "type": "template",
+//     "altText": "3個目の質問",
+//     "template": {
+//         "type": "confirm",
+//         "text": "なるほど！予定通り進まなかった要因として何があげられますか？",
+//         "actions": [
+//             {
+//                 "type": "message",
+//                 "label": "はい",
+//                 "text": "はい"
+//             },
+//             {
+//                 "type": "message",
+//                 "label": "いいえ",
+//                 "text": "いいえ"
+//             }
+//         ]
+//     }
+//   };
+//   setTimeout(() => {
+//     client.pushMessage(userId, no_question);
+//   },2000);
+//   };
+//
+// }
+//
+//
+// function last_question(userId, answer) {
+//   let default = {
+//     type: 'text',
+//     text: `それではスケジュールノートをもとに明日の学習計画を見直していきましょう！`,
+//   }
+//   setTimeout(() => {
+//     client.pushMessage(userId, default);
+//   },2000);
+//
+//   if (answer == "yes"){
+//   let yes_question =
+//   {
+//     "type": "template",
+//     "altText": "最後の質問",
+//     "template": {
+//         "type": "confirm",
+//         "text": "明日の学習計画は変更しなくても良さそうですか？",
+//         "actions": [
+//             {
+//                 "type": "message",
+//                 "label": "はい",
+//                 "text": "はい"
+//             },
+//             {
+//                 "type": "message",
+//                 "label": "いいえ",
+//                 "text": "いいえ"
+//             }
+//         ]
+//     }
+//   };
+//   setTimeout(() => {
+//     client.pushMessage(userId, yes_question);
+//   },2000);
+//   };
+//
+//   if (answer == "no")
+//   let no_question =
+//   {
+//     "type": "template",
+//     "altText": "最後の質問",
+//     "template": {
+//         "type": "confirm",
+//         "text": "明日の学習計画は変更した方が良さそうですか？",
+//         "actions": [
+//             {
+//                 "type": "message",
+//                 "label": "はい",
+//                 "text": "はい"
+//             },
+//             {
+//                 "type": "message",
+//                 "label": "いいえ",
+//                 "text": "いいえ"
+//             }
+//         ]
+//     }
+//   };
+//   setTimeout(() => {
+//     client.pushMessage(userId, no_question);
+//   },2000);
+//   };
+//
+// }
