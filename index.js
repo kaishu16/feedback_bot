@@ -52,7 +52,7 @@ async function echoman(ev) {
   if (userMessage == "振り返り"){
     let reply = '';
     reply = `${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！`;
-    first_question(ev.source.userId);
+    first_question(ev.source.userId, userMessage);
     setTimeout(() => {
       client.pushMessage(ev.source.userId, {
           type: 'text',
@@ -95,7 +95,7 @@ function first_question(userId) {
 }
 
 function second_question(userId, answer) {
-  if (userMessage == "yes"){
+  if (answer == "yes"){
   let yes_question =
   {
     "type": "template",
@@ -122,7 +122,7 @@ function second_question(userId, answer) {
   },2000);
   };
 
-  if (userMessage == "no"){
+  if (answer == "no"){
   let no_question =
   {
     "type": "template",
@@ -152,7 +152,7 @@ function second_question(userId, answer) {
 }
 
 function third_question(userId, answer) {
-  if (userMessage == "yes"){
+  if (answer == "yes"){
   let yes_question =
   {
     "type": "template",
@@ -179,7 +179,7 @@ function third_question(userId, answer) {
   },2000);
   };
 
-  if (userMessage == "no"){
+  if (answer == "no"){
   let no_question =
   {
     "type": "template",
@@ -218,7 +218,7 @@ function last_question(userId, answer) {
     client.pushMessage(userId, default);
   },2000);
 
-  if (userMessage == "yes"){
+  if (answer == "yes"){
   let yes_question =
   {
     "type": "template",
@@ -245,7 +245,7 @@ function last_question(userId, answer) {
   },2000);
   };
 
-  if (userMessage == "no")
+  if (answer == "no")
   let no_question =
   {
     "type": "template",
