@@ -25,7 +25,7 @@ async function lineBot(req, res) {
   const promises = [];
 
   events.forEach((event) =>{
-    const userMessage = ev.message.text;
+    const userMessage = event.message.text;
 
     let message;
     message = {
@@ -35,7 +35,7 @@ async function lineBot(req, res) {
 
 
 
-    const pro = await client.getProfile(ev.source.userId);
+    const pro = await client.getProfile(event.source.userId);
     let reply = '';
 
     if (userMessage == "振り返り"){
