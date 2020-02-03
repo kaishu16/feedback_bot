@@ -18,7 +18,7 @@ express()
   .post("/hook/", line.middleware(config), (req, res) => lineBot(req, res))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-function lineBot(req, res) {
+async function lineBot(req, res) {
   res.status(200).end();
   // ここから追加
   const events = req.body.events;
@@ -35,7 +35,7 @@ function lineBot(req, res) {
 
 
 
-    const pro = client.getProfile(event.source.userId);
+    const pro = await client.getProfile(event.source.userId);
     let reply = '';
 
     if (userMessage == "振り返り"){
