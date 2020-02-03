@@ -43,8 +43,9 @@ async function lineBot(req, res) {
       promises.push(client.replyMessage(event.replyToken, {
         type: "text",
         text: reply
-      });
+      }));
   }
+  });
 
 
   // for (let i = 0, l = events.length; i < l; i++) {
