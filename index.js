@@ -51,11 +51,18 @@ async function echoman(ev) {
 
   if (userMessage == "振り返り"){
     let reply = '';
-    reply = `本日も予定通り学習できましたか？`;
+    reply = `${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！`;
     client.pushMessage(ev.source.userId, {
         type: 'text',
-        text: `${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！`,
+        text: `本日も予定通り学習できましたか？`,
     });
+    setTimeout(() => {
+      client.pushMessage(ev.source.userId, {
+          type: 'text',
+          text: `本日も予定通り学習できましたか？`,
+      });
+    },2000);
+    
     return client.replyMessage(ev.replyToken, {
       type: "text",
       text: reply
