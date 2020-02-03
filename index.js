@@ -52,8 +52,11 @@ async function echoman(ev) {
 
   if (userMessage == "振り返り"){
     reply = `${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！`;
-    first_question(ev.source.userId);
   }
+
+  answer = first_question(ev.source.userId);
+
+
   setTimeout(() => {
     client.pushMessage(ev.source.userId, {
         type: 'text',
@@ -92,64 +95,71 @@ function first_question(userId) {
     client.pushMessage(userId, question);
   },2000);
 
-}
-
-function second_question(userId, answer) {
-  if (answer == "yes"){
-  let yes_question =
-  {
-    "type": "template",
-    "altText": "2個目の質問",
-    "template": {
-        "type": "confirm",
-        "text": "さすがです！上手く進められた要因として何があげられますか？",
-        "actions": [
-            {
-                "type": "message",
-                "label": "はい",
-                "text": "はい"
-            },
-            {
-                "type": "message",
-                "label": "いいえ",
-                "text": "いいえ"
-            }
-        ]
-    }
-  };
-  setTimeout(() => {
-    client.pushMessage(userId, yes_question);
-  },2000);
-  };
-
-  if (answer == "no"){
-  let no_question =
-  {
-    "type": "template",
-    "altText": "2個目の質問",
-    "template": {
-        "type": "confirm",
-        "text": "なるほど！予定通り進まなかった要因として何があげられますか？",
-        "actions": [
-            {
-                "type": "message",
-                "label": "はい",
-                "text": "はい"
-            },
-            {
-                "type": "message",
-                "label": "いいえ",
-                "text": "いいえ"
-            }
-        ]
-    }
-  };
-  setTimeout(() => {
-    client.pushMessage(userId, no_question);
-  },2000);
-  };
+  return question.template.actions.text;
 
 }
+
+// function second_question(userId, answer) {
+//   if (answer == "yes"){
+//   let yes_question =
+//   {
+//     "type": "template",
+//     "altText": "2個目の質問",
+//     "template": {
+//         "type": "confirm",
+//         "text": "さすがです！上手く進められた要因として何があげられますか？",
+//         "actions": [
+//             {
+//                 "type": "message",
+//                 "label": "はい",
+//                 "text": "はい"
+//             },
+//             {
+//                 "type": "message",
+//                 "label": "いいえ",
+//                 "text": "いいえ"
+//             }
+//         ]
+//     }
+//   };
+//   setTimeout(() => {
+//     client.pushMessage(userId, yes_question);
+//   },2000);
+//
+//   return yes_question.template.actions.text;
+//
+//   };
+//
+//   if (answer == "no"){
+//   let no_question =
+//   {
+//     "type": "template",
+//     "altText": "2個目の質問",
+//     "template": {
+//         "type": "confirm",
+//         "text": "なるほど！予定通り進まなかった要因として何があげられますか？",
+//         "actions": [
+//             {
+//                 "type": "message",
+//                 "label": "はい",
+//                 "text": "はい"
+//             },
+//             {
+//                 "type": "message",
+//                 "label": "いいえ",
+//                 "text": "いいえ"
+//             }
+//         ]
+//     }
+//   };
+//   setTimeout(() => {
+//     client.pushMessage(userId, no_question);
+//   },2000);
+//
+//   return no_question.template.actions.text;
+//   };
+//
+// }
 //
 // function third_question(userId, answer) {
 //   if (answer == "yes"){
