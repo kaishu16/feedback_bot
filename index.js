@@ -25,7 +25,7 @@ function lineBot(req, res) {
   const promises = [];
   events.forEach((event) => {
     promises.push(
-      echoman(ev)
+      echoman(event)
     );
   });
   Promise.all(promises).then(console.log("pass"));
