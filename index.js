@@ -72,7 +72,7 @@ async function lineBot(req, res) {
 
 
     promises.push(
-      getAnswerObj(event, jsonFile)
+      await getAnswerObj(event, jsonFile)
     );
     console.log(promises);
   });
