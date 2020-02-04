@@ -22,14 +22,14 @@ express()
   .post("/hook/", line.middleware(config), (req, res) => lineBot(req, res))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-function getAnswerObj(data, jsonFile){
+async function getAnswerObj(data, jsonFile){
   switch (data.type){
       case 'message':
           console.log('メッセージの場合');
               // テキストメッセージの場合、入力された文字列に応じて分岐
               if (data.message.text == '振り返り') {
                   console.log(client);
-                  const pro = client.getProfile(data.source.userId);
+                  const pro = await client.getProfile(data.source.userId);
                   console.log(pro);
                   let reply = jsonFile.first_message;
                   message = JSON.stringify(reply);
