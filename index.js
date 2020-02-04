@@ -23,6 +23,8 @@ express()
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 let getAnswerObj = (data, jsonFile)=> {
+  let userId = user(data);
+  console.log(userId);
   switch (data.type){
       case 'message':
           console.log('メッセージの場合');
@@ -53,8 +55,6 @@ function lineBot(req, res) {
 
   events.forEach((event) => {
     replyToken = event.replyToken;
-    let userId = user(event);
-    console.log(userId);
     //入力メッセージ
     console.log(event);
     answerObj = getAnswerObj(event, jsonFile);
@@ -62,17 +62,13 @@ function lineBot(req, res) {
     console.log('データ作成');
     console.log(answerObj);
     replyData = JSON.stringify({
-       replyToken: replyToken,
-       messages: [
-           answerObj
-        ]
+       messages: answerObj
     });
     console.log(replyData);
 
     promises.push(
-      client.replyMessage(replyData)
-    );
-  });
+      client.replyMessage(event.replyToken, replyData);
+  )
   Promise.all(promises).then(console.log("pass"));
 
 
