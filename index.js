@@ -59,6 +59,7 @@ function lineBot(req, res) {
     //
     // );
   });
+  )
   Promise.all(promises).then(console.log("pass"));
 
 
