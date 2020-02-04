@@ -49,7 +49,7 @@ function lineBot(req, res) {
       getAnswerObj(event, jsonFile).then(value =>{
         if (value.postback.data == 'question2_yes'){
           getAnswerObj(value, jsonFile).then(value =>{
-            getQuestion3YesObj(jsonFile)
+            getQuestion3YesObj(value, jsonFile)
           });
         }
         else {
@@ -91,7 +91,7 @@ async function getAnswerObj(data, jsonFile){
           }
 };
 
-async function getQuestion3YesObj(jsonFile){
+async function getQuestion3YesObj(data, jsonFile){
   if (data.type == 'message') {
       let reply = jsonFile.question3_yes;
       let message = JSON.stringify(reply);
