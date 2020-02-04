@@ -3,10 +3,14 @@ const path = require('path');
 const PORT = process.env.PORT || 5000;
 const line = require("@line/bot-sdk");
 const config = {
-  channelAccessToken: process.env.ACCESS_TOKEN,
-  channelSecret: process.env.SECRET_KEY
+  channelAccessToken: "idO248feFxuqcKrdEpIKMV0AMZreWQMaXpz7WCSZk4iyHUXRctIVPEs/87GHnJZqY7mdIwrZNcBapHOXdIRbKAEy6YWjFxbpgXoletiR61b7IohW+e/uKYUPqIdehm+wgiwwKO+en+5B+j8bk/ZJmgdB04t89/1O/w1cDnyilFU=",
+  // process.env.ACCESS_TOKEN,
+  channelSecret: "8782f465b4470116493504cbdaca3e30"
+  // process.env.SECRET_KEY
 };
 const client = new line.Client(config);
+
+let jsonFile = require("./question.json");
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
@@ -18,14 +22,55 @@ express()
   .post("/hook/", line.middleware(config), (req, res) => lineBot(req, res))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
+let getAnswerObj = (data, jsonFile)=> {
+  switch (data.type){
+      case 'message':
+          console.log('メッセージの場合');
+              // テキストメッセージの場合、入力された文字列に応じて分岐
+              if (data.message.text == '振り返り') {
+                  return jsonFile.first_message;
+              }
+      case 'postback':
+          console.log('postbackの場合');
+          return jsonFile[data.postback.data];
+      // default :
+      //     console.log('それ以外の場合');
+      //     console.log(data);
+      //     return jsonFile.otherType;
+  }
+};
+
 function lineBot(req, res) {
+
+  let answerObj;
+  let replyToken;
+  let replyData;
+
   res.status(200).end();
-  // ここから追加
+
   const events = req.body.events;
   const promises = [];
+
   events.forEach((event) => {
+    replyToken = event.replyToken;
+    let userId = user(event);
+    console.log(userId);
+    //入力メッセージ
+    console.log(event);
+    answerObj = getAnswerObj(event, jsonFile);
+    //返信データ作成
+    console.log('データ作成');
+    console.log(answerObj);
+    replyData = JSON.stringify({
+       replyToken: replyToken,
+       messages: [
+           answerObj
+        ]
+    });
+    console.log(replyData);
+
     promises.push(
-      echoman(event)
+      client.replyMessage(replyData)
     );
   });
   Promise.all(promises).then(console.log("pass"));
@@ -33,252 +78,39 @@ function lineBot(req, res) {
 
 }
 
-// 追加
-async function echoman(ev) {
-
-  const userMessage = ev.message.text;
-
-  let message;
-  message = {
-      type: "text",
-      text: userMessage
-  };
-
-
-
+async function user(ev) {
   const pro = await client.getProfile(ev.source.userId);
-  let reply = '';
-
-  if (userMessage == "振り返り"){
-    reply = `${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！`;
-    // answer = first_question(ev.source.userId);
-    // userMessage = answer;
-
-    // setTimeout(() => {
-    //   client.pushMessage(ev.source.userId, {
-    //       type: 'text',
-    //       text: `また分からない点や悩んでいることがあったら連絡ください！頑張っていきましょうー！`,
-    //   });
-    // },2000);
-  }
-
-  return client.replyMessage(ev.replyToken, {
-    type: "text",
-    text: reply
-  });
+  return pro;
 }
-
-// function first_question(userId) {
-//   let question =
-//   {
-//     "type": "template",
-//     "altText": "最初の質問",
-//     "template": {
-//         "type": "confirm",
-//         "text": "本日も予定通り学習できましたか？",
-//         "actions": [
-//             {
-//                 "type": "message",
-//                 "label": "はい",
-//                 "text": "はい"
-//             },
-//             {
-//                 "type": "message",
-//                 "label": "いいえ",
-//                 "text": "いいえ"
-//             }
-//         ]
-//     }
-//   };
-//   setTimeout(() => {
-//     client.pushMessage(userId, question);
-//   },2000);
 //
-//   return question.template.actions.text;
+//   const userMessage = ev.message.text;
 //
-// }
-//
-// function second_question(userId, answer) {
-//   if (answer == "yes"){
-//   let yes_question =
-//   {
-//     "type": "template",
-//     "altText": "2個目の質問",
-//     "template": {
-//         "type": "confirm",
-//         "text": "さすがです！上手く進められた要因として何があげられますか？",
-//         "actions": [
-//             {
-//                 "type": "message",
-//                 "label": "はい",
-//                 "text": "はい"
-//             },
-//             {
-//                 "type": "message",
-//                 "label": "いいえ",
-//                 "text": "いいえ"
-//             }
-//         ]
-//     }
-//   };
-//   setTimeout(() => {
-//     client.pushMessage(userId, yes_question);
-//   },2000);
-//
-//   return yes_question.template.actions.text;
-//
+//   let message;
+//   message = {
+//       type: "text",
+//       text: userMessage
 //   };
 //
-//   if (answer == "no"){
-//   let no_question =
-//   {
-//     "type": "template",
-//     "altText": "2個目の質問",
-//     "template": {
-//         "type": "confirm",
-//         "text": "なるほど！予定通り進まなかった要因として何があげられますか？",
-//         "actions": [
-//             {
-//                 "type": "message",
-//                 "label": "はい",
-//                 "text": "はい"
-//             },
-//             {
-//                 "type": "message",
-//                 "label": "いいえ",
-//                 "text": "いいえ"
-//             }
-//         ]
-//     }
-//   };
-//   setTimeout(() => {
-//     client.pushMessage(userId, no_question);
-//   },2000);
-//
-//   return no_question.template.actions.text;
-//   };
-//
-// }
-//
-// function third_question(userId, answer) {
-//   if (answer == "yes"){
-//   let yes_question =
-//   {
-//     "type": "template",
-//     "altText": "3個目の質問",
-//     "template": {
-//         "type": "confirm",
-//         "text": "なるほど！より質の高い学習をするにはどうすれば良いでしょうか？",
-//         "actions": [
-//             {
-//                 "type": "message",
-//                 "label": "はい",
-//                 "text": "はい"
-//             },
-//             {
-//                 "type": "message",
-//                 "label": "いいえ",
-//                 "text": "いいえ"
-//             }
-//         ]
-//     }
-//   };
-//   setTimeout(() => {
-//     client.pushMessage(userId, yes_question);
-//   },2000);
-//   };
-//
-//   if (answer == "no"){
-//   let no_question =
-//   {
-//     "type": "template",
-//     "altText": "3個目の質問",
-//     "template": {
-//         "type": "confirm",
-//         "text": "なるほど！予定通り進まなかった要因として何があげられますか？",
-//         "actions": [
-//             {
-//                 "type": "message",
-//                 "label": "はい",
-//                 "text": "はい"
-//             },
-//             {
-//                 "type": "message",
-//                 "label": "いいえ",
-//                 "text": "いいえ"
-//             }
-//         ]
-//     }
-//   };
-//   setTimeout(() => {
-//     client.pushMessage(userId, no_question);
-//   },2000);
-//   };
-//
-// }
 //
 //
-// function last_question(userId, answer) {
-//   let default = {
-//     type: 'text',
-//     text: `それではスケジュールノートをもとに明日の学習計画を見直していきましょう！`,
+//   const pro = await client.getProfile(ev.source.userId);
+//   let reply = '';
+//
+//   if (userMessage == "振り返り"){
+//     reply = `${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！`;
+//     // answer = first_question(ev.source.userId);
+//     // userMessage = answer;
+//
+//     // setTimeout(() => {
+//     //   client.pushMessage(ev.source.userId, {
+//     //       type: 'text',
+//     //       text: `また分からない点や悩んでいることがあったら連絡ください！頑張っていきましょうー！`,
+//     //   });
+//     // },2000);
 //   }
-//   setTimeout(() => {
-//     client.pushMessage(userId, default);
-//   },2000);
 //
-//   if (answer == "yes"){
-//   let yes_question =
-//   {
-//     "type": "template",
-//     "altText": "最後の質問",
-//     "template": {
-//         "type": "confirm",
-//         "text": "明日の学習計画は変更しなくても良さそうですか？",
-//         "actions": [
-//             {
-//                 "type": "message",
-//                 "label": "はい",
-//                 "text": "はい"
-//             },
-//             {
-//                 "type": "message",
-//                 "label": "いいえ",
-//                 "text": "いいえ"
-//             }
-//         ]
-//     }
-//   };
-//   setTimeout(() => {
-//     client.pushMessage(userId, yes_question);
-//   },2000);
-//   };
-//
-//   if (answer == "no")
-//   let no_question =
-//   {
-//     "type": "template",
-//     "altText": "最後の質問",
-//     "template": {
-//         "type": "confirm",
-//         "text": "明日の学習計画は変更した方が良さそうですか？",
-//         "actions": [
-//             {
-//                 "type": "message",
-//                 "label": "はい",
-//                 "text": "はい"
-//             },
-//             {
-//                 "type": "message",
-//                 "label": "いいえ",
-//                 "text": "いいえ"
-//             }
-//         ]
-//     }
-//   };
-//   setTimeout(() => {
-//     client.pushMessage(userId, no_question);
-//   },2000);
-//   };
-//
+//   return client.replyMessage(ev.replyToken, {
+//     type: "text",
+//     text: reply
+//   });
 // }

@@ -1,0 +1,168 @@
+{
+  "first_message":
+  {
+     "type": "text",
+     "text": "${userId.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！"
+  }
+  "question1":
+  {
+    "type": "template",
+    "altText": "最初の質問",
+    "template": {
+        "type": "confirm",
+        "text": "本日も予定通り学習できましたか？",
+        "actions": [
+            {
+                  "type": "postback",
+                  "label": "はい",
+                  "data": "question2_yes",
+                  "displayText": "はい"
+            },
+            {
+                  "type": "postback",
+                  "label": "いいえ",
+                  "data": "question2_no",
+                  "displayText": "いいえ"
+            }
+        ]
+    }
+  },
+  "question2_yes":
+  {
+    "type": "template",
+    "altText": "2個目の質問",
+    "template": {
+        "type": "confirm",
+        "text": "さすがです！上手く進められた要因として何があげられますか？",
+        "actions": [
+            {
+                "type": "message",
+                "label": "はい",
+                "text": "はい"
+            },
+            {
+                "type": "message",
+                "label": "いいえ",
+                "text": "いいえ"
+            }
+        ]
+    }
+  },
+  "question2_no":
+  {
+    "type": "template",
+    "altText": "2個目の質問",
+    "template": {
+        "type": "confirm",
+        "text": "なるほど！予定通り進まなかった要因として何があげられますか？",
+        "actions": [
+            {
+                "type": "message",
+                "label": "はい",
+                "text": "はい"
+            },
+            {
+                "type": "message",
+                "label": "いいえ",
+                "text": "いいえ"
+            }
+        ]
+    }
+  },
+  "question3_yes":
+  {
+    "type": "template",
+    "altText": "3個目の質問",
+    "template": {
+        "type": "confirm",
+        "text": "なるほど！より質の高い学習をするにはどうすれば良いでしょうか？",
+        "actions": [
+            {
+                "type": "message",
+                "label": "はい",
+                "text": "はい"
+            },
+            {
+                "type": "message",
+                "label": "いいえ",
+                "text": "いいえ"
+            }
+        ]
+    }
+  },
+  "question3_no":
+  {
+    "type": "template",
+    "altText": "3個目の質問",
+    "template": {
+        "type": "confirm",
+        "text": "しっかり振り替えられていますね！改善するためにはどうしたら良いでしょうか？",
+        "actions": [
+            {
+                "type": "message",
+                "label": "はい",
+                "text": "はい"
+            },
+            {
+                "type": "message",
+                "label": "いいえ",
+                "text": "いいえ"
+            }
+        ]
+    }
+  },
+  "default":
+  {
+    "type": "text",
+    "text": "それではスケジュールノートをもとに明日の学習計画を見直していきましょう！",
+  },
+  "last_question_yes":
+  {
+    "type": "template",
+    "altText": "最後の質問",
+    "template": {
+        "type": "confirm",
+        "text": "明日の学習計画は変更しなくても良さそうですか？",
+        "actions": [
+            {
+                "type": "message",
+                "label": "はい",
+                "text": "はい"
+            },
+            {
+                "type": "message",
+                "label": "いいえ",
+                "text": "いいえ"
+            }
+        ]
+    }
+  },
+  "last_question_no":
+  {
+    "type": "template",
+    "altText": "最後の質問",
+    "template": {
+        "type": "confirm",
+        "text": "明日の学習計画は変更した方が良さそうですか？",
+        "actions": [
+            {
+              "type": "postback",
+              "label": "はい",
+              "data": "last_message",
+              "displayText": "はい"
+            },
+            {
+              "type": "postback",
+              "label": "いいえ",
+              "data": "last_message",
+              "displayText": "いいえ"
+            }
+        ]
+    }
+  },
+  "last_message":
+  {
+     "type": "text",
+     "text": "また分からない点や悩んでいることがあったら連絡ください！頑張っていきましょうー！"
+  }
+}
