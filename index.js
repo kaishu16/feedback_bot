@@ -30,8 +30,8 @@ let getAnswerObj = (data, jsonFile)=> {
               if (data.message.text == '振り返り') {
                   let userId = user(data);
                   console.log(userId);
-                  let reply = jsonFile.first_message
-                  message = JSON.stringify(reply)
+                  let reply = jsonFile.first_message;
+                  message = JSON.stringify(reply);
                   console.log(reply);
                   return client.replyMessage(data.replyToken, reply);
               }
@@ -66,7 +66,6 @@ function lineBot(req, res) {
 
 
     promises.push(
-      getAnswerObj(event, jsonFile);
     );
     console.log(promises);
   });
