@@ -64,7 +64,7 @@ function lineBot(req, res) {
     replyData = JSON.stringify(answerObj);
     console.log(replyData);
 
-    await client.replyMessage(replyToken, replyData)
+    client.replyMessage(replyToken, replyData)
 
     promises.push(
     );
