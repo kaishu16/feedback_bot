@@ -60,16 +60,18 @@
         "type": "confirm",
         "text": "明日の学習計画は変更しなくても良さそうですか？",
         "actions": [
-            {
-                "type": "message",
-                "label": "はい",
-                "text": "はい"
-            },
-            {
-                "type": "message",
-                "label": "いいえ",
-                "text": "いいえ"
-            }
+          {
+            "type": "postback",
+            "label": "はい",
+            "data": "last_message",
+            "displayText": "はい"
+          },
+          {
+            "type": "postback",
+            "label": "いいえ",
+            "data": "last_message",
+            "displayText": "いいえ"
+          }
         ]
     }
   },
