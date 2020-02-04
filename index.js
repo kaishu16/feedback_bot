@@ -65,6 +65,8 @@ function lineBot(req, res) {
       }
     }
 
+    console.log(scenario);
+    console.log(figure);
     if (scenario == 'question2_yes' && event.type == 'message')
       {
         figure = 'question3_yes'
@@ -85,6 +87,7 @@ function lineBot(req, res) {
       promises.push(
       getAnswerObj(event, jsonFile)
     )
+    console.log('これ行ってます');
     }
     else
     {
