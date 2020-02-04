@@ -44,7 +44,7 @@ async function lineBot(req, res) {
 
     //返信データ作成
     // console.log('データ作成');
-    reply = await getAnswerObj(event, jsonFile)
+    let reply = await getAnswerObj(event, jsonFile);
 
     promises.push(
       reply
