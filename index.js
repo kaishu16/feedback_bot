@@ -46,17 +46,18 @@ function lineBot(req, res) {
 
 
     promises.push(
-      getAnswerObj(event, jsonFile).then(value =>{
-        console.log(value.postback);
-        // if (value.postback.data == 'question2_yes'){
-        //   getAnswerObj(value, jsonFile).then(value =>{
-        //     getQuestion3YesObj(value, jsonFile)
-        //   });
-        // }
-        // else {
-        //   getAnswerObj(value, jsonFile);
-        // }
-      })
+      getAnswerObj(event, jsonFile)
+      // .then(value =>{
+      //   console.log(value.postback);
+      //   // if (value.postback.data == 'question2_yes'){
+      //   //   getAnswerObj(value, jsonFile).then(value =>{
+      //   //     getQuestion3YesObj(value, jsonFile)
+      //   //   });
+      //   // }
+      //   // else {
+      //   //   getAnswerObj(value, jsonFile);
+      //   // }
+      // })
 
     );
   });
