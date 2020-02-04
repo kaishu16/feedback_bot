@@ -28,7 +28,7 @@ async function getAnswerObj(data, jsonFile){
           console.log('メッセージの場合');
               // テキストメッセージの場合、入力された文字列に応じて分岐
               if (data.message.text == '振り返り') {
-                  const pro = client.getProfile(ev.source.userId);
+                  const pro = client.getProfile(data.source.userId);
                   console.log(pro);
                   let reply = jsonFile.first_message;
                   message = JSON.stringify(reply);
