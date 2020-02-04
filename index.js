@@ -24,7 +24,7 @@ express()
 
 
 
-function lineBot(req, res) {
+async function lineBot(req, res) {
 
   let answerObj;
   let replyToken;
@@ -47,7 +47,7 @@ function lineBot(req, res) {
 
 
     promises.push(
-      getAnswerObj(event, jsonFile)
+      await getAnswerObj(event, jsonFile)
     );
     console.log(promises);
   });
