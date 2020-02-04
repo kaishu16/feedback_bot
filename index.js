@@ -64,11 +64,9 @@ async function getAnswerObj(data, jsonFile){
                   let reply = jsonFile.first_message;
                   message = JSON.stringify(reply);
                   console.log(message);
-                  return client.replyMessage(data.replyToken, message).catch
-                  ((err) => {
-
-                    console.log(err);
-                  
+                  return client.replyMessage(data.replyToken,  {
+                    type: "text",
+                    text: `${pro.displayName}さん、今「${data.message.text}」って言いました？`
                   });
               }
       case 'postback':
