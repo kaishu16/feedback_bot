@@ -50,11 +50,17 @@ function lineBot(req, res) {
       if (event.postback.data == 'question2_yes')
       {
         scenario = 'question2_yes';
+        promises.push(
+          getAnswerObj(event, jsonFile)
+        )
         console.log(scenario);
       }
       else
       {
         scenario = 'question2_no';
+        promises.push(
+          getAnswerObj(event, jsonFile)
+        )
         console.log(scenario);
       }
     }
@@ -67,8 +73,7 @@ function lineBot(req, res) {
         )
         console.log(figure);
       }
-
-    if (scenario == 'question2_no' && figure == null)
+    else if(scenario == 'question2_no' && figure == null)
       {
         figure = 'question3_no'
         promises.push(
@@ -76,10 +81,11 @@ function lineBot(req, res) {
         )
         console.log(figure);
       }
-
+    else {
     promises.push(
       getAnswerObj(event, jsonFile)
     )
+  }
   });
   Promise.all(promises).then(console.log("pass"));
 
