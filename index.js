@@ -61,18 +61,23 @@ function lineBot(req, res) {
     //返信データ作成
     console.log('データ作成');
     console.log(answerObj);
-    replyData = answerObj;
-    
+    replyData = JSON.stringify({
+       replyToken: replyToken,
+       messages: [
+           answerObj
+        ]
+    });
     console.log(replyData);
+    console.log(replyData.messages[0]);
 
     promises.push(
-      client.replyMessage(replyToken, replyData.messages[0])
-  )
-  }
+      client.replyMessage(replyData)
+    );
+  });
   Promise.all(promises).then(console.log("pass"));
 
 
-  }
+}
 
 async function user(ev) {
   const pro = await client.getProfile(ev.source.userId);
