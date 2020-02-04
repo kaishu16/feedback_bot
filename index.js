@@ -46,7 +46,7 @@ function lineBot(req, res) {
 
 
     promises.push(
-      getAnswerObj(event, jsonFile).then();
+      getAnswerObj(event, jsonFile)
     );
   });
   Promise.all(promises).then(console.log("pass"));
@@ -61,12 +61,14 @@ async function getAnswerObj(data, jsonFile){
               // テキストメッセージの場合、入力された文字列に応じて分岐
               if (data.message.text == '振り返り') {
                   const pro = await client.getProfile(data.source.userId);
-                  let reply = jsonFile.first_message;
-                  let message = JSON.stringify(reply);
-                  let send = JSON.parse(message)
+                  let reply1 = jsonFile.first_message;
+                  let reply2 = jsonFile.question1;
+                  let message1 = JSON.stringify(reply1);
+                  let message2 = JSON.stringify(reply2);
+                  let send = JSON.parse(message1);
+                  let question = JSON.parse(message2);
                   send.text = pro.displayName + send.text
-                  console.log(send.text);
-                  return client.replyMessage(data.replyToken, send);
+                  return client.replyMessage(data.replyToken, [send, question]);
               }
               else{
                 let reply = jsonFile.question1;
