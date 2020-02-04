@@ -47,8 +47,14 @@ function lineBot(req, res) {
 
     promises.push(
       getAnswerObj(event, jsonFile).then(value =>{
-          console.log(value);
+        if (value.postback.data == 'question2_yes'){
+          getAnswerObj(value, jsonFile).then(value =>{
+            getQuestion3YesObj(jsonFile)
+          });
+        }
+        else {
           getAnswerObj(value, jsonFile);
+        }
       })
 
     );
@@ -85,8 +91,13 @@ async function getAnswerObj(data, jsonFile){
           }
 };
 
-async function getPostbackObj(data, jsonFile){
-
+async function getQuestion3YesObj(jsonFile){
+  if (data.type == 'message') {
+      let reply = jsonFile.question3_yes;
+      let message = JSON.stringify(reply);
+      let send = JSON.parse(message);
+      return client.replyMessage(data.replyToken, send);
+  }
 }
 
 

@@ -29,87 +29,23 @@
   },
   "question2_yes":
   {
-    "type": "template",
-    "altText": "2個目の質問",
-    "template": {
-        "type": "confirm",
-        "text": "さすがです！上手く進められた要因として何があげられますか？",
-        "actions": [
-            {
-                "type": "message",
-                "label": "はい",
-                "text": "はい"
-            },
-            {
-                "type": "message",
-                "label": "いいえ",
-                "text": "いいえ"
-            }
-        ]
-    }
+    "type": "text",
+    "text": "さすがです！上手く進められた要因として何があげられますか？"
   },
   "question2_no":
   {
-    "type": "template",
-    "altText": "2個目の質問",
-    "template": {
-        "type": "confirm",
-        "text": "なるほど！予定通り進まなかった要因として何があげられますか？",
-        "actions": [
-            {
-                "type": "message",
-                "label": "はい",
-                "text": "はい"
-            },
-            {
-                "type": "message",
-                "label": "いいえ",
-                "text": "いいえ"
-            }
-        ]
-    }
+    "type": "text",
+    "text": "なるほど！予定通り進まなかった要因として何があげられますか？"
   },
   "question3_yes":
   {
-    "type": "template",
-    "altText": "3個目の質問",
-    "template": {
-        "type": "confirm",
-        "text": "なるほど！より質の高い学習をするにはどうすれば良いでしょうか？",
-        "actions": [
-            {
-                "type": "message",
-                "label": "はい",
-                "text": "はい"
-            },
-            {
-                "type": "message",
-                "label": "いいえ",
-                "text": "いいえ"
-            }
-        ]
-    }
+    "type": "text",
+    "text": "なるほど！より質の高い学習をするにはどうすれば良いでしょうか？"
   },
   "question3_no":
   {
-    "type": "template",
-    "altText": "3個目の質問",
-    "template": {
-        "type": "confirm",
-        "text": "しっかり振り替えられていますね！改善するためにはどうしたら良いでしょうか？",
-        "actions": [
-            {
-                "type": "message",
-                "label": "はい",
-                "text": "はい"
-            },
-            {
-                "type": "message",
-                "label": "いいえ",
-                "text": "いいえ"
-            }
-        ]
-    }
+    "type": "text",
+    "text": "しっかり振り替えられていますね！改善するためにはどうしたら良いでしょうか？"
   },
   "default":
   {
