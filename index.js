@@ -46,7 +46,13 @@ function lineBot(req, res) {
 
 
     promises.push(
-      getAnswerObj(event, jsonFile)
+       if (event.postback.data == 'question2_yes') {
+         getQuestion3YesObj(event, jsonFile)
+       }
+       else {
+         getAnswerObj(event, jsonFile)
+       }
+
       // .then(value =>{
       //   console.log(value.postback);
       //   // if (value.postback.data == 'question2_yes'){
