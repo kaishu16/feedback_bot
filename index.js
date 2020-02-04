@@ -39,15 +39,15 @@ function lineBot(req, res) {
     //入力メッセージ
     console.log(event);
 
-    let ok = getAnswerObj(event, jsonFile);
-    console.log(ok);
+
 
     //返信データ作成
     // console.log('データ作成');
 
 
     promises.push(
-      client.replyMessage(event.replyToken, ok)
+      getAnswerObj(event, jsonFile),
+
     );
   });
   Promise.all(promises).then(console.log("pass"));
@@ -69,39 +69,12 @@ async function getAnswerObj(data, jsonFile){
                   send.text = pro.displayName + send.text
                   let ok = [];
                   ok.push(send, question);
-                  return ok;
+                  return client.replyMessage(data.replyToken, ok);
               }
-      // case 'postback':
-      //     console.log('postbackの場合');
-      //     return jsonFile[data.postback.data];
 };
 
-//
-//   const userMessage = ev.message.text;
-//
-//   let message;
-//   message = {
-//       type: "text",
-//       text: userMessage
-//   };
-//
-//
-//
-//   const pro = await client.getProfile(ev.source.userId);
-//   let reply = '';
-//
-//   if (userMessage == "振り返り"){
-//     reply = `${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！`;
-//     // answer = first_question(ev.source.userId);
-//     // userMessage = answer;
-//
-//     // setTimeout(() => {
-//     //   client.pushMessage(ev.source.userId, {
-//     //       type: 'text',
-//     //       text: `また分からない点や悩んでいることがあったら連絡ください！頑張っていきましょうー！`,
-//     //   });
-//     // },2000);
-//   }
-//
-//
-// }
+
+// case 'postback':
+//     console.log('postbackの場合');
+//     return jsonFile[data.postback.data];
+  
