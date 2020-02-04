@@ -65,7 +65,7 @@ function lineBot(req, res) {
     console.log(replyData);
 
     promises.push(
-      client.replyMessage(replyData)
+      client.replyMessage(replyToken, replyData)
     );
   });
   Promise.all(promises).then(console.log("pass"));
