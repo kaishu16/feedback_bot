@@ -83,7 +83,7 @@ function lineBot(req, res) {
         )
         console.log(figure);
       }
-    else if(scenario == null && event.type == 'message'){
+    else if(scenario == undefined && event.type == 'message'){
       promises.push(
       getAnswerObj(event, jsonFile)
     )
