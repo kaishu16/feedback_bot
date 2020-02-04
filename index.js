@@ -23,13 +23,13 @@ express()
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 let getAnswerObj = (data, jsonFile)=> {
-  let userId = user(data);
-  console.log(userId);
   switch (data.type){
       case 'message':
           console.log('メッセージの場合');
               // テキストメッセージの場合、入力された文字列に応じて分岐
               if (data.message.text == '振り返り') {
+                  let userId = user(data);
+                  console.log(userId);
                   return jsonFile.first_message;
               }
       case 'postback':
@@ -64,7 +64,7 @@ function lineBot(req, res) {
     replyData = JSON.stringify(answerObj);
     console.log(replyData);
 
-    client.replyMessage(replyToken, replyData)
+    await client.replyMessage(replyToken, replyData)
 
     promises.push(
     );
