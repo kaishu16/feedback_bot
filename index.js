@@ -46,24 +46,16 @@ function lineBot(req, res) {
 
 
     promises.push(
-       if (event.postback.data == 'question2_yes') {
-         getQuestion3YesObj(event, jsonFile)
-       }
-       else {
-         getAnswerObj(event, jsonFile)
-       }
-
-      // .then(value =>{
-      //   console.log(value.postback);
-      //   // if (value.postback.data == 'question2_yes'){
-      //   //   getAnswerObj(value, jsonFile).then(value =>{
-      //   //     getQuestion3YesObj(value, jsonFile)
-      //   //   });
-      //   // }
-      //   // else {
-      //   //   getAnswerObj(value, jsonFile);
-      //   // }
-      // })
+      getAnswerObj(event, jsonFile)
+      .then(value =>{
+        console.log(value.postback);
+        if (value.postback.data == 'question2_yes'){
+            getQuestion3YesObj(value, jsonFile)
+          }
+        else {
+          getAnswerObj(value, jsonFile);
+        }
+      })
 
     );
   });
