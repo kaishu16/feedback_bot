@@ -12,31 +12,6 @@ const client = new line.Client(config);
 
 let jsonFile = require("./question.json");
 
-async function getAnswerObj(data, jsonFile){
-  switch (data.type){
-      case 'message':
-          console.log('メッセージの場合');
-              // テキストメッセージの場合、入力された文字列に応じて分岐
-              if (data.message.text == '振り返り') {
-                  const pro = await client.getProfile(data.source.userId);
-                  console.log(data.source.userId);
-                  console.log(pro);
-                  let reply = jsonFile.first_message;
-                  message = JSON.stringify(reply);
-                  console.log(message);
-                  return client.replyMessage(data.replyToken, message);
-              }
-      case 'postback':
-          console.log('postbackの場合');
-          return jsonFile[data.postback.data];
-      // default :
-      //     console.log('それ以外の場合');
-      //     console.log(data);
-      //     return jsonFile.otherType;
-  }
-};
-
-
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
@@ -69,10 +44,10 @@ async function lineBot(req, res) {
 
     //返信データ作成
     // console.log('データ作成');
-
+    reply = await getAnswerObj(event, jsonFile)
 
     promises.push(
-      await getAnswerObj(event, jsonFile)
+      reply
     );
     console.log(promises);
   });
@@ -81,6 +56,29 @@ async function lineBot(req, res) {
 
 }
 
+async function getAnswerObj(data, jsonFile){
+  switch (data.type){
+      case 'message':
+          console.log('メッセージの場合');
+              // テキストメッセージの場合、入力された文字列に応じて分岐
+              if (data.message.text == '振り返り') {
+                  const pro = await client.getProfile(data.source.userId);
+                  console.log(data.source.userId);
+                  console.log(pro);
+                  let reply = jsonFile.first_message;
+                  message = JSON.stringify(reply);
+                  console.log(message);
+                  return client.replyMessage(data.replyToken, message);
+              }
+      case 'postback':
+          console.log('postbackの場合');
+          return jsonFile[data.postback.data];
+      // default :
+      //     console.log('それ以外の場合');
+      //     console.log(data);
+      //     return jsonFile.otherType;
+  }
+};
 
 //
 //   const userMessage = ev.message.text;
