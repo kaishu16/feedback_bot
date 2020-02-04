@@ -46,7 +46,9 @@ function lineBot(req, res) {
 
 
     promises.push(
-      getAnswerObj(event, jsonFile),
+      getAnswerObj(event, jsonFile).then(value =>{
+          getAnswerObj(value, jsonFile)
+      })
 
     );
   });
@@ -56,6 +58,8 @@ function lineBot(req, res) {
 }
 
 async function getAnswerObj(data, jsonFile){
+  switch (data.type){
+        case 'message':
           console.log('メッセージの場合');
               // テキストメッセージの場合、入力された文字列に応じて分岐
               if (data.message.text == '振り返り') {
@@ -71,10 +75,29 @@ async function getAnswerObj(data, jsonFile){
                   ok.push(send, question);
                   return client.replyMessage(data.replyToken, ok);
               }
+        case 'postback':
+            console.log('postbackの場合');
+            return jsonFile[data.postback.data];
+          }
 };
 
+async function getYesnoObj(data, jsonFile){
+          console.log('次のメッセージ');
+              // テキストメッセージの場合、入力された文字列に応じて分岐
+              if (data.message.text == 'はい') {
+                  let reply1 = jsonFile.first_message;
+                  let reply2 = jsonFile.question1;
+                  let message1 = JSON.stringify(reply1);
+                  let message2 = JSON.stringify(reply2);
+                  let send = JSON.parse(message1);
+                  let question = JSON.parse(message2);
+                  send.text = pro.displayName + send.text
+                  let ok = [];
+                  ok.push(send, question);
+                  return client.replyMessage(data.replyToken, ok);
+              }
+};
 
 // case 'postback':
 //     console.log('postbackの場合');
 //     return jsonFile[data.postback.data];
-  
