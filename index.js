@@ -77,8 +77,8 @@ function lineBot(req, res) {
 
 }
 
-async function user(ev) {
-  const pro = await client.getProfile(ev.source.userId);
+function user(ev) {
+  const pro = client.getProfile(ev.source.userId);
   return pro;
 }
 //
