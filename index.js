@@ -85,7 +85,11 @@ function lineBot(req, res) {
       promises.push(
       getAnswerObj(event, jsonFile)
     )
-  }
+    }
+    else
+    {
+      promises.push()
+    }
   });
   Promise.all(promises).then(console.log("pass"));
 
