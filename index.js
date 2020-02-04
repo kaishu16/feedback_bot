@@ -45,61 +45,62 @@ express()
       text: `${pro.displayName}さん、今「${ev.message.text}」って言いました？`
     })
   }
-// function lineBot(req, res) {
-//
-//   let answerObj;
-//   let replyToken;
-//   let replyData;
-//
-//   res.status(200).end();
-//
-//   const events = req.body.events;
-//   const promises = [];
-//
-//   events.forEach((event) => {
-//     replyToken = event.replyToken;
-//     //入力メッセージ
-//     console.log(event);
-//
-//
-//
-//     //返信データ作成
-//     // console.log('データ作成');
-//
-//
-//     promises.push(
-//       getAnswerObj(event, jsonFile)
-//     );
-//     console.log(promises);
-//   });
-//   Promise.all(promises).then(console.log("pass"));
-//
-//
-// }
-//
-// async function getAnswerObj(data, jsonFile){
-//   switch (data.type){
-//       case 'message':
-//           console.log('メッセージの場合');
-//               // テキストメッセージの場合、入力された文字列に応じて分岐
-//               if (data.message.text == '振り返り') {
-//                   const pro = await client.getProfile(data.source.userId);
-//                   console.log(data.source.userId);
-//                   console.log(pro);
-//                   let reply = jsonFile.first_message;
-//                   message = JSON.stringify(reply);
-//                   console.log(message);
-//                   return client.replyMessage(data.replyToken, message);
-//               }
-//       case 'postback':
-//           console.log('postbackの場合');
-//           return jsonFile[data.postback.data];
-//       // default :
-//       //     console.log('それ以外の場合');
-//       //     console.log(data);
-//       //     return jsonFile.otherType;
-//   }
-// };
+function lineBot(req, res) {
+
+  let answerObj;
+  let replyToken;
+  let replyData;
+
+  res.status(200).end();
+
+  const events = req.body.events;
+  const promises = [];
+
+  for (let i = 0, l = events.length; i < l; i++) {
+    const event = events[i];
+    replyToken = event.replyToken;
+    //入力メッセージ
+    console.log(event);
+
+
+
+    //返信データ作成
+    // console.log('データ作成');
+
+
+    promises.push(
+      getAnswerObj(event, jsonFile)
+    );
+    console.log(promises);
+  };
+  Promise.all(promises).then(console.log("pass"));
+
+
+}
+
+async function getAnswerObj(data, jsonFile){
+  switch (data.type){
+      case 'message':
+          console.log('メッセージの場合');
+              // テキストメッセージの場合、入力された文字列に応じて分岐
+              if (data.message.text == '振り返り') {
+                  const pro = await client.getProfile(data.source.userId);
+                  console.log(data.source.userId);
+                  console.log(pro);
+                  let reply = jsonFile.first_message;
+                  message = JSON.stringify(reply);
+                  console.log(message);
+                  return client.replyMessage(data.replyToken, message);
+              }
+      case 'postback':
+          console.log('postbackの場合');
+          return jsonFile[data.postback.data];
+      // default :
+      //     console.log('それ以外の場合');
+      //     console.log(data);
+      //     return jsonFile.otherType;
+  }
+};
 
 //
 //   const userMessage = ev.message.text;
