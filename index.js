@@ -46,7 +46,7 @@ function lineBot(req, res) {
 
 
     promises.push(
-      getAnswerObj(event, jsonFile)
+      getAnswerObj(event, jsonFile).then();
     );
   });
   Promise.all(promises).then(console.log("pass"));
@@ -67,6 +67,12 @@ async function getAnswerObj(data, jsonFile){
                   send.text = pro.displayName + send.text
                   console.log(send.text);
                   return client.replyMessage(data.replyToken, send);
+              }
+              else{
+                let reply = jsonFile.question1;
+                let message = JSON.stringify(reply);
+                let send = JSON.parse(message)
+                return client.replyMessage(data.replyToken, send);
               }
       case 'postback':
           console.log('postbackの場合');
