@@ -30,7 +30,9 @@ let getAnswerObj = (data, jsonFile)=> {
               if (data.message.text == '振り返り') {
                   let userId = user(data);
                   console.log(userId);
-                  let reply = jsonFile.first_message;
+                  let reply = jsonFile.first_message
+                  message = JSON.stringify(reply)
+                  console.log(reply);
                   return client.replyMessage(data.replyToken, reply);
               }
       case 'postback':
