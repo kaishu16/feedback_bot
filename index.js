@@ -44,22 +44,25 @@ function lineBot(req, res) {
     //返信データ作成
     // console.log('データ作成');
 
-
+    if (event.type == 'postback'){
+      if (event.postback.data == 'question2_yes')
+      {
+        promises.push(
+          getQuestion3YesObj(event, jsonFile)
+        )
+      }
+      else
+      {
+        promises.push(
+          getAnswerObj(event, jsonFile)
+        )
+      }
+    }
+    else{
     promises.push(
       getAnswerObj(event, jsonFile)
-      .then(value =>{
-        console.log(value.type(value));
-    //     if (value.postback.data(value) == 'question2_yes'){
-    //         getQuestion3YesObj(value, jsonFile)
-    //       }
-    //     else {
-    //       getAnswerObj(value, jsonFile);
-    //     }
-    //   })
-    //
-    // );
-  });
-  )
+    )
+    }
   Promise.all(promises).then(console.log("pass"));
 
 
