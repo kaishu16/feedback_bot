@@ -3,7 +3,7 @@
   {
      "type": "text",
      "text": "${userId.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！"
-  }
+  },
   "question1":
   {
     "type": "template",
@@ -114,7 +114,7 @@
   "default":
   {
     "type": "text",
-    "text": "それではスケジュールノートをもとに明日の学習計画を見直していきましょう！",
+    "text": "それではスケジュールノートをもとに明日の学習計画を見直していきましょう！"
   },
   "last_question_yes":
   {
