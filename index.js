@@ -65,7 +65,6 @@ async function getAnswerObj(data, jsonFile){
                   const pro = await client.getProfile(data.source.userId);
                   console.log(data.source.userId);
                   console.log(pro);
-                  pro.then(res => {console.log(res);})
                   let reply = jsonFile.first_message;
                   message = JSON.stringify(reply);
                   console.log(message);
