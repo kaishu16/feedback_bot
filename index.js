@@ -65,7 +65,7 @@ function lineBot(req, res) {
       }
     }
 
-    if (scenario == 'question2_yes' && figure == null)
+    if (scenario == 'question2_yes' && event.type == 'message')
       {
         figure = 'question3_yes'
         promises.push(
@@ -73,7 +73,7 @@ function lineBot(req, res) {
         )
         console.log(figure);
       }
-    else if(scenario == 'question2_no' && figure == null)
+    else if(scenario == 'question2_no' && event.type == 'message')
       {
         figure = 'question3_no'
         promises.push(
