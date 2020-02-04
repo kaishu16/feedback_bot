@@ -28,8 +28,8 @@ async function getAnswerObj(data, jsonFile){
           console.log('メッセージの場合');
               // テキストメッセージの場合、入力された文字列に応じて分岐
               if (data.message.text == '振り返り') {
-                  let userId = user(data);
-                  console.log(userId);
+                  const pro = client.getProfile(ev.source.userId);
+                  console.log(pro);
                   let reply = jsonFile.first_message;
                   message = JSON.stringify(reply);
                   console.log(message);
@@ -77,10 +77,6 @@ function lineBot(req, res) {
 
 }
 
-function user(ev) {
-  const pro = client.getProfile(ev.source.userId);
-  return pro;
-}
 //
 //   const userMessage = ev.message.text;
 //
