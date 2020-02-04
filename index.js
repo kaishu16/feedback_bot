@@ -24,7 +24,7 @@ express()
 
 
 
-function lineBot(req, res) {
+async function lineBot(req, res) {
 
   let answerObj;
   let replyToken;
@@ -39,6 +39,10 @@ function lineBot(req, res) {
     replyToken = event.replyToken;
     //入力メッセージ
     console.log(event);
+
+    const pro = await client.getProfile(event.source.userId);
+    console.log(event.source.userId);
+    console.log(pro);
 
 
 
@@ -59,9 +63,6 @@ function lineBot(req, res) {
 async function getAnswerObj(data, jsonFile){
   switch (data.type){
       case 'message':
-      const pro = await client.getProfile(data.source.userId);
-      console.log(data.source.userId);
-      console.log(pro);
           console.log('メッセージの場合');
               // テキストメッセージの場合、入力された文字列に応じて分岐
               if (data.message.text == '振り返り') {
