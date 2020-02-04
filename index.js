@@ -49,12 +49,12 @@ function lineBot(req, res) {
       getAnswerObj(event, jsonFile)
       .then(value =>{
         console.log(value.type);
-        if (value.postback.data == 'question2_yes'){
-            getQuestion3YesObj(value, jsonFile)
-          }
-        else {
-          getAnswerObj(value, jsonFile);
-        }
+        // if (value.postback.data == 'question2_yes'){
+        //     getQuestion3YesObj(value, jsonFile)
+        //   }
+        // else {
+        //   getAnswerObj(value, jsonFile);
+        // }
       })
 
     );
