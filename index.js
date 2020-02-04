@@ -61,11 +61,14 @@ function lineBot(req, res) {
     //入力メッセージ
     console.log(event);
 
+    getAnswerObj(event, jsonFile)
+
     //返信データ作成
     // console.log('データ作成');
 
 
     promises.push(
+
     );
     console.log(promises);
   });
