@@ -48,16 +48,16 @@ function lineBot(req, res) {
     promises.push(
       getAnswerObj(event, jsonFile)
       .then(value =>{
-        console.log(value.type);
-        // if (value.postback.data == 'question2_yes'){
-        //     getQuestion3YesObj(value, jsonFile)
-        //   }
-        // else {
-        //   getAnswerObj(value, jsonFile);
-        // }
-      })
-
-    );
+        console.log(value.type(value));
+    //     if (value.postback.data(value) == 'question2_yes'){
+    //         getQuestion3YesObj(value, jsonFile)
+    //       }
+    //     else {
+    //       getAnswerObj(value, jsonFile);
+    //     }
+    //   })
+    //
+    // );
   });
   Promise.all(promises).then(console.log("pass"));
 
