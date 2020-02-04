@@ -22,7 +22,7 @@ express()
   .post("/hook/", line.middleware(config), (req, res) => lineBot(req, res))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-async function getAnswerObj(data, jsonFile){
+function getAnswerObj(data, jsonFile){
   switch (data.type){
       case 'message':
           console.log('メッセージの場合');
