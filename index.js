@@ -22,14 +22,15 @@ express()
   .post("/hook/", line.middleware(config), (req, res) => lineBot(req, res))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
+  let scenario;
+  let figure;
 
 function lineBot(req, res) {
 
   let answerObj;
   let replyToken;
   let replyData;
-  let scenario;
-  let figure;
+
 
   res.status(200).end();
 
