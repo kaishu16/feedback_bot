@@ -47,7 +47,7 @@ function lineBot(req, res) {
 
     promises.push(
       getAnswerObj(event, jsonFile).then(value =>{
-          getAnswerObj(value, jsonFile)
+          getPostbackObj(value, jsonFile)
       })
 
     );
@@ -58,8 +58,8 @@ function lineBot(req, res) {
 }
 
 async function getAnswerObj(data, jsonFile){
-  switch (data.type){
-        case 'message':
+  // switch (data.type){
+  //       case 'message':
           console.log('メッセージの場合');
               // テキストメッセージの場合、入力された文字列に応じて分岐
               if (data.message.text == '振り返り') {
@@ -75,15 +75,18 @@ async function getAnswerObj(data, jsonFile){
                   ok.push(send, question);
                   return client.replyMessage(data.replyToken, ok);
               }
-        case 'postback':
-            console.log('postbackの場合');
-            let reply = jsonFile[data.postback.data];
-            let message = JSON.stringify(reply);
-            let question = JSON.parse(message);
-            return client.replyMessage(data.replyToken, question);
-          }
+
+          // }
 };
 
+async function getPostbackObj(data, jsonFile){
+  // case 'postback':
+      console.log('postbackの場合');
+      let reply = jsonFile[data.postback.data];
+      let message = JSON.stringify(reply);
+      let question = JSON.parse(message);
+      return client.replyMessage(data.replyToken, question);
+}
 
 
 // case 'postback':
