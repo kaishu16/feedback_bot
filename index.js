@@ -65,7 +65,7 @@ async function getAnswerObj(data, jsonFile){
                   let message = JSON.stringify(reply);
                   console.log(message);
                   let send = JSON.parse(message)
-                  console.log(send);
+                  console.log(send.text);
                   return client.replyMessage(data.replyToken, send);
               }
       case 'postback':

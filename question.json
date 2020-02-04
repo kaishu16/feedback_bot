@@ -2,7 +2,7 @@
   "first_message":
   {
      "type": "text",
-     "text": "${pro.displayName}さんお疲れ様です！今日も学習を振り返っていきましょう！"
+     "text": "さんお疲れ様です！今日も学習を振り返っていきましょう！"
   },
   "question1":
   {
