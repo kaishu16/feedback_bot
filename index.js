@@ -28,6 +28,8 @@ function lineBot(req, res) {
   let answerObj;
   let replyToken;
   let replyData;
+  let scenario;
+  let figure;
 
   res.status(200).end();
 
@@ -47,18 +49,34 @@ function lineBot(req, res) {
     if (event.type == 'postback'){
       if (event.postback.data == 'question2_yes')
       {
-        promises.push(
-          getQuestion3YesObj(event, jsonFile)
-        )
+        scenario = 'question2_yes';
+        console.log(scenario);
       }
       else
       {
-        promises.push(
-          getAnswerObj(event, jsonFile)
-        )
+        scenario = 'question2_no';
+        console.log(scenario);
       }
     }
-    else{
+
+    if (scenario == 'question2_yes' && figure == null)
+      {
+        figure = 'question3_yes'
+        promises.push(
+          getQuestion3YesObj(event, jsonFile)
+        )
+        console.log(figure);
+      }
+
+    if (scenario == 'question2_no' && figure == null)
+      {
+        figure = 'question3_no'
+        promises.push(
+          getQuestion3NoObj(event, jsonFile)
+        )
+        console.log(figure);
+      }
+
     promises.push(
       getAnswerObj(event, jsonFile)
     )
@@ -99,6 +117,15 @@ async function getAnswerObj(data, jsonFile){
 async function getQuestion3YesObj(data, jsonFile){
   if (data.type == 'message') {
       let reply = jsonFile.question3_yes;
+      let message = JSON.stringify(reply);
+      let send = JSON.parse(message);
+      return client.replyMessage(data.replyToken, send);
+  }
+}
+
+async function getQuestion3NoObj(data, jsonFile){
+  if (data.type == 'message') {
+      let reply = jsonFile.question3_no;
       let message = JSON.stringify(reply);
       let send = JSON.parse(message);
       return client.replyMessage(data.replyToken, send);
