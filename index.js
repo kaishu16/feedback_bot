@@ -46,7 +46,7 @@ function lineBot(req, res) {
 
 
     promises.push(
-      client.replyMessage(data.replyToken, getAnswerObj(event, jsonFile))
+      client.replyMessage(event.replyToken, getAnswerObj(event, jsonFile))
     );
   });
   Promise.all(promises).then(console.log("pass"));
