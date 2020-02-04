@@ -64,7 +64,7 @@ async function getAnswerObj(data, jsonFile){
                   let reply = jsonFile.first_message;
                   let message = JSON.stringify(reply);
                   let send = JSON.parse(message)
-                  send.text = ${pro.displayName} + send.text
+                  send.text = pro.displayName + send.text
                   console.log(send.text);
                   return client.replyMessage(data.replyToken, send);
               }
