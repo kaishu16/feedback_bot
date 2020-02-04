@@ -28,8 +28,8 @@ let getAnswerObj = (data, jsonFile)=> {
           console.log('メッセージの場合');
               // テキストメッセージの場合、入力された文字列に応じて分岐
               if (data.message.text == '振り返り') {
-                  let userId = user(data);
-                  console.log(userId);
+                  // let userId = user(data);
+                  // console.log(userId);
                   let reply = jsonFile.first_message;
                   message = JSON.stringify(reply);
                   console.log(message);
@@ -61,14 +61,14 @@ function lineBot(req, res) {
     //入力メッセージ
     console.log(event);
 
-    getAnswerObj(event, jsonFile)
+
 
     //返信データ作成
     // console.log('データ作成');
 
 
     promises.push(
-
+      getAnswerObj(event, jsonFile)
     );
     console.log(promises);
   });
