@@ -66,8 +66,9 @@ async function getAnswerObj(data, jsonFile){
                   let send1 = JSON.parse(message1);
                   let send2 = JSON.parse(message2);
                   send1.text = pro.displayName + send1.text
-                  let question = []
+                  let question = [];
                   question.push(send1, send2);
+                  console.log(question);
                   return question;
               }
       // case 'postback':
