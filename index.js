@@ -62,13 +62,11 @@ function lineBot(req, res) {
     console.log('データ作成');
     console.log(answerObj);
     replyData = JSON.stringify({
-       replyToken: replyToken,
        messages: [
            answerObj
         ]
     });
     console.log(replyData);
-    console.log(replyData.replyToken);
 
     promises.push(
       client.replyMessage(replyData)
