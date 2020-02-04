@@ -22,8 +22,9 @@ express()
   .post("/hook/", line.middleware(config), (req, res) => lineBot(req, res))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-  let scenario;
-  let figure;
+  let study;
+  let cause;
+  let better;
 
 function lineBot(req, res) {
 
@@ -50,41 +51,60 @@ function lineBot(req, res) {
     if (event.type == 'postback'){
       if (event.postback.data == 'question2_yes')
       {
-        scenario = 'question2_yes';
+        study = 'question2_yes';
         promises.push(
           getAnswerObj(event, jsonFile)
         )
-        console.log(scenario);
+        console.log(study);
       }
-      else
+     else if (event.postback.data == 'question2_no')
       {
-        scenario = 'question2_no';
+        study = 'question2_no';
         promises.push(
           getAnswerObj(event, jsonFile)
         )
-        console.log(scenario);
+        console.log(study);
+      }
+      else if (event.postback.data == 'last_message') {
+        promises.push(
+          getLastMessageObj(event, jsonFile)
+        )
       }
     }
 
-    console.log(scenario);
-    console.log(figure);
-    if (scenario == 'question2_yes' && event.type == 'message')
+    if (study == 'question2_yes' && event.type == 'message')
       {
-        figure = 'question3_yes'
+        cause = 'question3_yes'
         promises.push(
           getQuestion3YesObj(event, jsonFile)
         )
-        console.log(figure);
+        console.log(cause);
       }
-    else if(scenario == 'question2_no' && event.type == 'message')
+    else if(study == 'question2_no' && event.type == 'message')
       {
-        figure = 'question3_no'
+        cause = 'question3_no'
         promises.push(
           getQuestion3NoObj(event, jsonFile)
         )
-        console.log(figure);
+        console.log(cause);
       }
-    else if(scenario == undefined && event.type == 'message'){
+    else if(study == 'question2_yes' && cause == 'question3_yes' && event.type == 'message')
+      {
+        better = 'question4_no'
+        promises.push(
+          getLastQuestionYesObj(event, jsonFile)
+        )
+        console.log(better);
+      }
+    else if(study == 'question2_no' && cause == 'question3_no' && event.type == 'message')
+      {
+        better = 'question4_no'
+        promises.push(
+          getLastQuestionNoObj(event, jsonFile)
+        )
+        console.log(better);
+      }
+    else if(study == undefined && event.type == 'message'){
       promises.push(
       getAnswerObj(event, jsonFile)
     )
@@ -136,9 +156,47 @@ async function getQuestion3YesObj(data, jsonFile){
   }
 }
 
+
 async function getQuestion3NoObj(data, jsonFile){
   if (data.type == 'message') {
       let reply = jsonFile.question3_no;
+      let message = JSON.stringify(reply);
+      let send = JSON.parse(message);
+      return client.replyMessage(data.replyToken, send);
+  }
+}
+
+async function getLastQuestionYesObj(data, jsonFile){
+  if (data.type == 'message') {
+    let reply1 = jsonFile.default;
+    let reply2 = jsonFile.last_question_yes;
+    let message1 = JSON.stringify(reply1);
+    let message2 = JSON.stringify(reply2);
+    let send = JSON.parse(message1);
+    let question = JSON.parse(message2);
+    let ok = [];
+    ok.push(send, question);
+    return client.replyMessage(data.replyToken, ok);
+  }
+}
+
+async function getLastQuestionNoObj(data, jsonFile){
+  if (data.type == 'message') {
+    let reply1 = jsonFile.default;
+    let reply2 = jsonFile.last_question_no;
+    let message1 = JSON.stringify(reply1);
+    let message2 = JSON.stringify(reply2);
+    let send = JSON.parse(message1);
+    let question = JSON.parse(message2);
+    let ok = [];
+    ok.push(send, question);
+    return client.replyMessage(data.replyToken, ok);
+  }
+}
+
+async function getLastMessageObj(data, jsonFile){
+  if (data.type == 'postback') {
+      let reply = jsonFile.last_message;
       let message = JSON.stringify(reply);
       let send = JSON.parse(message);
       return client.replyMessage(data.replyToken, send);
