@@ -59,10 +59,10 @@ function lineBot(req, res) {
 async function getAnswerObj(data, jsonFile){
   switch (data.type){
       case 'message':
+      const pro = await client.getProfile(data.source.userId);
+      console.log(data.source.userId);
+      console.log(pro);
           console.log('メッセージの場合');
-          const pro = await client.getProfile(data.source.userId);
-          console.log(data.source.userId);
-          console.log(pro);
               // テキストメッセージの場合、入力された文字列に応じて分岐
               if (data.message.text == '振り返り') {
                   let reply = jsonFile.first_message;
