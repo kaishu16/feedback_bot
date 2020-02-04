@@ -23,7 +23,7 @@ express()
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 
-function lineBot(req, res) {
+async function lineBot(req, res) {
 
   let answerObj;
   let replyToken;
@@ -39,7 +39,7 @@ function lineBot(req, res) {
     //入力メッセージ
     console.log(event);
 
-    let ok = getAnswerObj(event, jsonFile);
+    let ok = await getAnswerObj(event, jsonFile);
     console.log(ok);
 
     //返信データ作成
