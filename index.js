@@ -32,6 +32,7 @@ express()
       promises.push(
         echoman(ev)
       );
+      console.log(promises);
     }
     Promise.all(promises).then(console.log("pass"));
   }
