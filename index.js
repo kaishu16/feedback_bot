@@ -39,14 +39,15 @@ function lineBot(req, res) {
     //入力メッセージ
     console.log(event);
 
-
+    let ok = getAnswerObj(event, jsonFile);
+    console.log(ok);
 
     //返信データ作成
     // console.log('データ作成');
 
 
     promises.push(
-      getAnswerObj(event, jsonFile)
+
     );
   });
   Promise.all(promises).then(console.log("pass"));
@@ -68,7 +69,7 @@ async function getAnswerObj(data, jsonFile){
                   send.text = pro.displayName + send.text
                   let ok = [];
                   ok.push(send, question);
-                  return client.replyMessage(data.replyToken, ok);
+                  return ok;
               }
       // case 'postback':
       //     console.log('postbackの場合');
