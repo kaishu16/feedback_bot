@@ -72,7 +72,7 @@ function lineBot(req, res) {
       }
     }
 
-    if (study == 'question2_yes' && event.type == 'message')
+    if (study == 'question2_yes' && event.type == 'message' && cause == undefined)
       {
         cause = 'question3_yes'
         promises.push(
@@ -80,7 +80,7 @@ function lineBot(req, res) {
         )
         console.log(cause);
       }
-    else if(study == 'question2_no' && event.type == 'message')
+    else if(study == 'question2_no' && event.type == 'message' && cause == undefined)
       {
         cause = 'question3_no'
         promises.push(
@@ -104,7 +104,7 @@ function lineBot(req, res) {
         )
         console.log(better);
       }
-    else if(study == undefined && event.type == 'message'){
+    else if(study == undefined && event.type == 'message' && cause == undefined){
       promises.push(
       getAnswerObj(event, jsonFile)
     )
