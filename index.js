@@ -28,8 +28,8 @@ async function getAnswerObj(data, jsonFile){
           console.log('メッセージの場合');
               // テキストメッセージの場合、入力された文字列に応じて分岐
               if (data.message.text == '振り返り') {
-                  // let userId = user(data);
-                  // console.log(userId);
+                  let userId = user(data);
+                  console.log(userId);
                   let reply = jsonFile.first_message;
                   message = JSON.stringify(reply);
                   console.log(message);
