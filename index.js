@@ -32,8 +32,8 @@ let getAnswerObj = (data, jsonFile)=> {
                   console.log(userId);
                   let reply = jsonFile.first_message;
                   message = JSON.stringify(reply);
-                  console.log(reply);
-                  return client.replyMessage(data.replyToken, reply);
+                  console.log(message);
+                  return client.replyMessage(data.replyToken, message);
               }
       case 'postback':
           console.log('postbackの場合');
