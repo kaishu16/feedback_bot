@@ -64,6 +64,7 @@ async function getAnswerObj(data, jsonFile){
                   let reply = jsonFile.first_message;
                   message = JSON.stringify(reply);
                   console.log(message);
+                  process.on('unhandledRejection', console.dir);
                   return client.replyMessage(data.replyToken, message);
               }
       case 'postback':
