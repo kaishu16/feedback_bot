@@ -62,12 +62,11 @@ async function getAnswerObj(data, jsonFile){
               if (data.message.text == '振り返り') {
                   const pro = await client.getProfile(data.source.userId);
                   let reply = jsonFile.first_message;
-                  message = JSON.stringify(reply);
+                  let message = JSON.stringify(reply);
                   console.log(message);
-                  return client.replyMessage(data.replyToken,  {
-                    type: "text",
-                    text: `${pro.displayName}さん、今「${data.message.text}」って言いました？`
-                  });
+                  let send = JSON.parse(message)
+                  console.log(send);
+                  return client.replyMessage(data.replyToken, send);
               }
       case 'postback':
           console.log('postbackの場合');
