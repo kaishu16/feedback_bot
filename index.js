@@ -70,9 +70,9 @@ async function getAnswerObj(data, jsonFile){
                   question.push(send1, send2);
                   return question;
               }
-      case 'postback':
-          console.log('postbackの場合');
-          return jsonFile[data.postback.data];
+      // case 'postback':
+      //     console.log('postbackの場合');
+      //     return jsonFile[data.postback.data];
 };
 
 //
