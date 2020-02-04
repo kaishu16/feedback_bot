@@ -58,16 +58,13 @@ function lineBot(req, res) {
     replyToken = event.replyToken;
     //入力メッセージ
     console.log(event);
-    answerObj = getAnswerObj(event, jsonFile);
-    //返信データ作成
-    console.log('データ作成');
-    console.log(answerObj);
-    replyData = JSON.stringify(answerObj);
-    console.log(replyData);
 
-    client.replyMessage(replyToken, replyData)
+    //返信データ作成
+    // console.log('データ作成');
+
 
     promises.push(
+      getAnswerObj(event, jsonFile);
     );
     console.log(promises);
   });
