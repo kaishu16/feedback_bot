@@ -16,9 +16,6 @@ express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
-  // .get('/', (req, res) => res.render('pages/index'))
-  // .get('/g/', (req, res) => res.json({method: "こんにちは、getさん"}))
-  // .post('/p/', (req, res) => res.json({method: "こんにちは、postさん"}))
   .post("/hook/", line.middleware(config), (req, res) => lineBot(req, res))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
@@ -124,14 +121,6 @@ function lineBot(req, res) {
         )
         console.log(final);
       }
-    // else if(study == 'question2_no' && cause == 'question3_no' && better == '' && event.type == 'message')
-    //   {
-    //     better = 'question4_no'
-    //     promises.push(
-    //       getLastQuestionNoObj(event, jsonFile)
-    //     )
-    //     console.log(better);
-    //   }
     else if(study == '' && event.type == 'message' && event.message.text !== '振り返り'){
       promises.push(
     )
@@ -178,25 +167,6 @@ async function getAnswerObj(data, jsonFile){
             return client.replyMessage(data.replyToken, question);
           }
 };
-
-// async function getQuestion3YesObj(data, jsonFile){
-//   if (data.type == 'message') {
-//       let reply = jsonFile.question3_yes;
-//       let message = JSON.stringify(reply);
-//       let send = JSON.parse(message);
-//       return client.replyMessage(data.replyToken, send);
-//   }
-// }
-//
-//
-// async function getQuestion3NoObj(data, jsonFile){
-//   if (data.type == 'message') {
-//       let reply = jsonFile.question3_no;
-//       let message = JSON.stringify(reply);
-//       let send = JSON.parse(message);
-//       return client.replyMessage(data.replyToken, send);
-//   }
-// }
 
 async function getLastQuestionYesObj(data, jsonFile){
   if (data.type == 'message') {
@@ -245,8 +215,3 @@ async function getAdditionalMessageObj(data, jsonFile){
       return client.replyMessage(data.replyToken, send);
   }
 }
-
-
-// case 'postback':
-//     console.log('postbackの場合');
-//     return jsonFile[data.postback.data];
