@@ -117,6 +117,7 @@ function lineBot(req, res) {
       }
     else if(study !== null && cause == 'last_question_no' && better == 'additional_question' && final == '' && event.type == 'message')
       {
+        console.log('今ここ');
         final = 'complete';
         promises.push(
           getLastMessageObj(event, jsonFile)
@@ -142,6 +143,7 @@ function lineBot(req, res) {
     }
     else if (study !== null && cause !== null && final == 'complete' && event.type == "messsage")
     {
+      console.log('もう終わり');
       promises.push()
     }
   });
