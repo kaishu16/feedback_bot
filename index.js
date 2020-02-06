@@ -49,9 +49,9 @@ function lineBot(req, res) {
     // console.log('データ作成');
     if (event.message.text == '振り返り')
     {
-      study = '';
-      cause = '';
-      better = '';
+      study = undefined;
+      cause = undefined;
+      better = undefined;
       console.log(study);
       console.log(cause);
       console.log(better);
