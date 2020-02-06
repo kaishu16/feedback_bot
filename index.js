@@ -82,12 +82,12 @@ function lineBot(req, res) {
         console.log(cause);
         console.log(better);
       }
-    } 
+    }
 
     console.log(study);
     console.log(cause);
     console.log(better);
-    if (study == 'question2_yes' && event.type == 'message' && cause == undefined)
+    if (study == 'question2_yes' && event.type == 'message' && cause == '')
       {
         cause = 'question3_yes'
         promises.push(
@@ -95,7 +95,7 @@ function lineBot(req, res) {
         )
         console.log(cause);
       }
-    else if(study == 'question2_no' && event.type == 'message' && cause == undefined)
+    else if(study == 'question2_no' && event.type == 'message' && cause == '')
       {
         cause = 'question3_no'
         promises.push(
