@@ -49,9 +49,9 @@ function lineBot(req, res) {
     // console.log('データ作成');
     if (event.message.text == '振り返り')
     {
-      study = undefined;
-      cause = undefined;
-      better = undefined;
+      study = '';
+      cause = '';
+      better = '';
       console.log(study);
       console.log(cause);
       console.log(better);
@@ -117,11 +117,11 @@ function lineBot(req, res) {
         )
         console.log(better);
       }
-    else if(study == undefined && event.type == 'message' && event.message.text !== '振り返り'){
+    else if(study == '' && event.type == 'message' && event.message.text !== '振り返り'){
       promises.push(
     )
     }
-    else if(study == undefined && event.type == 'message' && event.message.text == '振り返り'){
+    else if(study == '' && event.type == 'message' && event.message.text == '振り返り'){
       promises.push(
       getAnswerObj(event, jsonFile)
     )
