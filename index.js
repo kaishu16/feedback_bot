@@ -222,13 +222,11 @@ async function getLastQuestionNoObj(data, jsonFile){
 }
 
 async function getLastMessageObj(data, jsonFile){
-  if (data.type == 'postback') {
       let reply = jsonFile.last_message;
       let message = JSON.stringify(reply);
       let send = JSON.parse(message);
       return client.replyMessage(data.replyToken, send);
   }
-}
 
 async function getAdditionalMessageObj(data, jsonFile){
   if (data.type == 'postback') {
