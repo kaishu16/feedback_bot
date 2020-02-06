@@ -200,7 +200,7 @@ async function getAnswerObj(data, jsonFile){
 
 async function getLastQuestionYesObj(data, jsonFile){
   if (data.type == 'message') {
-    let reply1 = jsonFile.default;
+    let reply1 = jsonFile.question3_yes;
     let reply2 = jsonFile.last_question_yes;
     let message1 = JSON.stringify(reply1);
     let message2 = JSON.stringify(reply2);
@@ -214,7 +214,7 @@ async function getLastQuestionYesObj(data, jsonFile){
 
 async function getLastQuestionNoObj(data, jsonFile){
   if (data.type == 'message') {
-    let reply1 = jsonFile.default;
+    let reply1 = jsonFile.question3_no;
     let reply2 = jsonFile.last_question_no;
     let message1 = JSON.stringify(reply1);
     let message2 = JSON.stringify(reply2);
