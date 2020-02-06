@@ -76,13 +76,13 @@
             {
               "type": "postback",
               "label": "はい",
-              "data": "last_message",
+              "data": "additional_question",
               "displayText": "はい"
             },
             {
               "type": "postback",
               "label": "いいえ",
-              "data": "additional_question",
+              "data": "last_message",
               "displayText": "いいえ"
             }
         ]
