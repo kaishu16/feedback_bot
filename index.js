@@ -115,7 +115,7 @@ function lineBot(req, res) {
         )
         console.log(cause);
       }
-    else if(study !== null && cause == 'last_question_no' && better == 'additional_question' && final == '' && event.type == 'message')
+    else if(study !== null && cause !== null && better == 'additional_question' && final == '' && event.type == 'message')
       {
         console.log('今ここ');
         final = 'complete';
