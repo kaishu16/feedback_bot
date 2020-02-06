@@ -47,6 +47,16 @@ function lineBot(req, res) {
 
     //返信データ作成
     // console.log('データ作成');
+    if (event.message.text == '振り返り')
+    {
+      study = '';
+      cause = '';
+      better = '';
+      console.log(study);
+      console.log(cause);
+      console.log(better);
+    }
+
 
     if (event.type == 'postback'){
       if (event.postback.data == 'question2_yes')
@@ -93,7 +103,7 @@ function lineBot(req, res) {
       }
     else if(study == 'question2_yes' && cause == 'question3_yes' && event.type == 'message')
       {
-        better = 'question4_no'
+        better = 'question4_yes'
         promises.push(
           getLastQuestionYesObj(event, jsonFile)
         )
@@ -107,13 +117,16 @@ function lineBot(req, res) {
         )
         console.log(better);
       }
-    else if(study == undefined && event.type == 'message' && cause == undefined){
+    else if(study == undefined && event.type == 'message' && event.message.text !== '振り返り'){
+      promises.push(
+    )
+    }
+    else if(study == undefined && event.type == 'message' && event.message.text == '振り返り'){
       promises.push(
       getAnswerObj(event, jsonFile)
     )
-    console.log('これ行ってます');
     }
-    else if (study != null && cause != null && better != null && event.type == "messsage")
+    else if (study !== null && cause !== null && better !== null && event.type == "messsage")
     {
       promises.push()
     }
