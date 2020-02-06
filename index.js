@@ -47,16 +47,6 @@ function lineBot(req, res) {
 
     //返信データ作成
     // console.log('データ作成');
-    if (event.message.text == '振り返り')
-    {
-      study = '';
-      cause = '';
-      better = '';
-      console.log(study);
-      console.log(cause);
-      console.log(better);
-    }
-
 
     if (event.type == 'postback'){
       if (event.postback.data == 'question2_yes')
@@ -81,6 +71,18 @@ function lineBot(req, res) {
         )
       }
     }
+
+    if (event.type == 'message'){
+      if (event.message.text == '振り返り')
+      {
+        study = '';
+        cause = '';
+        better = '';
+        console.log(study);
+        console.log(cause);
+        console.log(better);
+      }
+    } 
 
     console.log(study);
     console.log(cause);
