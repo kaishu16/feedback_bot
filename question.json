@@ -37,20 +37,10 @@
     "type": "text",
     "text": "なるほど！予定通り進まなかった要因として何があげられますか？"
   },
-  "question3_yes":
-  {
-    "type": "text",
-    "text": "なるほど！より質の高い学習をするにはどうすれば良いでしょうか？"
-  },
-  "question3_no":
-  {
-    "type": "text",
-    "text": "しっかり振り替えられていますね！改善するためにはどうしたら良いでしょうか？"
-  },
   "default":
   {
     "type": "text",
-    "text": "それではスケジュールノートをもとに明日の学習計画を見直していきましょう！"
+    "text": "なるほど！それではスケジュールノートをもとに明日の学習計画を見直していきましょう！"
   },
   "last_question_yes":
   {
@@ -69,7 +59,7 @@
           {
             "type": "postback",
             "label": "いいえ",
-            "data": "last_message",
+            "data": "additional_question",
             "displayText": "いいえ"
           }
         ]
@@ -92,11 +82,16 @@
             {
               "type": "postback",
               "label": "いいえ",
-              "data": "last_message",
+              "data": "additional_question",
               "displayText": "いいえ"
             }
         ]
     }
+  },
+  "additional_question":
+  {
+    "type": "text",
+    "text": "変更点として何があげられますか？"
   },
   "last_message":
   {
