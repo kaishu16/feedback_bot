@@ -77,6 +77,7 @@ function lineBot(req, res) {
         promises.push(
           getLastMessageObj(event, jsonFile)
         )
+        console.log(final);
       }
     }
 
@@ -90,12 +91,14 @@ function lineBot(req, res) {
         console.log(study);
         console.log(cause);
         console.log(better);
+        console.log(final);
       }
     }
 
     console.log(study);
     console.log(cause);
     console.log(better);
+    console.log(final);
     if (study == 'question2_yes' && event.type == 'message' && cause == '')
       {
         cause = 'last_question_yes'
@@ -118,7 +121,7 @@ function lineBot(req, res) {
         promises.push(
           getLastMessageObj(event, jsonFile)
         )
-        console.log(better);
+        console.log(final);
       }
     // else if(study == 'question2_no' && cause == 'question3_no' && better == '' && event.type == 'message')
     //   {
@@ -227,6 +230,7 @@ async function getLastMessageObj(data, jsonFile){
       let send = JSON.parse(message);
       return client.replyMessage(data.replyToken, send);
   }
+
 
 async function getAdditionalMessageObj(data, jsonFile){
   if (data.type == 'postback') {
