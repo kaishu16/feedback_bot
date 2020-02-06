@@ -110,7 +110,7 @@ function lineBot(req, res) {
     )
     console.log('これ行ってます');
     }
-    else
+    else if (study != null && cause != null && better != null && event.type = "messsage")
     {
       promises.push()
     }
