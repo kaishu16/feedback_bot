@@ -103,7 +103,7 @@ function lineBot(req, res) {
         )
         console.log(cause);
       }
-    else if(study == 'question2_yes' && cause == 'question3_yes' && event.type == 'message')
+    else if(study == 'question2_yes' && cause == 'question3_yes' && better == '' && event.type == 'message')
       {
         better = 'question4_yes'
         promises.push(
@@ -111,7 +111,7 @@ function lineBot(req, res) {
         )
         console.log(better);
       }
-    else if(study == 'question2_no' && cause == 'question3_no' && event.type == 'message')
+    else if(study == 'question2_no' && cause == 'question3_no' && better == '' && event.type == 'message')
       {
         better = 'question4_no'
         promises.push(
