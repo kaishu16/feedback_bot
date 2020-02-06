@@ -72,6 +72,9 @@ function lineBot(req, res) {
       }
     }
 
+    console.log(study);
+    console.log(cause);
+    console.log(better);
     if (study == 'question2_yes' && event.type == 'message' && cause == undefined)
       {
         cause = 'question3_yes'
