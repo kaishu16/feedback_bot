@@ -101,7 +101,7 @@ function lineBot(req, res) {
         cause = 'last_question_yes'
         promises.push(
           getQuestion3_Yes2_Obj(event, jsonFile).then(function(){
-            getLastQuestionYesObj(event, jsonFile)
+            return getLastQuestionYesObj(event, jsonFile);
           })
         console.log(cause);
       }
