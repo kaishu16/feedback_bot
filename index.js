@@ -100,6 +100,7 @@ function lineBot(req, res) {
       {
         cause = 'last_question_yes'
         promises.push(
+          getQuestion3_Yes2_Obj(event, jsonFile),
           getLastQuestionYesObj(event, jsonFile)
         )
         console.log(cause);
@@ -168,34 +169,55 @@ async function getAnswerObj(data, jsonFile){
           }
 };
 
+async function getQuestion3_No1_Obj(data, jsonFile){
+    let reply = jsonFile.question3_no1;
+    let message = JSON.stringify(reply);
+    let send = JSON.parse(message);
+    return client.replyMessage(data.replyToken, send);
+}
+
+async function getQuestion3_No2_Obj(data, jsonFile){
+    let reply = jsonFile.question3_no2;
+    let message = JSON.stringify(reply);
+    let send = JSON.parse(message);
+    return client.replyMessage(data.replyToken, send);
+}
+
+async function getQuestion3_Yes2_Obj(data, jsonFile){
+    let reply = jsonFile.question3_yes;
+    let message = JSON.stringify(reply);
+    let send = JSON.parse(message);
+    return client.replyMessage(data.replyToken, send);
+}
+
 async function getLastQuestionYesObj(data, jsonFile){
   if (data.type == 'message') {
-    let reply1 = jsonFile.question3_yes;
+    // let reply1 = jsonFile.question3_yes;
     let reply2 = jsonFile.last_question_yes;
-    let message1 = JSON.stringify(reply1);
+    // let message1 = JSON.stringify(reply1);
     let message2 = JSON.stringify(reply2);
-    let send = JSON.parse(message1);
+    // let send = JSON.parse(message1);
     let question = JSON.parse(message2);
-    let ok = [];
-    ok.push(send, question);
-    return client.replyMessage(data.replyToken, ok);
+    // let ok = [];
+    // ok.push(send, question);
+    return client.replyMessage(data.replyToken, question);
   }
 }
 
 async function getLastQuestionNoObj(data, jsonFile){
   if (data.type == 'message') {
-    let reply1 = jsonFile.question3_no1;
-    let reply1_1 = jsonFile.question3_no2;
+    // let reply1 = jsonFile.question3_no1;
+    // let reply1_1 = jsonFile.question3_no2;
     let reply2 = jsonFile.last_question_no;
-    let message1 = JSON.stringify(reply1);
-    let message1_1 = JSON.stringify(reply1_1);
+    // let message1 = JSON.stringify(reply1);
+    // let message1_1 = JSON.stringify(reply1_1);
     let message2 = JSON.stringify(reply2);
-    let send1 = JSON.parse(message1);
-    let send2 = JSON.parse(message1_1)
+    // let send1 = JSON.parse(message1);
+    // let send2 = JSON.parse(message1_1)
     let question = JSON.parse(message2);
-    let ok = [];
-    ok.push(send1, send2, question);
-    return client.replyMessage(data.replyToken, ok);
+    // let ok = [];
+    // ok.push(send1, send2, question);
+    return client.replyMessage(data.replyToken, question);
   }
 }
 
@@ -204,7 +226,7 @@ async function getLastMessageObj(data, jsonFile){
       let message = JSON.stringify(reply);
       let send = JSON.parse(message);
       return client.replyMessage(data.replyToken, send);
-  }
+}
 
 
 async function getAdditionalMessageObj(data, jsonFile){
