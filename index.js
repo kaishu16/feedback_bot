@@ -156,7 +156,7 @@ async function getAnswerObj(data, jsonFile){
                   let question = JSON.parse(message2);
                   send.text = pro.displayName + send.text
                   let ok = [];
-                  ok.push(send, setTimeout(question, 3000);
+                  ok.push(send, question);
                   return client.replyMessage(data.replyToken, ok);
               }
         case 'postback':
