@@ -100,9 +100,8 @@ function lineBot(req, res) {
       {
         cause = 'last_question_yes'
         promises.push(
-          getQuestion3_Yes2_Obj(event, jsonFile).then(function(){
-            return getLastQuestionYesObj(event, jsonFile);
-          })
+          getLastQuestionYesObj(event, jsonFile)
+        )
         console.log(cause);
       }
     else if(study == 'question2_no' && event.type == 'message' && cause == '')
@@ -156,9 +155,11 @@ async function getAnswerObj(data, jsonFile){
                   let send = JSON.parse(message1);
                   let question = JSON.parse(message2);
                   send.text = pro.displayName + send.text
-                  let ok = [];
-                  ok.push(send, question);
-                  return client.replyMessage(data.replyToken, ok);
+                  // let ok = [];
+                  // ok.push(send, question);
+                  return client.replyMessage(data.replyToken, send).then(function(){
+                    return replyMessage(data.replyToken, question);
+                  });
               }
         case 'postback':
             console.log('postbackの場合');
