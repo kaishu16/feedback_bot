@@ -155,7 +155,7 @@ async function getAnswerObj(data, jsonFile){
                   let send = JSON.parse(message1);
                   let question = JSON.parse(message2);
                   send.text = pro.displayName + send.text
-                  setTimeout(() => {client.pushMessage(data.source.userId, question)}, 1000);
+                  setTimeout(() => {client.pushMessage(data.source.userId, question)}, 1500);
                   return client.replyMessage(data.replyToken, send);
               }
         case 'postback':
@@ -175,9 +175,8 @@ async function getLastQuestionYesObj(data, jsonFile){
     let message2 = JSON.stringify(reply2);
     let send = JSON.parse(message1);
     let question = JSON.parse(message2);
-    let ok = [];
-    ok.push(send, question);
-    return client.replyMessage(data.replyToken, ok);
+    setTimeout(() => {client.pushMessage(data.source.userId, question)}, 1500);
+    return client.replyMessage(data.replyToken, send);
   }
 }
 
@@ -192,9 +191,9 @@ async function getLastQuestionNoObj(data, jsonFile){
     let send1 = JSON.parse(message1);
     let send2 = JSON.parse(message1_1)
     let question = JSON.parse(message2);
-    let ok = [];
-    ok.push(send1, send2, question);
-    return client.replyMessage(data.replyToken, ok);
+    setTimeout(() => {client.pushMessage(data.source.userId, send2)}, 1500);
+    setTimeout(() => {client.pushMessage(data.source.userId, question)}, 3000);
+    return client.replyMessage(data.replyToken, send1);
   }
 }
 
