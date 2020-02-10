@@ -156,7 +156,7 @@ async function getAnswerObj(data, jsonFile){
                   let question = JSON.parse(message2);
                   send.text = pro.displayName + send.text
                   setTimeout(() => {client.pushMessage(data.source.userId, question)}, 1500);
-                  return client.replyMessage(data.replyToken, send);
+                  return setTimeout(() => {client.pushMessage(data.source.userId, send)}, 6000);
               }
         case 'postback':
             console.log('postbackの場合');
