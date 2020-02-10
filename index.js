@@ -155,9 +155,8 @@ async function getAnswerObj(data, jsonFile){
                   let send = JSON.parse(message1);
                   let question = JSON.parse(message2);
                   send.text = pro.displayName + send.text
-                  let ok = [];
-                  ok.push(send, question);
-                  return client.replyMessage(data.replyToken, ok);
+                  client.pushMessage(data.source.userId, question)
+                  return client.replyMessage(data.replyToken, send);
               }
         case 'postback':
             console.log('postbackの場合');
