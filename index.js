@@ -155,15 +155,15 @@ async function getAnswerObj(data, jsonFile){
                   let send = JSON.parse(message1);
                   let question = JSON.parse(message2);
                   send.text = pro.displayName + send.text
-                  setTimeout(() => {client.pushMessage(data.source.userId, question)}, 1500);
-                  return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 6000);
+                  setTimeout(() => {client.pushMessage(data.source.userId, question)}, 6000);
+                  return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);
               }
         case 'postback':
             console.log('postbackの場合');
             let reply = jsonFile[data.postback.data];
             let message = JSON.stringify(reply);
             let question = JSON.parse(message);
-            return client.replyMessage(data.replyToken, question);
+            return setTimeout(() => {client.replyMessage(data.replyToken, question)}, 3000);
           }
 };
 
@@ -175,8 +175,8 @@ async function getLastQuestionYesObj(data, jsonFile){
     let message2 = JSON.stringify(reply2);
     let send = JSON.parse(message1);
     let question = JSON.parse(message2);
-    setTimeout(() => {client.pushMessage(data.source.userId, question)}, 1500);
-    return client.replyMessage(data.replyToken, send);
+    setTimeout(() => {client.pushMessage(data.source.userId, question)}, 6000);
+    return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);
   }
 }
 
@@ -191,9 +191,9 @@ async function getLastQuestionNoObj(data, jsonFile){
     let send1 = JSON.parse(message1);
     let send2 = JSON.parse(message1_1)
     let question = JSON.parse(message2);
-    setTimeout(() => {client.pushMessage(data.source.userId, send2)}, 1500);
-    setTimeout(() => {client.pushMessage(data.source.userId, question)}, 3000);
-    return client.replyMessage(data.replyToken, send1);
+    setTimeout(() => {client.pushMessage(data.source.userId, send2)}, 6000);
+    setTimeout(() => {client.pushMessage(data.source.userId, question)}, 9000);
+    return setTimeout(() => {client.replyMessage(data.replyToken, send1)}, 3000);
   }
 }
 
@@ -201,7 +201,7 @@ async function getLastMessageObj(data, jsonFile){
       let reply = jsonFile.last_message;
       let message = JSON.stringify(reply);
       let send = JSON.parse(message);
-      return client.replyMessage(data.replyToken, send);
+      return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);
   }
 
 
@@ -210,6 +210,6 @@ async function getAdditionalMessageObj(data, jsonFile){
       let reply = jsonFile.additional_question;
       let message = JSON.stringify(reply);
       let send = JSON.parse(message);
-      return client.replyMessage(data.replyToken, send);
+      return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);
   }
 }
