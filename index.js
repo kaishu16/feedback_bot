@@ -178,11 +178,11 @@ async function getAnswerObj(data, jsonFile){
                     send = JSON.parse(message1);
                     console.log('ここまで来てます');
                     
-                    question = JSON.parse(message2);
+                    let question_mon = JSON.parse(message2);
                     console.log('通りました');
                     
                     send.text = pro.displayName + send.text
-                    setTimeout(() => {client.pushMessage(data.source.userId, question)}, 6000);
+                    setTimeout(() => {client.pushMessage(data.source.userId, question_mon)}, 6000);
                     return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);    
                   }
 
