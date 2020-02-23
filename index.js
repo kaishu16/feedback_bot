@@ -148,6 +148,7 @@ async function getAnswerObj(data, jsonFile){
               // テキストメッセージの場合、入力された文字列に応じて分岐
               var today = new Date();
               var weekday = today.getDay();
+              weekday = weekday + 1;
 
               switch(weekday){
 
