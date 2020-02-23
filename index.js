@@ -194,7 +194,7 @@ async function getAnswerObj(data, jsonFile){
                     message1 = JSON.stringify(reply1);
                     message2 = JSON.stringify(reply2);
                     send = JSON.parse(message1);
-                    question = JSON.parse(message2);
+                    question_tue = JSON.parse(message2);
                     send.text = pro.displayName + send.text
                     setTimeout(() => {client.pushMessage(data.source.userId, question)}, 6000);
                     return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);    
@@ -270,6 +270,7 @@ async function getLastQuestionYesObj(data, jsonFile){
   if (data.type == 'message') {
     var today = new Date();
     var weekday = today.getDay();
+    weekday = weekday + 1;
 
     switch(weekday){
 
