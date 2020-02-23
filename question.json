@@ -4,7 +4,9 @@
      "type": "text",
      "text": "さんお疲れ様です！今日も学習を振り返っていきましょう！"
   },
-  "question1":
+
+  //Sunday
+  "question1_sun":
   {
     "type": "template",
     "altText": "最初の質問",
@@ -15,44 +17,44 @@
             {
                   "type": "postback",
                   "label": "はい",
-                  "data": "question2_yes",
+                  "data": "question2_yes_sun",
                   "displayText": "はい"
             },
             {
                   "type": "postback",
                   "label": "いいえ",
-                  "data": "question2_no",
+                  "data": "question2_no_sun",
                   "displayText": "いいえ"
             }
         ]
     }
   },
-  "question2_yes":
+  "question2_yes_sun":
   {
     "type": "text",
     "text": "さすがです！上手く進められた要因として何があげられますか？"
   },
-  "question2_no":
+  "question2_no_sun":
   {
     "type": "text",
     "text": "なるほど！予定通り進まなかった要因として何があげられますか？"
   },
-  "question3_yes":
+  "question3_yes_sun":
   {
     "type": "text",
     "text": "なるほど！それではスケジュールノートをもとに明日の学習計画を見直していきましょう！"
   },
-  "question3_no1":
+  "question3_no1_sun":
   {
     "type": "text",
     "text": "なるほど！ 明日は同じことがないように気をつけていきましょう！"
   },
-  "question3_no2":
+  "question3_no2_sun":
   {
     "type": "text",
     "text": "それではスケジュールノートをもとに明日の学習計画を見直していきます!"
   },
-  "last_question_yes":
+  "last_question_yes_sun":
   {
     "type": "template",
     "altText": "最後の質問",
@@ -69,13 +71,13 @@
           {
             "type": "postback",
             "label": "いいえ",
-            "data": "additional_question",
+            "data": "additional_question_sun",
             "displayText": "いいえ"
           }
         ]
     }
   },
-  "last_question_no":
+  "last_question_no_sun":
   {
     "type": "template",
     "altText": "最後の質問",
@@ -86,7 +88,7 @@
             {
               "type": "postback",
               "label": "はい",
-              "data": "additional_question",
+              "data": "additional_question_sun",
               "displayText": "はい"
             },
             {
@@ -98,7 +100,8 @@
         ]
     }
   },
-  "additional_question":
+
+  "additional_question_sun":
   {
     "type": "text",
     "text": "変更点として何があげられますか？"
