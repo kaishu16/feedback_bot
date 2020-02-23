@@ -455,6 +455,7 @@ async function getLastQuestionNoObj(data, jsonFile){
 async function getLastMessageObj(data, jsonFile){
   var today = new Date();
     var weekday = today.getDay();
+    weekday = weekday + 1;
     
     switch(weekday){
       //Sunday
