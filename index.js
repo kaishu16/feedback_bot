@@ -505,9 +505,9 @@ async function getAdditionalMessageObj(data, jsonFile){
         console.log(weekday);
         
 
-        let reply = jsonFile.additional_question_mon;
-        let message = JSON.stringify(reply);
-        let send = JSON.parse(message);
+        reply = jsonFile.additional_question_mon;
+        message = JSON.stringify(reply);
+        send = JSON.parse(message);
         return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);
 
       case 2:
@@ -515,9 +515,9 @@ async function getAdditionalMessageObj(data, jsonFile){
         console.log(weekday);
         
 
-        let reply = jsonFile.additional_question_tue;
-        let message = JSON.stringify(reply);
-        let send = JSON.parse(message);
+        reply = jsonFile.additional_question_tue;
+        message = JSON.stringify(reply);
+        send = JSON.parse(message);
         return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);
 
       
@@ -526,9 +526,9 @@ async function getAdditionalMessageObj(data, jsonFile){
         console.log(weekday);
         
 
-        let reply = jsonFile.additional_question_wed;
-        let message = JSON.stringify(reply);
-        let send = JSON.parse(message);
+        reply = jsonFile.additional_question_wed;
+        message = JSON.stringify(reply);
+        send = JSON.parse(message);
         return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000); 
         
       case 4:
@@ -536,9 +536,9 @@ async function getAdditionalMessageObj(data, jsonFile){
       console.log(weekday);
       
 
-      let reply = jsonFile.additional_question_thu;
-      let message = JSON.stringify(reply);
-      let send = JSON.parse(message);
+      reply = jsonFile.additional_question_thu;
+      message = JSON.stringify(reply);
+      send = JSON.parse(message);
       return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000); 
 
       case 5:
@@ -546,9 +546,9 @@ async function getAdditionalMessageObj(data, jsonFile){
       console.log(weekday);
       
 
-      let reply = jsonFile.additional_question_fri;
-      let message = JSON.stringify(reply);
-      let send = JSON.parse(message);
+      reply = jsonFile.additional_question_fri;
+      message = JSON.stringify(reply);
+      send = JSON.parse(message);
       return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000); 
 
       case 6:
@@ -556,9 +556,9 @@ async function getAdditionalMessageObj(data, jsonFile){
       console.log(weekday);
       
 
-      let reply = jsonFile.additional_question_sat;
-      let message = JSON.stringify(reply);
-      let send = JSON.parse(message);
+      reply = jsonFile.additional_question_sat;
+      message = JSON.stringify(reply);
+      send = JSON.parse(message);
       return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000); 
      
 
