@@ -47,7 +47,7 @@ function lineBot(req, res) {
     // console.log('データ作成');
 
     if (event.type == 'postback'){
-      if (event.postback.data == 'question2_yes_sun')
+      if (event.postback.data == 'question2_yes_sun' || event.postback.data == 'question2_yes_mon' || event.postback.data == 'question2_yes_tue' || event.postback.data == 'question2_yes_wed' || event.postback.data == 'question2_yes_thu' || event.postback.data == 'question2_yes_fri' || event.postback.data == 'question2_yes_sat')
       {
         study = 'question2_yes';
         promises.push(
@@ -55,7 +55,7 @@ function lineBot(req, res) {
         )
         console.log(study);
       }
-     else if (event.postback.data == 'question2_no_sun')
+     else if (event.postback.data == 'question2_no_sun' || event.postback.data == 'question2_no_mon' || event.postback.data == 'question2_no_tue' || event.postback.data == 'question2_no_wed' || event.postback.data == 'question2_no_thu' || event.postback.data == 'question2_no_fri' || event.postback.data == 'question2_no_sat')
       {
         study = 'question2_no';
         promises.push(
@@ -63,7 +63,7 @@ function lineBot(req, res) {
         )
         console.log(study);
       }
-      else if (event.postback.data == 'additional_question_sun') {
+      else if (event.postback.data == 'additional_question_sun' || event.postback.data == 'additional_question_mon' || event.postback.data == 'additional_question_tue' || event.postback.data == 'additional_question_wed' || event.postback.data == 'additional_question_thu' || event.postback.data == 'additional_question_fri' || event.postback.data == 'additional_question_sat' ) {
           better = 'additional_question';
         promises.push(
           getAdditionalMessageObj(event, jsonFile)
@@ -265,7 +265,7 @@ async function getLastQuestionYesObj(data, jsonFile){
     var weekday = today.getDay();
 
     switch(weekday){
-//Sunday
+
       case 0:
         let reply1 = jsonFile.question3_yes_sun;
         let reply2 = jsonFile.last_question_yes_sun;
@@ -275,6 +275,66 @@ async function getLastQuestionYesObj(data, jsonFile){
         let question = JSON.parse(message2);
         setTimeout(() => {client.pushMessage(data.source.userId, question)}, 6000);
         return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);
+
+      case 1:
+        reply1 = jsonFile.question3_yes_mon;
+        reply2 = jsonFile.last_question_yes_mon;
+        message1 = JSON.stringify(reply1);
+        message2 = JSON.stringify(reply2);
+        send = JSON.parse(message1);
+        question = JSON.parse(message2);
+        setTimeout(() => {client.pushMessage(data.source.userId, question)}, 6000);
+        return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);  
+
+      case 2:
+        reply1 = jsonFile.question3_yes_tue;
+        reply2 = jsonFile.last_question_yes_tue;
+        message1 = JSON.stringify(reply1);
+        message2 = JSON.stringify(reply2);
+        send = JSON.parse(message1);
+        question = JSON.parse(message2);
+        setTimeout(() => {client.pushMessage(data.source.userId, question)}, 6000);
+        return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);  
+
+      case 3:
+        reply1 = jsonFile.question3_yes_wed;
+        reply2 = jsonFile.last_question_yes_wed;
+        message1 = JSON.stringify(reply1);
+        message2 = JSON.stringify(reply2);
+        send = JSON.parse(message1);
+        question = JSON.parse(message2);
+        setTimeout(() => {client.pushMessage(data.source.userId, question)}, 6000);
+        return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);   
+      
+      case 4:
+        reply1 = jsonFile.question3_yes_thu;
+        reply2 = jsonFile.last_question_yes_thu;
+        message1 = JSON.stringify(reply1);
+        message2 = JSON.stringify(reply2);
+        send = JSON.parse(message1);
+        question = JSON.parse(message2);
+        setTimeout(() => {client.pushMessage(data.source.userId, question)}, 6000);
+        return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000); 
+        
+      case 5:
+        reply1 = jsonFile.question3_yes_fri;
+        reply2 = jsonFile.last_question_yes_fri;
+        message1 = JSON.stringify(reply1);
+        message2 = JSON.stringify(reply2);
+        send = JSON.parse(message1);
+        question = JSON.parse(message2);
+        setTimeout(() => {client.pushMessage(data.source.userId, question)}, 6000);
+        return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);   
+
+      case 6:
+        reply1 = jsonFile.question3_yes_sat;
+        reply2 = jsonFile.last_question_yes_sat;
+        message1 = JSON.stringify(reply1);
+        message2 = JSON.stringify(reply2);
+        send = JSON.parse(message1);
+        question = JSON.parse(message2);
+        setTimeout(() => {client.pushMessage(data.source.userId, question)}, 6000);
+        return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000); 
 
     }
     
@@ -307,12 +367,12 @@ async function getLastQuestionNoObj(data, jsonFile){
         return setTimeout(() => {client.replyMessage(data.replyToken, send1)}, 3000);
 
       case 1:
-        console.log('今日は日曜日');
-        console.log(today.getDate());
+        console.log('今日は月曜日');
+        console.log(weekday);
 
-        reply1 = jsonFile.question3_no1;
-        reply1_1 = jsonFile.question3_no2;
-        reply2 = jsonFile.last_question_no;
+        reply1 = jsonFile.question3_no1_mon;
+        reply1_1 = jsonFile.question3_no2_mon;
+        reply2 = jsonFile.last_question_no_mon;
         message1 = JSON.stringify(reply1);
         message1_1 = JSON.stringify(reply1_1);
         message2 = JSON.stringify(reply2);
@@ -323,6 +383,93 @@ async function getLastQuestionNoObj(data, jsonFile){
         setTimeout(() => {client.pushMessage(data.source.userId, question)}, 9000);
         return setTimeout(() => {client.replyMessage(data.replyToken, send1)}, 3000);
 
+      case 2:
+        console.log('今日は火曜日');
+        console.log(weekday);
+
+        reply1 = jsonFile.question3_no1_tue;
+        reply1_1 = jsonFile.question3_no2_tue;
+        reply2 = jsonFile.last_question_no_tue;
+        message1 = JSON.stringify(reply1);
+        message1_1 = JSON.stringify(reply1_1);
+        message2 = JSON.stringify(reply2);
+        send1 = JSON.parse(message1);
+        send2 = JSON.parse(message1_1)
+        question = JSON.parse(message2);
+        setTimeout(() => {client.pushMessage(data.source.userId, send2)}, 6000);
+        setTimeout(() => {client.pushMessage(data.source.userId, question)}, 9000);
+        return setTimeout(() => {client.replyMessage(data.replyToken, send1)}, 3000);  
+        
+       case 3:
+        console.log('今日は水曜日');
+        console.log(weekday);
+
+        reply1 = jsonFile.question3_no1_wed;
+        reply1_1 = jsonFile.question3_no2_wed;
+        reply2 = jsonFile.last_question_no_wed;
+        message1 = JSON.stringify(reply1);
+        message1_1 = JSON.stringify(reply1_1);
+        message2 = JSON.stringify(reply2);
+        send1 = JSON.parse(message1);
+        send2 = JSON.parse(message1_1)
+        question = JSON.parse(message2);
+        setTimeout(() => {client.pushMessage(data.source.userId, send2)}, 6000);
+        setTimeout(() => {client.pushMessage(data.source.userId, question)}, 9000);
+        return setTimeout(() => {client.replyMessage(data.replyToken, send1)}, 3000);  
+        
+      case 4:
+        console.log('今日は木曜日');
+        console.log(weekday);
+
+        reply1 = jsonFile.question3_no1_thu;
+        reply1_1 = jsonFile.question3_no2_thu;
+        reply2 = jsonFile.last_question_no_thu;
+        message1 = JSON.stringify(reply1);
+        message1_1 = JSON.stringify(reply1_1);
+        message2 = JSON.stringify(reply2);
+        send1 = JSON.parse(message1);
+        send2 = JSON.parse(message1_1)
+        question = JSON.parse(message2);
+        setTimeout(() => {client.pushMessage(data.source.userId, send2)}, 6000);
+        setTimeout(() => {client.pushMessage(data.source.userId, question)}, 9000);
+        return setTimeout(() => {client.replyMessage(data.replyToken, send1)}, 3000);  
+
+      case 5:
+        console.log('今日は金曜日');
+        console.log(weekday);
+
+        reply1 = jsonFile.question3_no1_fri;
+        reply1_1 = jsonFile.question3_no2_fri;
+        reply2 = jsonFile.last_question_no_fri;
+        message1 = JSON.stringify(reply1);
+        message1_1 = JSON.stringify(reply1_1);
+        message2 = JSON.stringify(reply2);
+        send1 = JSON.parse(message1);
+        send2 = JSON.parse(message1_1)
+        question = JSON.parse(message2);
+        setTimeout(() => {client.pushMessage(data.source.userId, send2)}, 6000);
+        setTimeout(() => {client.pushMessage(data.source.userId, question)}, 9000);
+        return setTimeout(() => {client.replyMessage(data.replyToken, send1)}, 3000);  
+
+      case 6:
+        console.log('今日は土曜日');
+        console.log(weekday);
+
+        reply1 = jsonFile.question3_no1_sat;
+        reply1_1 = jsonFile.question3_no2_sat;
+        reply2 = jsonFile.last_question_no_sat;
+        message1 = JSON.stringify(reply1);
+        message1_1 = JSON.stringify(reply1_1);
+        message2 = JSON.stringify(reply2);
+        send1 = JSON.parse(message1);
+        send2 = JSON.parse(message1_1)
+        question = JSON.parse(message2);
+        setTimeout(() => {client.pushMessage(data.source.userId, send2)}, 6000);
+        setTimeout(() => {client.pushMessage(data.source.userId, question)}, 9000);
+        return setTimeout(() => {client.replyMessage(data.replyToken, send1)}, 3000);    
+      
+        
+              
     }
   }
 }
@@ -352,6 +499,70 @@ async function getAdditionalMessageObj(data, jsonFile){
         let message = JSON.stringify(reply);
         let send = JSON.parse(message);
         return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);
+
+      case 1:
+        console.log('今日は月曜日');
+        console.log(weekday);
+        
+
+        let reply = jsonFile.additional_question_mon;
+        let message = JSON.stringify(reply);
+        let send = JSON.parse(message);
+        return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);
+
+      case 2:
+        console.log('今日は火曜日');
+        console.log(weekday);
+        
+
+        let reply = jsonFile.additional_question_tue;
+        let message = JSON.stringify(reply);
+        let send = JSON.parse(message);
+        return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);
+
+      
+      case 3:
+        console.log('今日は水曜日');
+        console.log(weekday);
+        
+
+        let reply = jsonFile.additional_question_wed;
+        let message = JSON.stringify(reply);
+        let send = JSON.parse(message);
+        return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000); 
+        
+      case 4:
+      console.log('今日は木曜日');
+      console.log(weekday);
+      
+
+      let reply = jsonFile.additional_question_thu;
+      let message = JSON.stringify(reply);
+      let send = JSON.parse(message);
+      return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000); 
+
+      case 5:
+      console.log('今日は金曜日');
+      console.log(weekday);
+      
+
+      let reply = jsonFile.additional_question_fri;
+      let message = JSON.stringify(reply);
+      let send = JSON.parse(message);
+      return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000); 
+
+      case 6:
+      console.log('今日は土曜日');
+      console.log(weekday);
+      
+
+      let reply = jsonFile.additional_question_sat;
+      let message = JSON.stringify(reply);
+      let send = JSON.parse(message);
+      return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000); 
+     
+
+
     }
       
   }

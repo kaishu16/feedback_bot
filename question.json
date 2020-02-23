@@ -104,6 +104,571 @@
     "type": "text",
     "text": "変更点として何があげられますか？"
   },
+  "question1_mon":
+  {
+    "type": "template",
+    "altText": "最初の質問",
+    "template": {
+        "type": "confirm",
+        "text": "本日も予定通り学習できましたか？",
+        "actions": [
+            {
+                  "type": "postback",
+                  "label": "はい",
+                  "data": "question2_yes_mon",
+                  "displayText": "はい"
+            },
+            {
+                  "type": "postback",
+                  "label": "いいえ",
+                  "data": "question2_no_mon",
+                  "displayText": "いいえ"
+            }
+        ]
+    }
+  },
+  "question2_yes_mon":
+  {
+    "type": "text",
+    "text": "さすがです！上手く進められた要因として何があげられますか？"
+  },
+  "question2_no_mon":
+  {
+    "type": "text",
+    "text": "なるほど！予定通り進まなかった要因として何があげられますか？"
+  },
+  "question3_yes_mon":
+  {  
+    "type": "text",
+    "text": "なるほど！それではスケジュールノートをもとに明日の学習計画を見直していきましょう！"
+  },
+  "question3_no1_mon":
+  {
+    "type": "text",
+    "text": "なるほど！ 明日は同じことがないように気をつけていきましょう！"
+  },
+  "question3_no2_mon":
+  {
+    "type": "text",
+    "text": "それではスケジュールノートをもとに明日の学習計画を見直していきます!"
+  },
+  "last_question_yes_mon":
+  {
+    "type": "template",
+    "altText": "最後の質問",
+    "template": {
+        "type": "confirm",
+        "text": "明日の学習計画は変更しなくても良さそうですか？",
+        "actions": [
+          {
+            "type": "postback",
+            "label": "はい",
+            "data": "last_message",
+            "displayText": "はい"
+          },
+          {
+            "type": "postback",
+            "label": "いいえ",
+            "data": "additional_question_mon",
+            "displayText": "いいえ"
+          }
+        ]
+    }
+  },
+  "last_question_no_mon":
+  {
+    "type": "template",
+    "altText": "最後の質問",
+    "template": {
+        "type": "confirm",
+        "text": "明日の学習計画は変更した方が良さそうですか？",
+        "actions": [
+            {
+              "type": "postback",
+              "label": "はい",
+              "data": "additional_question_mon",
+              "displayText": "はい"
+            },
+            {
+              "type": "postback",
+              "label": "いいえ",
+              "data": "last_message",
+              "displayText": "いいえ"
+            }
+        ]
+    }
+  },
+  "question1_tue":
+  {
+    "type": "template",
+    "altText": "最初の質問",
+    "template": {
+        "type": "confirm",
+        "text": "本日も予定通り学習できましたか？",
+        "actions": [
+            {
+                  "type": "postback",
+                  "label": "はい",
+                  "data": "question2_yes_tue",
+                  "displayText": "はい"
+            },
+            {
+                  "type": "postback",
+                  "label": "いいえ",
+                  "data": "question2_no_tue",
+                  "displayText": "いいえ"
+            }
+        ]
+    }
+  },
+  "question2_yes_tue":
+  {
+    "type": "text",
+    "text": "さすがです！上手く進められた要因として何があげられますか？"
+  },
+  "question2_no_tue":
+  {
+    "type": "text",
+    "text": "なるほど！予定通り進まなかった要因として何があげられますか？"
+  },
+  "question3_yes_tue":
+  {
+    "type": "text",
+    "text": "なるほど！それではスケジュールノートをもとに明日の学習計画を見直していきましょう！"
+  },
+  "question3_no1_tue":
+  {
+    "type": "text",
+    "text": "なるほど！ 明日は同じことがないように気をつけていきましょう！"
+  },
+  "question3_no2_tue":
+  {
+    "type": "text",
+    "text": "それではスケジュールノートをもとに明日の学習計画を見直していきます!"
+  },
+  "last_question_yes_tue":
+  {
+    "type": "template",
+    "altText": "最後の質問",
+    "template": {
+        "type": "confirm",
+        "text": "明日の学習計画は変更しなくても良さそうですか？",
+        "actions": [
+          {
+            "type": "postback",
+            "label": "はい",
+            "data": "last_message",
+            "displayText": "はい"
+          },
+          {
+            "type": "postback",
+            "label": "いいえ",
+            "data": "additional_question_tue",
+            "displayText": "いいえ"
+          }
+        ]
+    }
+  },
+  "last_question_no_tue":
+  {
+    "type": "template",
+    "altText": "最後の質問",
+    "template": {
+        "type": "confirm",
+        "text": "明日の学習計画は変更した方が良さそうですか？",
+        "actions": [
+            {
+              "type": "postback",
+              "label": "はい",
+              "data": "additional_question_tue",
+              "displayText": "はい"
+            },
+            {
+              "type": "postback",
+              "label": "いいえ",
+              "data": "last_message",
+              "displayText": "いいえ"
+            }
+        ]
+    }
+  },
+  "question1_wed":
+  {
+    "type": "template",
+    "altText": "最初の質問",
+    "template": {
+        "type": "confirm",
+        "text": "本日も予定通り学習できましたか？",
+        "actions": [
+            {
+                  "type": "postback",
+                  "label": "はい",
+                  "data": "question2_yes_wed",
+                  "displayText": "はい"
+            },
+            {
+                  "type": "postback",
+                  "label": "いいえ",
+                  "data": "question2_no_wed",
+                  "displayText": "いいえ"
+            }
+        ]
+    }
+  },
+  "question2_yes_wed":
+  {
+    "type": "text",
+    "text": "さすがです！上手く進められた要因として何があげられますか？"
+  },
+  "question2_no_wed":
+  {
+    "type": "text",
+    "text": "なるほど！予定通り進まなかった要因として何があげられますか？"
+  },
+  "question3_yes_wed":
+  {
+    "type": "text",
+    "text": "なるほど！それではスケジュールノートをもとに明日の学習計画を見直していきましょう！"
+  },
+  "question3_no1_wed":
+  {
+    "type": "text",
+    "text": "なるほど！ 明日は同じことがないように気をつけていきましょう！"
+  },
+  "question3_no2_wed":
+  {
+    "type": "text",
+    "text": "それではスケジュールノートをもとに明日の学習計画を見直していきます!"
+  },
+  "last_question_yes_wed":
+  {
+    "type": "template",
+    "altText": "最後の質問",
+    "template": {
+        "type": "confirm",
+        "text": "明日の学習計画は変更しなくても良さそうですか？",
+        "actions": [
+          {
+            "type": "postback",
+            "label": "はい",
+            "data": "last_message",
+            "displayText": "はい"
+          },
+          {
+            "type": "postback",
+            "label": "いいえ",
+            "data": "additional_question_wed",
+            "displayText": "いいえ"
+          }
+        ]
+    }
+  },
+  "last_question_no_wed":
+  {
+    "type": "template",
+    "altText": "最後の質問",
+    "template": {
+        "type": "confirm",
+        "text": "明日の学習計画は変更した方が良さそうですか？",
+        "actions": [
+            {
+              "type": "postback",
+              "label": "はい",
+              "data": "additional_question_wed",
+              "displayText": "はい"
+            },
+            {
+              "type": "postback",
+              "label": "いいえ",
+              "data": "last_message",
+              "displayText": "いいえ"
+            }
+        ]
+    }
+  },
+  "question1_thu":
+  {
+    "type": "template",
+    "altText": "最初の質問",
+    "template": {
+        "type": "confirm",
+        "text": "本日も予定通り学習できましたか？",
+        "actions": [
+            {
+                  "type": "postback",
+                  "label": "はい",
+                  "data": "question2_yes_thu",
+                  "displayText": "はい"
+            },
+            {
+                  "type": "postback",
+                  "label": "いいえ",
+                  "data": "question2_no_thu",
+                  "displayText": "いいえ"
+            }
+        ]
+    }
+  },
+  "question2_yes_thu":
+  {
+    "type": "text",
+    "text": "さすがです！上手く進められた要因として何があげられますか？"
+  },
+  "question2_no_thu":
+  {
+    "type": "text",
+    "text": "なるほど！予定通り進まなかった要因として何があげられますか？"
+  },
+  "question3_yes_thu":
+  {
+    "type": "text",
+    "text": "なるほど！それではスケジュールノートをもとに明日の学習計画を見直していきましょう！"
+  },
+  "question3_no1_thu":
+  {
+    "type": "text",
+    "text": "なるほど！ 明日は同じことがないように気をつけていきましょう！"
+  },
+  "question3_no2_thu":
+  {
+    "type": "text",
+    "text": "それではスケジュールノートをもとに明日の学習計画を見直していきます!"
+  },
+  "last_question_yes_thu":
+  {
+    "type": "template",
+    "altText": "最後の質問",
+    "template": {
+        "type": "confirm",
+        "text": "明日の学習計画は変更しなくても良さそうですか？",
+        "actions": [
+          {
+            "type": "postback",
+            "label": "はい",
+            "data": "last_message",
+            "displayText": "はい"
+          },
+          {
+            "type": "postback",
+            "label": "いいえ",
+            "data": "additional_question_thu",
+            "displayText": "いいえ"
+          }
+        ]
+    }
+  },
+  "last_question_no_thu":
+  {
+    "type": "template",
+    "altText": "最後の質問",
+    "template": {
+        "type": "confirm",
+        "text": "明日の学習計画は変更した方が良さそうですか？",
+        "actions": [
+            {
+              "type": "postback",
+              "label": "はい",
+              "data": "additional_question_thu",
+              "displayText": "はい"
+            },
+            {
+              "type": "postback",
+              "label": "いいえ",
+              "data": "last_message",
+              "displayText": "いいえ"
+            }
+        ]
+    }
+  },
+  "question1_fri":
+  {
+    "type": "template",
+    "altText": "最初の質問",
+    "template": {
+        "type": "confirm",
+        "text": "本日も予定通り学習できましたか？",
+        "actions": [
+            {
+                  "type": "postback",
+                  "label": "はい",
+                  "data": "question2_yes_fri",
+                  "displayText": "はい"
+            },
+            {
+                  "type": "postback",
+                  "label": "いいえ",
+                  "data": "question2_no_fri",
+                  "displayText": "いいえ"
+            }
+        ]
+    }
+  },
+  "question2_yes_fri":
+  {
+    "type": "text",
+    "text": "さすがです！上手く進められた要因として何があげられますか？"
+  },
+  "question2_no_fri":
+  {
+    "type": "text",
+    "text": "なるほど！予定通り進まなかった要因として何があげられますか？"
+  },
+  "question3_yes_fri":
+  {
+    "type": "text",
+    "text": "なるほど！それではスケジュールノートをもとに明日の学習計画を見直していきましょう！"
+  },
+  "question3_no1_fri":
+  {
+    "type": "text",
+    "text": "なるほど！ 明日は同じことがないように気をつけていきましょう！"
+  },
+  "question3_no2_fri":
+  {
+    "type": "text",
+    "text": "それではスケジュールノートをもとに明日の学習計画を見直していきます!"
+  },
+  "last_question_yes_fri":
+  {
+    "type": "template",
+    "altText": "最後の質問",
+    "template": {
+        "type": "confirm",
+        "text": "明日の学習計画は変更しなくても良さそうですか？",
+        "actions": [
+          {
+            "type": "postback",
+            "label": "はい",
+            "data": "last_message",
+            "displayText": "はい"
+          },
+          {
+            "type": "postback",
+            "label": "いいえ",
+            "data": "additional_question_fri",
+            "displayText": "いいえ"
+          }
+        ]
+    }
+  },
+  "last_question_no_fri":
+  {
+    "type": "template",
+    "altText": "最後の質問",
+    "template": {
+        "type": "confirm",
+        "text": "明日の学習計画は変更した方が良さそうですか？",
+        "actions": [
+            {
+              "type": "postback",
+              "label": "はい",
+              "data": "additional_question_fri",
+              "displayText": "はい"
+            },
+            {
+              "type": "postback",
+              "label": "いいえ",
+              "data": "last_message",
+              "displayText": "いいえ"
+            }
+        ]
+    }
+  },
+  "question1_sat":
+  {
+    "type": "template",
+    "altText": "最初の質問",
+    "template": {
+        "type": "confirm",
+        "text": "本日も予定通り学習できましたか？",
+        "actions": [
+            {
+                  "type": "postback",
+                  "label": "はい",
+                  "data": "question2_yes_sat",
+                  "displayText": "はい"
+            },
+            {
+                  "type": "postback",
+                  "label": "いいえ",
+                  "data": "question2_no_sat",
+                  "displayText": "いいえ"
+            }
+        ]
+    }
+  },
+  "question2_yes_sat":
+  {
+    "type": "text",
+    "text": "さすがです！上手く進められた要因として何があげられますか？"
+  },
+  "question2_no_sat":
+  {
+    "type": "text",
+    "text": "なるほど！予定通り進まなかった要因として何があげられますか？"
+  },
+  "question3_yes_sat":
+  {
+    "type": "text",
+    "text": "なるほど！それではスケジュールノートをもとに明日の学習計画を見直していきましょう！"
+  },
+  "question3_no1_sat":
+  {
+    "type": "text",
+    "text": "なるほど！ 明日は同じことがないように気をつけていきましょう！"
+  },
+  "question3_no2_sat":
+  {
+    "type": "text",
+    "text": "それではスケジュールノートをもとに明日の学習計画を見直していきます!"
+  },
+  "last_question_yes_sat":
+  {
+    "type": "template",
+    "altText": "最後の質問",
+    "template": {
+        "type": "confirm",
+        "text": "明日の学習計画は変更しなくても良さそうですか？",
+        "actions": [
+          {
+            "type": "postback",
+            "label": "はい",
+            "data": "last_message",
+            "displayText": "はい"
+          },
+          {
+            "type": "postback",
+            "label": "いいえ",
+            "data": "additional_question_sat",
+            "displayText": "いいえ"
+          }
+        ]
+    }
+  },
+  "last_question_no_sat":
+  {
+    "type": "template",
+    "altText": "最後の質問",
+    "template": {
+        "type": "confirm",
+        "text": "明日の学習計画は変更した方が良さそうですか？",
+        "actions": [
+            {
+              "type": "postback",
+              "label": "はい",
+              "data": "additional_question_sat",
+              "displayText": "はい"
+            },
+            {
+              "type": "postback",
+              "label": "いいえ",
+              "data": "last_message",
+              "displayText": "いいえ"
+            }
+        ]
+    }
+  },
+
   "last_message":
   {
      "type": "text",
