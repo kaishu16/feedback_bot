@@ -63,7 +63,7 @@
           {
             "type": "postback",
             "label": "はい",
-            "data": "last_message",
+            "data": "last_message_sun",
             "displayText": "はい"
           },
           {
@@ -92,7 +92,7 @@
             {
               "type": "postback",
               "label": "いいえ",
-              "data": "last_message",
+              "data": "last_message_sun",
               "displayText": "いいえ"
             }
         ]
@@ -162,7 +162,7 @@
           {
             "type": "postback",
             "label": "はい",
-            "data": "last_message",
+            "data": "last_message_mon",
             "displayText": "はい"
           },
           {
@@ -191,7 +191,7 @@
             {
               "type": "postback",
               "label": "いいえ",
-              "data": "last_message",
+              "data": "last_message_mon",
               "displayText": "いいえ"
             }
         ]
@@ -261,7 +261,7 @@
           {
             "type": "postback",
             "label": "はい",
-            "data": "last_message",
+            "data": "last_message_tue",
             "displayText": "はい"
           },
           {
@@ -290,7 +290,7 @@
             {
               "type": "postback",
               "label": "いいえ",
-              "data": "last_message",
+              "data": "last_message_tue",
               "displayText": "いいえ"
             }
         ]
@@ -360,7 +360,7 @@
           {
             "type": "postback",
             "label": "はい",
-            "data": "last_message",
+            "data": "last_message_wed",
             "displayText": "はい"
           },
           {
@@ -389,7 +389,7 @@
             {
               "type": "postback",
               "label": "いいえ",
-              "data": "last_message",
+              "data": "last_message_wed",
               "displayText": "いいえ"
             }
         ]
@@ -459,7 +459,7 @@
           {
             "type": "postback",
             "label": "はい",
-            "data": "last_message",
+            "data": "last_message_thu",
             "displayText": "はい"
           },
           {
@@ -488,7 +488,7 @@
             {
               "type": "postback",
               "label": "いいえ",
-              "data": "last_message",
+              "data": "last_message_thu",
               "displayText": "いいえ"
             }
         ]
@@ -558,7 +558,7 @@
           {
             "type": "postback",
             "label": "はい",
-            "data": "last_message",
+            "data": "last_message_fri",
             "displayText": "はい"
           },
           {
@@ -587,7 +587,7 @@
             {
               "type": "postback",
               "label": "いいえ",
-              "data": "last_message",
+              "data": "last_message_fri",
               "displayText": "いいえ"
             }
         ]
@@ -657,7 +657,7 @@
           {
             "type": "postback",
             "label": "はい",
-            "data": "last_message",
+            "data": "last_message_sat",
             "displayText": "はい"
           },
           {
@@ -686,7 +686,7 @@
             {
               "type": "postback",
               "label": "いいえ",
-              "data": "last_message",
+              "data": "last_message_sat",
               "displayText": "いいえ"
             }
         ]
