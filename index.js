@@ -184,11 +184,12 @@ async function getLastQuestionNoObj(data, jsonFile){
   if (data.type == 'message') {
     var today = new Date();
     var weekday = today.getDate();
+    console.log(weekday);
+    
     switch(weekday){
       //Sunday
       case 0:
         console.log('今日は日曜日');
-        console.log(today.getDate());
 
         let reply1 = jsonFile.question3_no1;
         let reply1_1 = jsonFile.question3_no2;
