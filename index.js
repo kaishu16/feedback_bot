@@ -162,8 +162,92 @@ async function getAnswerObj(data, jsonFile){
                   let question = JSON.parse(message2);
                   send.text = pro.displayName + send.text
                   setTimeout(() => {client.pushMessage(data.source.userId, question)}, 6000);
-                  return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);
-              }
+                  return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);    
+                }
+
+                case 1:
+                  if (data.message.text == '振り返り') {
+                    pro = await client.getProfile(data.source.userId);
+                    reply1 = jsonFile.first_message;
+                    reply2 = jsonFile.question1_sun;
+                    message1 = JSON.stringify(reply1);
+                    message2 = JSON.stringify(reply2);
+                    send = JSON.parse(message1);
+                    question = JSON.parse(message2);
+                    send.text = pro.displayName + send.text
+                    setTimeout(() => {client.pushMessage(data.source.userId, question)}, 6000);
+                    return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);    
+                  }
+
+                case 2:
+                  if (data.message.text == '振り返り') {
+                    pro = await client.getProfile(data.source.userId);
+                    reply1 = jsonFile.first_message;
+                    reply2 = jsonFile.question1_sun;
+                    message1 = JSON.stringify(reply1);
+                    message2 = JSON.stringify(reply2);
+                    send = JSON.parse(message1);
+                    question = JSON.parse(message2);
+                    send.text = pro.displayName + send.text
+                    setTimeout(() => {client.pushMessage(data.source.userId, question)}, 6000);
+                    return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);    
+                  }  
+                 
+                case 3:
+                  if (data.message.text == '振り返り') {
+                    pro = await client.getProfile(data.source.userId);
+                    reply1 = jsonFile.first_message;
+                    reply2 = jsonFile.question1_sun;
+                    message1 = JSON.stringify(reply1);
+                    message2 = JSON.stringify(reply2);
+                    send = JSON.parse(message1);
+                    question = JSON.parse(message2);
+                    send.text = pro.displayName + send.text
+                    setTimeout(() => {client.pushMessage(data.source.userId, question)}, 6000);
+                    return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);    
+                  }  
+
+                case 4:
+                  if (data.message.text == '振り返り') {
+                    pro = await client.getProfile(data.source.userId);
+                    reply1 = jsonFile.first_message;
+                    reply2 = jsonFile.question1_sun;
+                    message1 = JSON.stringify(reply1);
+                    message2 = JSON.stringify(reply2);
+                    send = JSON.parse(message1);
+                    question = JSON.parse(message2);
+                    send.text = pro.displayName + send.text
+                    setTimeout(() => {client.pushMessage(data.source.userId, question)}, 6000);
+                    return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);    
+                  }  
+
+                case 5:
+                  if (data.message.text == '振り返り') {
+                    pro = await client.getProfile(data.source.userId);
+                    reply1 = jsonFile.first_message;
+                    reply2 = jsonFile.question1_sun;
+                    message1 = JSON.stringify(reply1);
+                    message2 = JSON.stringify(reply2);
+                    send = JSON.parse(message1);
+                    question = JSON.parse(message2);
+                    send.text = pro.displayName + send.text
+                    setTimeout(() => {client.pushMessage(data.source.userId, question)}, 6000);
+                    return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);    
+                  }      
+
+                case 6:
+                  if (data.message.text == '振り返り') {
+                    pro = await client.getProfile(data.source.userId);
+                    reply1 = jsonFile.first_message;
+                    reply2 = jsonFile.question1_sun;
+                    message1 = JSON.stringify(reply1);
+                    message2 = JSON.stringify(reply2);
+                    send = JSON.parse(message1);
+                    question = JSON.parse(message2);
+                    send.text = pro.displayName + send.text
+                    setTimeout(() => {client.pushMessage(data.source.userId, question)}, 6000);
+                    return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);    
+                  }        
               }
               
         case 'postback':
