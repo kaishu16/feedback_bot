@@ -69,7 +69,7 @@ function lineBot(req, res) {
           getAdditionalMessageObj(event, jsonFile)
         )
       }
-      else if (event.postback.data == 'last_message_sun' || event.postback.data == 'last_message_tue' || event.postback.data == 'last_message_wed' || event.postback.data == 'last_message_thu' || event.postback.data == 'last_message_fri' || event.postback.data == 'last_message_sat') {
+      else if (event.postback.data == 'last_message_sun' || event.postback.data == 'last_message_mon' || event.postback.data == 'last_message_tue' || event.postback.data == 'last_message_wed' || event.postback.data == 'last_message_thu' || event.postback.data == 'last_message_fri' || event.postback.data == 'last_message_sat') {
         final = 'complete';
         promises.push(
           getLastMessageObj(event, jsonFile)
