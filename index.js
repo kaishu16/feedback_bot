@@ -209,15 +209,15 @@ async function getLastQuestionNoObj(data, jsonFile){
         console.log('今日は日曜日');
         console.log(today.getDate());
 
-        let reply1 = jsonFile.question3_no1;
-        let reply1_1 = jsonFile.question3_no2;
-        let reply2 = jsonFile.last_question_no;
-        let message1 = JSON.stringify(reply1);
-        let message1_1 = JSON.stringify(reply1_1);
-        let message2 = JSON.stringify(reply2);
-        let send1 = JSON.parse(message1);
-        let send2 = JSON.parse(message1_1)
-        let question = JSON.parse(message2);
+        reply1 = jsonFile.question3_no1;
+        reply1_1 = jsonFile.question3_no2;
+        reply2 = jsonFile.last_question_no;
+        message1 = JSON.stringify(reply1);
+        message1_1 = JSON.stringify(reply1_1);
+        message2 = JSON.stringify(reply2);
+        send1 = JSON.parse(message1);
+        send2 = JSON.parse(message1_1)
+        question = JSON.parse(message2);
         setTimeout(() => {client.pushMessage(data.source.userId, send2)}, 6000);
         setTimeout(() => {client.pushMessage(data.source.userId, question)}, 9000);
         return setTimeout(() => {client.replyMessage(data.replyToken, send1)}, 3000);
