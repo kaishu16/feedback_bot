@@ -98,7 +98,6 @@
         ]
     }
   },
-
   "additional_question_sun":
   {
     "type": "text",
@@ -130,27 +129,27 @@
   "question2_yes_mon":
   {
     "type": "text",
-    "text": "さすがです！上手く進められた要因として何があげられますか？"
+    "text": "月曜日です"
   },
   "question2_no_mon":
   {
     "type": "text",
-    "text": "なるほど！予定通り進まなかった要因として何があげられますか？"
+    "text": "月曜日のう"
   },
   "question3_yes_mon":
   {  
     "type": "text",
-    "text": "なるほど！それではスケジュールノートをもとに明日の学習計画を見直していきましょう！"
+    "text": "月曜専用"
   },
   "question3_no1_mon":
   {
     "type": "text",
-    "text": "なるほど！ 明日は同じことがないように気をつけていきましょう！"
+    "text": "月曜だよー！"
   },
   "question3_no2_mon":
   {
     "type": "text",
-    "text": "それではスケジュールノートをもとに明日の学習計画を見直していきます!"
+    "text": "月曜かか"
   },
   "last_question_yes_mon":
   {
@@ -197,6 +196,11 @@
             }
         ]
     }
+  },
+  "additional_question_mon":
+  {
+    "type": "text",
+    "text": "変わってる？"
   },
   "question1_tue":
   {
@@ -292,6 +296,11 @@
         ]
     }
   },
+  "additional_question_tue":
+  {
+    "type": "text",
+    "text": "変わってる？"
+  },
   "question1_wed":
   {
     "type": "template",
@@ -385,6 +394,11 @@
             }
         ]
     }
+  },
+  "additional_question_wed":
+  {
+    "type": "text",
+    "text": "変わってる？"
   },
   "question1_thu":
   {
@@ -480,6 +494,11 @@
         ]
     }
   },
+  "additional_question_thu":
+  {
+    "type": "text",
+    "text": "変わってる？"
+  },
   "question1_fri":
   {
     "type": "template",
@@ -574,6 +593,11 @@
         ]
     }
   },
+  "additional_question_fri":
+  {
+    "type": "text",
+    "text": "変わってる？"
+  },
   "question1_sat":
   {
     "type": "template",
@@ -667,6 +691,11 @@
             }
         ]
     }
+  },
+  "additional_question_sat":
+  {
+    "type": "text",
+    "text": "変わってる？"
   },
 
   "last_message":

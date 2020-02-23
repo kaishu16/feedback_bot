@@ -69,7 +69,7 @@ function lineBot(req, res) {
           getAdditionalMessageObj(event, jsonFile)
         )
       }
-      else if (event.postback.data == 'last_message') {
+      else if (event.postback.data == 'last_message_sun' || event.postback.data == 'last_message_tue' || event.postback.data == 'last_message_wed' || event.postback.data == 'last_message_thu' || event.postback.data == 'last_message_fri' || event.postback.data == 'last_message_sat') {
         final = 'complete';
         promises.push(
           getLastMessageObj(event, jsonFile)
@@ -475,10 +475,85 @@ async function getLastQuestionNoObj(data, jsonFile){
 }
 
 async function getLastMessageObj(data, jsonFile){
-      let reply = jsonFile.last_message;
-      let message = JSON.stringify(reply);
-      let send = JSON.parse(message);
-      return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);
+  var today = new Date();
+    var weekday = today.getDay();
+    
+    switch(weekday){
+      //Sunday
+      case 0:
+        console.log('今日は日曜日');
+        console.log(weekday);
+        
+
+        let reply = jsonFile.last_message_sun;
+        let message = JSON.stringify(reply);
+        let send = JSON.parse(message);
+        return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);
+
+      case 1:
+        console.log('今日は月曜日');
+        console.log(weekday);
+        
+
+        reply = jsonFile.last_message_mon;
+        message = JSON.stringify(reply);
+        send = JSON.parse(message);
+        return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);
+
+      case 2:
+        console.log('今日は火曜日');
+        console.log(weekday);
+        
+
+        reply = jsonFile.last_message_tue;
+        message = JSON.stringify(reply);
+        send = JSON.parse(message);
+        return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000);
+
+      
+      case 3:
+        console.log('今日は水曜日');
+        console.log(weekday);
+        
+
+        reply = jsonFile.last_message_wed;
+        message = JSON.stringify(reply);
+        send = JSON.parse(message);
+        return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000); 
+        
+      case 4:
+      console.log('今日は木曜日');
+      console.log(weekday);
+      
+
+      reply = jsonFile.last_message_thu;
+      message = JSON.stringify(reply);
+      send = JSON.parse(message);
+      return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000); 
+
+      case 5:
+      console.log('今日は金曜日');
+      console.log(weekday);
+      
+
+      reply = jsonFile.last_message_fri;
+      message = JSON.stringify(reply);
+      send = JSON.parse(message);
+      return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000); 
+
+      case 6:
+      console.log('今日は土曜日');
+      console.log(weekday);
+      
+
+      reply = jsonFile.last_message_sat;
+      message = JSON.stringify(reply);
+      send = JSON.parse(message);
+      return setTimeout(() => {client.replyMessage(data.replyToken, send)}, 3000); 
+     
+
+
+    }
   }
 
 
