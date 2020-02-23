@@ -47,7 +47,7 @@ function lineBot(req, res) {
     // console.log('データ作成');
 
     if (event.type == 'postback'){
-      if (event.postback.data == 'question2_yes')
+      if (event.postback.data == 'question2_yes_sun')
       {
         study = 'question2_yes';
         promises.push(
@@ -55,7 +55,7 @@ function lineBot(req, res) {
         )
         console.log(study);
       }
-     else if (event.postback.data == 'question2_no')
+     else if (event.postback.data == 'question2_no_sun')
       {
         study = 'question2_no';
         promises.push(
@@ -63,7 +63,7 @@ function lineBot(req, res) {
         )
         console.log(study);
       }
-      else if (event.postback.data == 'additional_question') {
+      else if (event.postback.data == 'additional_question_sun') {
           better = 'additional_question';
         promises.push(
           getAdditionalMessageObj(event, jsonFile)
