@@ -170,7 +170,7 @@ async function getAnswerObj(data, jsonFile){
                   if (data.message.text == '振り返り') {
                     pro = await client.getProfile(data.source.userId);
                     reply1 = jsonFile.first_message;
-                    reply2 = jsonFile.question1_sun;
+                    reply2 = jsonFile.question1_mon;
                     message1 = JSON.stringify(reply1);
                     message2 = JSON.stringify(reply2);
                     send = JSON.parse(message1);
@@ -184,7 +184,7 @@ async function getAnswerObj(data, jsonFile){
                   if (data.message.text == '振り返り') {
                     pro = await client.getProfile(data.source.userId);
                     reply1 = jsonFile.first_message;
-                    reply2 = jsonFile.question1_sun;
+                    reply2 = jsonFile.question1_tue;
                     message1 = JSON.stringify(reply1);
                     message2 = JSON.stringify(reply2);
                     send = JSON.parse(message1);
@@ -198,7 +198,7 @@ async function getAnswerObj(data, jsonFile){
                   if (data.message.text == '振り返り') {
                     pro = await client.getProfile(data.source.userId);
                     reply1 = jsonFile.first_message;
-                    reply2 = jsonFile.question1_sun;
+                    reply2 = jsonFile.question1_wed;
                     message1 = JSON.stringify(reply1);
                     message2 = JSON.stringify(reply2);
                     send = JSON.parse(message1);
@@ -212,7 +212,7 @@ async function getAnswerObj(data, jsonFile){
                   if (data.message.text == '振り返り') {
                     pro = await client.getProfile(data.source.userId);
                     reply1 = jsonFile.first_message;
-                    reply2 = jsonFile.question1_sun;
+                    reply2 = jsonFile.question1_thu;
                     message1 = JSON.stringify(reply1);
                     message2 = JSON.stringify(reply2);
                     send = JSON.parse(message1);
@@ -226,7 +226,7 @@ async function getAnswerObj(data, jsonFile){
                   if (data.message.text == '振り返り') {
                     pro = await client.getProfile(data.source.userId);
                     reply1 = jsonFile.first_message;
-                    reply2 = jsonFile.question1_sun;
+                    reply2 = jsonFile.question1_fri;
                     message1 = JSON.stringify(reply1);
                     message2 = JSON.stringify(reply2);
                     send = JSON.parse(message1);
@@ -240,7 +240,7 @@ async function getAnswerObj(data, jsonFile){
                   if (data.message.text == '振り返り') {
                     pro = await client.getProfile(data.source.userId);
                     reply1 = jsonFile.first_message;
-                    reply2 = jsonFile.question1_sun;
+                    reply2 = jsonFile.question1_sat;
                     message1 = JSON.stringify(reply1);
                     message2 = JSON.stringify(reply2);
                     send = JSON.parse(message1);
