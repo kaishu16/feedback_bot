@@ -139,7 +139,8 @@ function lineBot(req, res) {
 async function getFirstQuestionObjFri(data, jsonFile){
           console.log('メッセージの場合');
               // テキストメッセージの場合、入力された文字列に応じて分岐
-              var today = new Date().toLocaleString({ timeZone: 'Asia/Tokyo' });
+              var today = new Date();
+              today.setTime(today.getTime() + 1000*60*60*9);
               var weekday = today.getDay();
               console.log(weekday);
 
