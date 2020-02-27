@@ -1,5 +1,35 @@
 {
-  "first_message":
+  "first_message_sun":
+  {
+     "type": "text",
+     "text": "さんお疲れ様です！今日も学習を振り返っていきましょう！"
+  },
+  "first_message_mon":
+  {
+     "type": "text",
+     "text": "さんお疲れ様です！今日も学習を振り返っていきましょう！"
+  },
+  "first_message_tue":
+  {
+     "type": "text",
+     "text": "さんお疲れ様です！今日も学習を振り返っていきましょう！"
+  },
+  "first_message_wed":
+  {
+     "type": "text",
+     "text": "さんお疲れ様です！今日も学習を振り返っていきましょう！"
+  },
+  "first_message_thu":
+  {
+     "type": "text",
+     "text": "さんお疲れ様です！今日も学習を振り返っていきましょう！"
+  },
+  "first_message_fri":
+  {
+     "type": "text",
+     "text": "さんお疲れ様です！今日も振り返りをしていきましょう！"
+  },
+  "first_message_sat":
   {
      "type": "text",
      "text": "さんお疲れ様です！今日も学習を振り返っていきましょう！"
@@ -501,102 +531,61 @@
   },
   "question1_fri":
   {
-    "type": "template",
-    "altText": "最初の質問",
-    "template": {
-        "type": "confirm",
-        "text": "本日も予定通り学習できましたか？",
-        "actions": [
-            {
-                  "type": "postback",
-                  "label": "はい",
-                  "data": "question2_yes_fri",
-                  "displayText": "はい"
-            },
-            {
-                  "type": "postback",
-                  "label": "いいえ",
-                  "data": "question2_no_fri",
-                  "displayText": "いいえ"
-            }
-        ]
-    }
-  },
-  "question2_yes_fri":
-  {
     "type": "text",
-    "text": "さすがです！上手く進められた要因として何があげられますか？"
+    "text": "今日、学習開始前の予定を教えてください！"
   },
-  "question2_no_fri":
-  {
-    "type": "text",
-    "text": "なるほど！予定通り進まなかった要因として何があげられますか？"
-  },
-  "question3_yes_fri":
-  {
-    "type": "text",
-    "text": "なるほど！それではスケジュールノートをもとに明日の学習計画を見直していきましょう！"
-  },
-  "question3_no1_fri":
-  {
-    "type": "text",
-    "text": "なるほど！ 明日は同じことがないように気をつけていきましょう！"
-  },
-  "question3_no2_fri":
-  {
-    "type": "text",
-    "text": "それではスケジュールノートをもとに明日の学習計画を見直していきます!"
-  },
-  "last_question_yes_fri":
+  "question2_fri":
   {
     "type": "template",
-    "altText": "最後の質問",
+    "altText": "question2",
     "template": {
         "type": "confirm",
-        "text": "明日の学習計画は変更しなくても良さそうですか？",
-        "actions": [
-          {
-            "type": "postback",
-            "label": "はい",
-            "data": "last_message_fri",
-            "displayText": "はい"
-          },
-          {
-            "type": "postback",
-            "label": "いいえ",
-            "data": "additional_question_fri",
-            "displayText": "いいえ"
-          }
-        ]
-    }
-  },
-  "last_question_no_fri":
-  {
-    "type": "template",
-    "altText": "最後の質問",
-    "template": {
-        "type": "confirm",
-        "text": "明日の学習計画は変更した方が良さそうですか？",
+        "text": "なるほど！予定通り進めることができましたか？",
         "actions": [
             {
               "type": "postback",
               "label": "はい",
-              "data": "additional_question_fri",
+              "data": "question3_yes_fri",
               "displayText": "はい"
             },
             {
               "type": "postback",
               "label": "いいえ",
-              "data": "last_message_fri",
+              "data": "question3_no_fri",
               "displayText": "いいえ"
             }
         ]
-    }
+      }
   },
-  "additional_question_fri":
+  "question3_yes_fri":
   {
     "type": "text",
-    "text": "変わってる？"
+    "text": "良いですね！学習する中で何か新しく意識したことを教えてください！"
+  },
+  "question3_no_fri":
+  {
+    "type": "text",
+    "text": "予定通り進まなかった原因を教えてください！"
+  },
+  "question4_yes_fri":
+  {
+    "type": "text",
+    "text": "なるほど！良いですね！明日は何時間で何をどれくらい学習していきましょう？"
+  },
+  "question4_no1_fri":
+  {
+    "type": "text",
+    "text": "かしこまりました！明日同じことがないようにしていきましょう！!"
+  },
+  "question4_no2_fri":
+  {
+    "type": "text",
+    "text": "明日は何時間で何をどれくらい学習していきましょう？!"
+  },
+  "last_message_fri":
+  {
+     "type": "text",
+     "text": "かしこまりました！努力していると思い通りにならないこともありますが、引き続き頑張っていきましょう！"
   },
   "question1_sat":
   {
@@ -719,11 +708,6 @@
      "text": "また分からない点や悩んでいることがあったら連絡ください！頑張っていきましょうー！"
   },
   "last_message_thu":
-  {
-     "type": "text",
-     "text": "また分からない点や悩んでいることがあったら連絡ください！頑張っていきましょうー！"
-  },
-  "last_message_fri":
   {
      "type": "text",
      "text": "また分からない点や悩んでいることがあったら連絡ください！頑張っていきましょうー！"
