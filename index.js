@@ -165,7 +165,7 @@ function lineBot(req, res) {
 
       case 5:
         if (event.type == 'postback'){
-          if (event.postback.data == 'question2_yes_sun' || event.postback.data == 'question2_yes_mon' || event.postback.data == 'question2_yes_tue' || event.postback.data == 'question2_yes_wed' || event.postback.data == 'question2_yes_thu' || event.postback.data == 'question3_yes_fri' || event.postback.data == 'question2_yes_sat')
+          if (event.postback.data == 'question3_yes_fri')
           {
             third = 'question3_yes_fri';
             promises.push(
@@ -173,7 +173,7 @@ function lineBot(req, res) {
             )
             console.log(third);
           }
-         else if (event.postback.data == 'question2_no_sun' || event.postback.data == 'question2_no_mon' || event.postback.data == 'question2_no_tue' || event.postback.data == 'question2_no_wed' || event.postback.data == 'question2_no_thu' || event.postback.data == 'question3_no_fri' || event.postback.data == 'question2_no_sat')
+         else if (event.postback.data == 'question3_no_fri')
           {
             third = 'question3_no_fri';
             promises.push(
@@ -839,11 +839,6 @@ async function getLastMessageNoObjSat(data, jsonFile){
 
 
 async function getAdditionalQuestionObjSat(data, jsonFile){
-      // case 0:
-      //   let reply_sun = jsonFile.additional_question_sun;
-      //   let message_sun = JSON.stringify(reply_sun);
-      //   let send_sun = JSON.parse(message_sun);
-      //   return setTimeout(() => {client.replyMessage(data.replyToken, send_sun)}, 3000);
 
       // case 1:
       //   let reply_mon = jsonFile.additional_question_mon;
