@@ -203,8 +203,8 @@ function lineBot(req, res) {
             console.log(first_fri);
             console.log(second_fri);
             console.log(third_fri);
-            console.log(fourth);
-            console.log(end);
+            console.log(fourth_fri);
+            console.log(end_fri);
             
         
         
