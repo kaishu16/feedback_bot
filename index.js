@@ -48,7 +48,7 @@ function lineBot(req, res) {
     var today = new Date();
     today.setTime(today.getTime() + 1000*60*60*9);
     // var weekday = today.getDay();
-    weekday = 0;
+    weekday = 5;
     console.log(weekday);
 
     switch(weekday){
