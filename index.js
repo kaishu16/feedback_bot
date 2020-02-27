@@ -80,7 +80,6 @@ function lineBot(req, res) {
             second = '';
             third = '';
             fourth = '';
-            add = '';
             end = '';
           }
         }
@@ -89,7 +88,6 @@ function lineBot(req, res) {
         console.log(second);
         console.log(third);
         console.log(fourth);
-        console.log(add);
         console.log(end);
         
     
@@ -191,6 +189,7 @@ function lineBot(req, res) {
               second = '';
               third = '';
               fourth = '';
+              add = '';
               end = '';
             }
           }
@@ -199,6 +198,7 @@ function lineBot(req, res) {
           console.log(second);
           console.log(third);
           console.log(fourth);
+          console.log(add);
           console.log(end);
           
       
