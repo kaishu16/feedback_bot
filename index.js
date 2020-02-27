@@ -144,75 +144,75 @@ async function getFirstQuestionObjFri(data, jsonFile){
 
               switch(weekday){
 
-                case 0:
-                if (data.message.text == '振り返り') {
-                  const pro = await client.getProfile(data.source.userId);
-                  let reply1_sun = jsonFile.first_message;
-                  let reply2_sun = jsonFile.question1_sun;
-                  let message1_sun = JSON.stringify(reply1_sun);
-                  let message2_sun = JSON.stringify(reply2_sun);
-                  let send_sun = JSON.parse(message1_sun);
-                  let question_sun = JSON.parse(message2_sun);
-                  send_sun.text = pro.displayName + send_sun.text
-                  setTimeout(() => {client.pushMessage(data.source.userId, question_sun)}, 6000);
-                  return setTimeout(() => {client.replyMessage(data.replyToken, send_sun)}, 3000);    
-                }
+                // case 0:
+                // if (data.message.text == '振り返り') {
+                //   const pro = await client.getProfile(data.source.userId);
+                //   let reply1_sun = jsonFile.first_message;
+                //   let reply2_sun = jsonFile.question1_sun;
+                //   let message1_sun = JSON.stringify(reply1_sun);
+                //   let message2_sun = JSON.stringify(reply2_sun);
+                //   let send_sun = JSON.parse(message1_sun);
+                //   let question_sun = JSON.parse(message2_sun);
+                //   send_sun.text = pro.displayName + send_sun.text
+                //   setTimeout(() => {client.pushMessage(data.source.userId, question_sun)}, 6000);
+                //   return setTimeout(() => {client.replyMessage(data.replyToken, send_sun)}, 3000);    
+                // }
 
-                case 1:
-                  if (data.message.text == '振り返り') {
-                    const pro = await client.getProfile(data.source.userId);
-                    let reply1_mon = jsonFile.first_message;
-                    let reply2_mon = jsonFile.question1_mon;
-                    let message1_mon = JSON.stringify(reply1_mon);
-                    let message2_mon = JSON.stringify(reply2_mon);
-                    let send_mon = JSON.parse(message1_mon);
-                    let question_mon = JSON.parse(message2_mon);
-                    send_mon.text = pro.displayName + send_mon.text
-                    setTimeout(() => {client.pushMessage(data.source.userId, question_mon)}, 6000);
-                    return setTimeout(() => {client.replyMessage(data.replyToken, send_mon)}, 3000);    
-                  }
+                // case 1:
+                //   if (data.message.text == '振り返り') {
+                //     const pro = await client.getProfile(data.source.userId);
+                //     let reply1_mon = jsonFile.first_message;
+                //     let reply2_mon = jsonFile.question1_mon;
+                //     let message1_mon = JSON.stringify(reply1_mon);
+                //     let message2_mon = JSON.stringify(reply2_mon);
+                //     let send_mon = JSON.parse(message1_mon);
+                //     let question_mon = JSON.parse(message2_mon);
+                //     send_mon.text = pro.displayName + send_mon.text
+                //     setTimeout(() => {client.pushMessage(data.source.userId, question_mon)}, 6000);
+                //     return setTimeout(() => {client.replyMessage(data.replyToken, send_mon)}, 3000);    
+                //   }
 
-                  case 2:
-                    if (data.message.text == '振り返り') {
-                      const pro = await client.getProfile(data.source.userId);
-                      let reply1_tue = jsonFile.first_message;
-                      let reply2_tue = jsonFile.question1_tue;
-                      let message1_tue = JSON.stringify(reply1_tue);
-                      let message2_tue = JSON.stringify(reply2_tue);
-                      let send_tue = JSON.parse(message1_tue);
-                      let question_tue = JSON.parse(message2_tue);
-                      send_tue.text = pro.displayName + send_tue.text
-                      setTimeout(() => {client.pushMessage(data.source.userId, question_tue)}, 6000);
-                      return setTimeout(() => {client.replyMessage(data.replyToken, send_tue)}, 3000);    
-                    }
+                //   case 2:
+                //     if (data.message.text == '振り返り') {
+                //       const pro = await client.getProfile(data.source.userId);
+                //       let reply1_tue = jsonFile.first_message;
+                //       let reply2_tue = jsonFile.question1_tue;
+                //       let message1_tue = JSON.stringify(reply1_tue);
+                //       let message2_tue = JSON.stringify(reply2_tue);
+                //       let send_tue = JSON.parse(message1_tue);
+                //       let question_tue = JSON.parse(message2_tue);
+                //       send_tue.text = pro.displayName + send_tue.text
+                //       setTimeout(() => {client.pushMessage(data.source.userId, question_tue)}, 6000);
+                //       return setTimeout(() => {client.replyMessage(data.replyToken, send_tue)}, 3000);    
+                //     }
                  
-                case 3:
-                  if (data.message.text == '振り返り') {
-                    const pro = await client.getProfile(data.source.userId);
-                    let reply1_wed = jsonFile.first_message;
-                    let reply2_wed = jsonFile.question1_wed;
-                    let message1_wed = JSON.stringify(reply1_wed);
-                    let message2_wed = JSON.stringify(reply2_wed);
-                    let send_wed = JSON.parse(message1_wed);
-                    let question_wed = JSON.parse(message2_wed);
-                    send_wed.text = pro.displayName + send_wed.text
-                    setTimeout(() => {client.pushMessage(data.source.userId, question_wed)}, 6000);
-                    return setTimeout(() => {client.replyMessage(data.replyToken, send_wed)}, 3000);    
-                  }
+                // case 3:
+                //   if (data.message.text == '振り返り') {
+                //     const pro = await client.getProfile(data.source.userId);
+                //     let reply1_wed = jsonFile.first_message;
+                //     let reply2_wed = jsonFile.question1_wed;
+                //     let message1_wed = JSON.stringify(reply1_wed);
+                //     let message2_wed = JSON.stringify(reply2_wed);
+                //     let send_wed = JSON.parse(message1_wed);
+                //     let question_wed = JSON.parse(message2_wed);
+                //     send_wed.text = pro.displayName + send_wed.text
+                //     setTimeout(() => {client.pushMessage(data.source.userId, question_wed)}, 6000);
+                //     return setTimeout(() => {client.replyMessage(data.replyToken, send_wed)}, 3000);    
+                //   }
 
-                case 4:
-                  if (data.message.text == '振り返り') {
-                    const pro = await client.getProfile(data.source.userId);
-                    let reply1_thu = jsonFile.first_message;
-                    let reply2_thu = jsonFile.question1_thu;
-                    let message1_thu = JSON.stringify(reply1_thu);
-                    let message2_thu = JSON.stringify(reply2_thu);
-                    let send_thu = JSON.parse(message1_thu);
-                    let question_thu = JSON.parse(message2_thu);
-                    send_thu.text = pro.displayName + send_thu.text
-                    setTimeout(() => {client.pushMessage(data.source.userId, question_thu)}, 6000);
-                    return setTimeout(() => {client.replyMessage(data.replyToken, send_thu)}, 3000);    
-                  } 
+                // case 4:
+                //   if (data.message.text == '振り返り') {
+                //     const pro = await client.getProfile(data.source.userId);
+                //     let reply1_thu = jsonFile.first_message;
+                //     let reply2_thu = jsonFile.question1_thu;
+                //     let message1_thu = JSON.stringify(reply1_thu);
+                //     let message2_thu = JSON.stringify(reply2_thu);
+                //     let send_thu = JSON.parse(message1_thu);
+                //     let question_thu = JSON.parse(message2_thu);
+                //     send_thu.text = pro.displayName + send_thu.text
+                //     setTimeout(() => {client.pushMessage(data.source.userId, question_thu)}, 6000);
+                //     return setTimeout(() => {client.replyMessage(data.replyToken, send_thu)}, 3000);    
+                //   } 
 
                 case 5:
                   if (data.message.text == '振り返り') {
@@ -228,19 +228,19 @@ async function getFirstQuestionObjFri(data, jsonFile){
                     return setTimeout(() => {client.replyMessage(data.replyToken, send_fri)}, 3000);    
                   }      
 
-                case 6:
-                  if (data.message.text == '振り返り') {
-                    const pro = await client.getProfile(data.source.userId);
-                    let reply1_sat = jsonFile.first_message;
-                    let reply2_sat = jsonFile.question1_sat;
-                    let message1_sat = JSON.stringify(reply1_sat);
-                    let message2_sat = JSON.stringify(reply2_sat);
-                    let send_sat = JSON.parse(message1_sat);
-                    let question_sat = JSON.parse(message2_sat);
-                    send_sat.text = pro.displayName + send_sat.text
-                    setTimeout(() => {client.pushMessage(data.source.userId, question_sat)}, 6000);
-                    return setTimeout(() => {client.replyMessage(data.replyToken, send_sat)}, 3000);    
-                  }      
+                // case 6:
+                //   if (data.message.text == '振り返り') {
+                //     const pro = await client.getProfile(data.source.userId);
+                //     let reply1_sat = jsonFile.first_message;
+                //     let reply2_sat = jsonFile.question1_sat;
+                //     let message1_sat = JSON.stringify(reply1_sat);
+                //     let message2_sat = JSON.stringify(reply2_sat);
+                //     let send_sat = JSON.parse(message1_sat);
+                //     let question_sat = JSON.parse(message2_sat);
+                //     send_sat.text = pro.displayName + send_sat.text
+                //     setTimeout(() => {client.pushMessage(data.source.userId, question_sat)}, 6000);
+                //     return setTimeout(() => {client.replyMessage(data.replyToken, send_sat)}, 3000);    
+                //   }      
               }
               
             
