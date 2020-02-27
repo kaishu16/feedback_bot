@@ -36,102 +36,66 @@
   },
   "question1_sun":
   {
-    "type": "template",
-    "altText": "最初の質問",
-    "template": {
-        "type": "confirm",
-        "text": "本日も予定通り学習できましたか？",
-        "actions": [
-            {
-                  "type": "postback",
-                  "label": "はい",
-                  "data": "question2_yes_sun",
-                  "displayText": "はい"
-            },
-            {
-                  "type": "postback",
-                  "label": "いいえ",
-                  "data": "question2_no_sun",
-                  "displayText": "いいえ"
-            }
-        ]
-    }
-  },
-  "question2_yes_sun":
-  {
     "type": "text",
-    "text": "さすがです！上手く進められた要因として何があげられますか？"
+    "text": "今日の学習開始前の予定を教えてください！"
   },
-  "question2_no_sun":
-  {
-    "type": "text",
-    "text": "なるほど！予定通り進まなかった要因として何があげられますか？"
-  },
-  "question3_yes_sun":
-  {
-    "type": "text",
-    "text": "なるほど！それではスケジュールノートをもとに明日の学習計画を見直していきましょう！"
-  },
-  "question3_no1_sun":
-  {
-    "type": "text",
-    "text": "なるほど！ 明日は同じことがないように気をつけていきましょう！"
-  },
-  "question3_no2_sun":
-  {
-    "type": "text",
-    "text": "それではスケジュールノートをもとに明日の学習計画を見直していきます!"
-  },
-  "last_question_yes_sun":
+  "question2_sun":
   {
     "type": "template",
-    "altText": "最後の質問",
+    "altText": "question2",
     "template": {
         "type": "confirm",
-        "text": "明日の学習計画は変更しなくても良さそうですか？",
-        "actions": [
-          {
-            "type": "postback",
-            "label": "はい",
-            "data": "last_message_sun",
-            "displayText": "はい"
-          },
-          {
-            "type": "postback",
-            "label": "いいえ",
-            "data": "additional_question_sun",
-            "displayText": "いいえ"
-          }
-        ]
-    }
-  },
-  "last_question_no_sun":
-  {
-    "type": "template",
-    "altText": "最後の質問",
-    "template": {
-        "type": "confirm",
-        "text": "明日の学習計画は変更した方が良さそうですか？",
+        "text": "なるほど！予定通り進めることはできましたか？",
         "actions": [
             {
               "type": "postback",
               "label": "はい",
-              "data": "additional_question_sun",
+              "data": "question3_yes_sun",
               "displayText": "はい"
             },
             {
               "type": "postback",
               "label": "いいえ",
-              "data": "last_message_sun",
+              "data": "question3_no_sun",
               "displayText": "いいえ"
             }
         ]
-    }
+      }
   },
-  "additional_question_sun":
+  "question3_yes_sun":
   {
     "type": "text",
-    "text": "変更点として何があげられますか？"
+    "text": "良いですね！今日学んだことで1番面白かったことはなんですか？"
+  },
+  "question3_no_sun":
+  {
+    "type": "text",
+    "text": "なるほどなるほど。今日は何がうまくいかなかったでしょうか？"
+  },
+  "question4_yes1_sun":
+  {
+    "type": "text",
+    "text": "良いですね！！これからも楽しみながら学習を進めていきましょう！"
+  },
+  "question4_yes2_sun":
+  {
+    "type": "text",
+    "text": "明日の学習の予定を教えてください！"
+  },
+  "question4_no_sun":
+  {
+    "type": "text",
+    "text": "なるほど！どう改善すると良いと思いますか？"
+  },
+  "question5_no1_sun":
+  {
+    "type": "text",
+    "text": "良いですね！同じようなことが明日は内容に意識していきましょう！"
+  },
+  "last_message_sun":
+  {
+     "type": "text",
+     "text": "かしこまりました！楽しみつつ学習の質が向上するように引き続き計画、実行、振り返りをしっかりしていきましょう！"
   },
   "question1_mon":
   {
@@ -702,13 +666,6 @@
      "text": "かしこまりました！壁にあたり思うように進まない日がきても乗り越えていきましょう！"
   },
 
-
-
-  "last_message_sun":
-  {
-     "type": "text",
-     "text": "また分からない点や悩んでいることがあったら連絡ください！頑張っていきましょうー！"
-  },
   "last_message_mon":
   {
      "type": "text",
