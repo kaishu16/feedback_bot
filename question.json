@@ -32,7 +32,7 @@
   "first_message_sat":
   {
      "type": "text",
-     "text": "さんお疲れ様です！今日も学習を振り返っていきましょう！"
+     "text": "さん今日も学習お疲れ様です！振り返りをしていきましょう！"
   },
   "question1_sun":
   {
@@ -593,7 +593,7 @@
     "altText": "最初の質問",
     "template": {
         "type": "confirm",
-        "text": "本日も予定通り学習できましたか？",
+        "text": "学習計画書通りに進めることができましたか？",
         "actions": [
             {
                   "type": "postback",
@@ -613,35 +613,40 @@
   "question2_yes_sat":
   {
     "type": "text",
-    "text": "さすがです！上手く進められた要因として何があげられますか？"
+    "text": "良いですね！今日は昨日と比べて新しく何ができるようになりましたか？"
   },
   "question2_no_sat":
   {
     "type": "text",
-    "text": "なるほど！予定通り進まなかった要因として何があげられますか？"
+    "text": "なるほど、何が原因で進まなかったでしょうか？"
   },
   "question3_yes_sat":
   {
     "type": "text",
-    "text": "なるほど！それではスケジュールノートをもとに明日の学習計画を見直していきましょう！"
+    "text": "良い調子ですね！明日以降より学習の質を高めるためには何を意識して学習に取り組みましょう？"
   },
-  "question3_no1_sat":
+  "question3_no_sat":
   {
     "type": "text",
-    "text": "なるほど！ 明日は同じことがないように気をつけていきましょう！"
+    "text": "なるほど！理由が分かっているのでしっかり改善していきましょう！どう改善していくと良いと思いますか？"
   },
-  "question3_no2_sat":
+  "last_question_yes1_sat":
   {
     "type": "text",
-    "text": "それではスケジュールノートをもとに明日の学習計画を見直していきます!"
+    "text": "かしこまりました！"
   },
-  "last_question_yes_sat":
+  "last_question_no1_sat":
+  {
+    "type": "text",
+    "text": "良いですね！しっかり振り返ることで学習の質を向上させていきましょう！"
+  },
+  "last_question_yes2_sat":
   {
     "type": "template",
     "altText": "最後の質問",
     "template": {
         "type": "confirm",
-        "text": "明日の学習計画は変更しなくても良さそうですか？",
+        "text": "明日以降の学習計画に変更は無さそうですか？",
         "actions": [
           {
             "type": "postback",
@@ -658,13 +663,13 @@
         ]
     }
   },
-  "last_question_no_sat":
+  "last_question_no2_sat":
   {
     "type": "template",
     "altText": "最後の質問",
     "template": {
         "type": "confirm",
-        "text": "明日の学習計画は変更した方が良さそうですか？",
+        "text": "明日以降の学習計画に変更はありますか？",
         "actions": [
             {
               "type": "postback",
@@ -684,8 +689,20 @@
   "additional_question_sat":
   {
     "type": "text",
-    "text": "変わってる？"
+    "text": "変更点を教えてください！"
   },
+  "last_message_yes_sat":
+  {
+     "type": "text",
+     "text": "かしこまりました！引き続き手をアウトプットを意識しながら進めていきましょう！"
+  },
+  "last_message_no_sat":
+  {
+     "type": "text",
+     "text": "かしこまりました！壁にあたり思うように進まない日がきても乗り越えていきましょう！"
+  },
+
+
 
   "last_message_sun":
   {
@@ -708,11 +725,6 @@
      "text": "また分からない点や悩んでいることがあったら連絡ください！頑張っていきましょうー！"
   },
   "last_message_thu":
-  {
-     "type": "text",
-     "text": "また分からない点や悩んでいることがあったら連絡ください！頑張っていきましょうー！"
-  },
-  "last_message_sat":
   {
      "type": "text",
      "text": "また分からない点や悩んでいることがあったら連絡ください！頑張っていきましょうー！"
