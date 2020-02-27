@@ -176,7 +176,7 @@ function lineBot(req, res) {
               promises.push(
                 getAdditionalQuestionObjSat(event, jsonFile)
               )
-              console.log(second);
+              console.log(add);
             }
 
           }
@@ -235,7 +235,7 @@ function lineBot(req, res) {
               )
               console.log(fourth);
             }
-          else if(first == 'question1_sat' && second == 'question2_sat' && third == 'question3_no_sat' && fourth !== null && add == 'additional_question_sat' && end == '' && event.type == 'message')
+          else if(first == 'question1_sat' && second !== null && third !== null && fourth !== null && add == 'additional_question_sat' && end == '' && event.type == 'message')
             {
               console.log('今ここ');
               end = 'complete';
