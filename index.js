@@ -217,14 +217,14 @@ function lineBot(req, res) {
               }
             else if(first_fri == 'question1_fri' && second_fri == 'question2_fri' && third_fri == 'question3_yes_fri' && fourth_fri == '' && end_fri == '' && event.type == 'message')
               {
-                fourth = 'question4_yes_fri'
+                fourth_fri = 'question4_yes_fri'
                 promises.push(
                   getLastQuestionYesObjFri(event, jsonFile)
                 )
               }
               else if(first_fri == 'question1_fri' && second_fri == 'question2_fri' && third_fri == 'question3_no_fri' && fourth_fri == '' && end_fri == '' && event.type == 'message')
               {
-                fourth = 'question4_no_fri'
+                fourth_fri = 'question4_no_fri'
                 promises.push(
                   getLastQuestionNoObjFri(event, jsonFile)
                 )
@@ -233,7 +233,7 @@ function lineBot(req, res) {
             else if(first_fri == 'question1_fri' && second_fri == 'question2_fri' && third_fri !== null && fourth_fri !== null && end_fri == '' && event.type == 'message')
               {
                 console.log('今ここ');
-                end = 'complete';
+                end_fri = 'complete';
                 promises.push(
                   getLastMessageObjFri(event, jsonFile)
                 )
