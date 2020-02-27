@@ -219,7 +219,7 @@ function lineBot(req, res) {
             )
             console.log(third);
           }
-          else if(first == 'question1_sat' && second == 'question2_sat' && third == 'question3_yes_sat' && fourth == '' && add == '' && end == '' && event.type == 'message')
+          else if(first == 'question1_sat' && second == 'question2_yes_sat' && third == 'question3_yes_sat' && fourth == '' && add == '' && end == '' && event.type == 'message')
             {
               fourth = 'question4_yes_sat'
               promises.push(
@@ -227,7 +227,7 @@ function lineBot(req, res) {
               )
               console.log(fourth);
             }
-            else if(first == 'question1_sat' && second == 'question2_sat' && third == 'question3_no_sat' && fourth == '' && add == '' && end == '' && event.type == 'message')
+            else if(first == 'question1_sat' && second == 'question2_no_sat' && third == 'question3_no_sat' && fourth == '' && add == '' && end == '' && event.type == 'message')
             {
               fourth = 'question4_no_sat'
               promises.push(
