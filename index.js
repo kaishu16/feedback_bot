@@ -141,6 +141,7 @@ async function getFirstQuestionObjFri(data, jsonFile){
               // テキストメッセージの場合、入力された文字列に応じて分岐
               var today = new Date();
               var weekday = today.getDay();
+              console.log(weekday);
 
               switch(weekday){
 
