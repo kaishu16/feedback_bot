@@ -253,7 +253,7 @@ function lineBot(req, res) {
                 getThirdQuestionNoObjMon(event, jsonFile)
               )
             }
-            else if(first_mon == 'question1_mon' && second_mon == 'question2_yes_mon' && third_tue == 'question3_yes_mon' && fourth_mon == '' && add_mon == '' && end_mon == '' && event.type == 'message')
+            else if(first_mon == 'question1_mon' && second_mon == 'question2_yes_mon' && third_mon == 'question3_yes_mon' && fourth_mon == '' && add_mon == '' && end_mon == '' && event.type == 'message')
               {
                 fourth_mon = 'question4_yes_mon'
                 promises.push(
@@ -267,7 +267,7 @@ function lineBot(req, res) {
                   getLastQuestionNoObjMon(event, jsonFile)
                 )
               }
-            else if(first_mon == 'question1_mon' && second_mon !== null && third_mon !== null && fourth_mon !== null && add_mon == 'additional_question_tue' && end_mon == '' && event.type == 'message')
+            else if(first_mon == 'question1_mon' && second_mon !== null && third_mon !== null && fourth_mon !== null && add_mon == 'additional_question_mon' && end_mon == '' && event.type == 'message')
               {
                 console.log('今ここ');
                 end_mon = 'complete';
