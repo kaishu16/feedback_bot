@@ -48,12 +48,12 @@ express()
   let third_fri;
   let fourth_fri;
   let end_fri;
-  let first_sat;
-  let second_sat;
-  let third_sat;
-  let fourth_sat;
-  let end_sat;
-  let add_sat;
+  let first;
+  let second;
+  let third;
+  let fourth;
+  let end;
+  let add;
 
 function lineBot(req, res) {
 
@@ -69,7 +69,7 @@ function lineBot(req, res) {
   var today = new Date();
     today.setTime(today.getTime() + 1000*60*60*9);
     // var weekday = today.getDay();
-    weekday = 1;
+    weekday = 4;
     console.log(weekday);
 
     switch(weekday){
