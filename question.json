@@ -12,7 +12,7 @@
   "first_message_wed":
   {
      "type": "text",
-     "text": "さんお疲れ様です！今日も学習を振り返っていきましょう！"
+     "text": "さんお疲れ様です！今日もしっかり振り返りをしていきましょう！"
   },
   "first_message_fri":
   {
@@ -327,82 +327,92 @@
   },
   "question1_wed":
   {
+    "type": "text",
+    "text": "今日は何時間でどれくらい学習を進めることができましたか？"
+  },
+  "question2_1_wed":
+  {
+    "type": "text",
+    "text": "良いですね！"
+  },
+  "question2_2_wed":
+  {
     "type": "template",
-    "altText": "最初の質問",
+    "altText": "question2",
     "template": {
         "type": "confirm",
-        "text": "本日も予定通り学習できましたか？",
+        "text": "予定より進められたんではないでしょうか？",
         "actions": [
             {
-                  "type": "postback",
-                  "label": "はい",
-                  "data": "question2_yes_wed",
-                  "displayText": "はい"
+              "type": "postback",
+              "label": "はい",
+              "data": "question3_yes_wed",
+              "displayText": "はい"
             },
             {
-                  "type": "postback",
-                  "label": "いいえ",
-                  "data": "question2_no_wed",
-                  "displayText": "いいえ"
+              "type": "postback",
+              "label": "いいえ",
+              "data": "question3_no_wed",
+              "displayText": "いいえ"
             }
         ]
-    }
-  },
-  "question2_yes_wed":
-  {
-    "type": "text",
-    "text": "さすがです！上手く進められた要因として何があげられますか？"
-  },
-  "question2_no_wed":
-  {
-    "type": "text",
-    "text": "なるほど！予定通り進まなかった要因として何があげられますか？"
+      }
   },
   "question3_yes_wed":
   {
     "type": "text",
-    "text": "なるほど！それではスケジュールノートをもとに明日の学習計画を見直していきましょう！"
+    "text": "素晴らしいです！何か心がけた点はありますか？"
   },
-  "question3_no1_wed":
+  "question3_no_wed":
   {
     "type": "text",
-    "text": "なるほど！ 明日は同じことがないように気をつけていきましょう！"
+    "text": "なるほど、予定を多くしていたのかうまく進められなかったのかどちらでしょうか？"
   },
-  "question3_no2_wed":
+  "question4_no_wed":
   {
     "type": "text",
-    "text": "それではスケジュールノートをもとに明日の学習計画を見直していきます!"
+    "text": "なるほど！どのように改善していきましょうか？"
   },
-  "last_question_yes_wed":
+  "last_question_yes1_wed":
+  {
+    "type": "text",
+    "text": "なるほど！明日以降の学習の質も高めていきましょう！"
+  },
+  "last_question_yes2_wed":
   {
     "type": "template",
     "altText": "最後の質問",
     "template": {
         "type": "confirm",
-        "text": "明日の学習計画は変更しなくても良さそうですか？",
+        "text": "明日以降の学習計画に変更はありますか？",
         "actions": [
           {
             "type": "postback",
             "label": "はい",
-            "data": "last_message_wed",
+            "data": "additional_question_wed",
             "displayText": "はい"
           },
           {
             "type": "postback",
             "label": "いいえ",
-            "data": "additional_question_wed",
+            "data": "last_message_wed",
             "displayText": "いいえ"
           }
         ]
     }
   },
-  "last_question_no_wed":
+  "last_question_no1_wed":
+  {
+    "type": "text",
+    "text": "なるほど！明日以降の学習の質も高めていきましょう！"
+  },
+  "last_question_no2_wed":
   {
     "type": "template",
     "altText": "最後の質問",
     "template": {
         "type": "confirm",
-        "text": "明日の学習計画は変更した方が良さそうですか？",
+        "text": "明日以降の学習計画に変更はありますか？",
         "actions": [
             {
               "type": "postback",
@@ -422,7 +432,12 @@
   "additional_question_wed":
   {
     "type": "text",
-    "text": "変わってる？"
+    "text": "変更点を教えてください！"
+  },
+  "last_message_wed":
+  {
+     "type": "text",
+     "text": "かしこまりました！また何か分からない点が合ったら質問してください！"
   },
   "question1_thu":
   {
@@ -719,10 +734,5 @@
   {
      "type": "text",
      "text": "かしこまりました！壁にあたり思うように進まない日がきても乗り越えていきましょう！"
-  },
-  "last_message_wed":
-  {
-     "type": "text",
-     "text": "また分からない点や悩んでいることがあったら連絡ください！頑張っていきましょうー！"
   }
 }
