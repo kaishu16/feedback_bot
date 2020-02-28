@@ -161,13 +161,13 @@
           {
             "type": "postback",
             "label": "はい",
-            "data": "additional_question_tue",
+            "data": "additional_question_mon",
             "displayText": "はい"
           },
           {
             "type": "postback",
             "label": "いいえ",
-            "data": "last_message_tue",
+            "data": "last_message_mon",
             "displayText": "いいえ"
           }
       ]
@@ -184,13 +184,13 @@
             {
               "type": "postback",
               "label": "はい",
-              "data": "additional_question_tue",
+              "data": "additional_question_mon",
               "displayText": "はい"
             },
             {
               "type": "postback",
               "label": "いいえ",
-              "data": "last_message_tue",
+              "data": "last_message_mon",
               "displayText": "いいえ"
             }
         ]
