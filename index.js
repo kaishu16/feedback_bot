@@ -37,6 +37,12 @@ express()
   let fourth_tue;
   let end_tue;
   let add_tue;
+  let first_thu;
+  let second_thu;
+  let third_thu;
+  let fourth_thu;
+  let end_thu;
+  let add_thu;
   let first_fri;
   let second_fri;
   let third_fri;
@@ -412,6 +418,123 @@ function lineBot(req, res) {
           break;
           
           
+
+          case 4:
+
+          events.forEach((event) => {
+            replyToken = event.replyToken;
+            //入力メッセージ
+            console.log(event);
+        
+            if (event.type == 'postback'){
+              if (event.postback.data == 'question2_yes_thu')
+              {
+                second_thu = 'question2_yes_thu';
+                promises.push(
+                  getSecondQuestionObjThu(event, jsonFile)
+                )
+              }
+             else if (event.postback.data == 'question2_no_thu')
+              {
+                second_thu = 'question2_no_thu';
+                promises.push(
+                  getSecondQuestionObjThu(event, jsonFile)
+                )
+              }
+              else if (event.postback.data == 'last_message_thu')
+              {
+                end_thu = 'complete';
+                promises.push(
+                  getLastMessageYesObjThu(event, jsonFile)
+                )
+              }
+              else if (event.postback.data == 'additional_question_thu')
+              {
+                add_thu = 'additional_question_thu';
+                promises.push(
+                  getAdditionalQuestionObjThu(event, jsonFile)
+                )
+              }
+  
+            }
+        
+        
+            if (event.type == 'message'){
+              if (event.message.text == '振り返り')
+              {
+                first_thu = '';
+                second_thu = '';
+                third_thu = '';
+                fourth_thu = '';
+                add_thu = '';
+                end_thu = '';
+              }
+            }
+        
+            console.log(first_thu);
+            console.log(second_thu);
+            console.log(third_thu);
+            console.log(fourth_thu);
+            console.log(add_thu);
+            console.log(end_thu);
+            
+        
+        
+            if (first_thu == 'question1_thu' && second_thu == 'question2_yes_thu' && third_thu == '' && fourth_thu == '' && end_thu == '' && event.type == 'message')
+              {
+                third_thu = 'question3_yes_thu'
+                promises.push(
+                  getThirdQuestionYesObjThu(event, jsonFile)
+                )
+              }
+            else if(first_thu == 'question1_thu' && second_thu == 'question2_no_thu' && third_thu == '' && fourth_thu == '' && add_thu == '' && end_thu == '' && event.type == 'message')
+            {
+              third_thu = 'question3_no_thu'
+              promises.push(
+                getThirdQuestionNoObjThu(event, jsonFile)
+              )
+            }
+            else if(first_thu == 'question1_thu' && second_thu == 'question2_yes_thu' && third_thu == 'question3_yes_thu' && fourth_thu == '' && add_thu == '' && end_thu == '' && event.type == 'message')
+              {
+                fourth_thu = 'question4_yes_thu'
+                promises.push(
+                  getLastQuestionYesObjThu(event, jsonFile)
+                )
+              }
+              else if(first_thu == 'question1_thu' && second_thu == 'question2_no_thu' && third_thu == 'question3_no_thu' && fourth_thu == '' && add_thu == '' && end_thu == '' && event.type == 'message')
+              {
+                fourth_thu = 'question4_no_thu'
+                promises.push(
+                  getLastQuestionNoObjThu(event, jsonFile)
+                )
+              }
+            else if(first_thu == 'question1_thu' && second_thu !== null && third_thu !== null && fourth_thu !== null && add_thu == 'additional_question_thu' && end_thu == '' && event.type == 'message')
+              {
+                console.log('今ここ');
+                end_thu = 'complete';
+                promises.push(
+                  getLastMessageNoObjThu(event, jsonFile)
+                )
+              }
+            else if(first_thu == '' && event.type == 'message' && event.message.text !== '振り返り'){
+              promises.push()
+            }
+            else if(first_thu == '' && event.type == 'message' && event.message.text == '振り返り'){
+              first_thu = 'question1_thu';
+              promises.push(
+              getFirstQuestionObjThu(event, jsonFile)
+            )
+            }
+            else if (first_thu !== null && second_thu !== null && third_thu !== null && fourth_thu !== null && add_thu !== null && end_thu == 'complete' && event.type == "messsage")
+            {
+              console.log('もう終わり');
+              promises.push()
+            }
+            Promise.all(promises).then(console.log("pass"));
+          });
+          break;
+
+
 
 
 
@@ -916,6 +1039,100 @@ async function getAdditionalQuestionObjTue(data, jsonFile){
 
 }
 
+
+
+
+
+async function getFirstQuestionObjThu(data, jsonFile){
+  console.log('メッセージの場合');
+            const pro = await client.getProfile(data.source.userId);
+            let reply2_thu = jsonFile.question1_thu;
+            let message2_thu = JSON.stringify(reply2_thu);
+            let question_thu = JSON.parse(message2_thu);
+            return setTimeout(() => {client.replyMessage(data.replyToken, question_thu)}, 3000);    
+  
+};
+
+
+async function getSecondQuestionObjThu(data, jsonFile){
+console.log('postbackの場合');
+let reply = jsonFile[data.postback.data];
+let message = JSON.stringify(reply);
+let question = JSON.parse(message);
+return setTimeout(() => {client.replyMessage(data.replyToken, question)}, 3000);
+}
+
+async function getThirdQuestionYesObjThu(data, jsonFile){
+  let reply1_thu = jsonFile.question3_yes1_thu;
+  let reply2_thu = jsonFile.question3_yes2_thu;
+  let message1_thu = JSON.stringify(reply1_thu);
+  let message2_thu = JSON.stringify(reply2_thu);
+  let send_thu = JSON.parse(message1_thu);
+  let question_thu = JSON.parse(message2_thu);
+  setTimeout(() => {client.pushMessage(data.source.userId, question_thu)}, 6000);
+  return setTimeout(() => {client.replyMessage(data.replyToken, send_thu)}, 3000);  
+}
+
+async function getThirdQuestionNoObjThu(data, jsonFile){
+
+  let reply1_thu = jsonFile.question3_no1_thu;
+  let reply2_thu = jsonFile.question3_no2_thu;
+  let message1_thu = JSON.stringify(reply1_thu);
+  let message2_thu = JSON.stringify(reply2_thu);
+  let send_thu = JSON.parse(message1_thu);
+  let question_thu = JSON.parse(message2_thu);
+  setTimeout(() => {client.pushMessage(data.source.userId, question_thu)}, 6000);
+  return setTimeout(() => {client.replyMessage(data.replyToken, send_thu)}, 3000);  
+
+}
+
+async function getLastQuestionYesObjThu(data, jsonFile){
+
+let reply1_thu = jsonFile.last_question_yes1_thu;
+let reply2_thu = jsonFile.last_question_yes2_thu;
+let message1_thu = JSON.stringify(reply1_thu);
+let message2_thu = JSON.stringify(reply2_thu);
+let send_thu = JSON.parse(message1_thu);
+let question_thu = JSON.parse(message2_thu);
+setTimeout(() => {client.pushMessage(data.source.userId, question_thu)}, 6000);
+return setTimeout(() => {client.replyMessage(data.replyToken, send_thu)}, 3000);  
+
+}
+
+async function getLastQuestionNoObjThu(data, jsonFile){
+
+  let reply1_thu = jsonFile.last_question_no1_thu;
+  let reply2_thu = jsonFile.last_question_no2_thu;
+  let message1_thu = JSON.stringify(reply1_thu);
+  let message2_thu = JSON.stringify(reply2_thu);
+  let send_thu = JSON.parse(message1_thu);
+  let question_thu = JSON.parse(message2_thu);
+  setTimeout(() => {client.pushMessage(data.source.userId, question_thu)}, 6000);
+  return setTimeout(() => {client.replyMessage(data.replyToken, send_thu)}, 3000);  
+}
+
+async function getLastMessageYesObjThu(data, jsonFile){
+let reply_thu = jsonFile.last_message_yes_thu;
+let message_thu = JSON.stringify(reply_thu);
+let send_thu = JSON.parse(message_thu);
+return setTimeout(() => {client.replyMessage(data.replyToken, send_thu)}, 3000);
+}
+
+async function getLastMessageNoObjThu(data, jsonFile){
+  let reply_thu = jsonFile.last_message_no_thu;
+  let message_thu = JSON.stringify(reply_thu);
+  let send_thu = JSON.parse(message_thu);
+  return setTimeout(() => {client.replyMessage(data.replyToken, send_thu)}, 3000);
+}
+
+
+async function getAdditionalQuestionObjThu(data, jsonFile){
+
+  let reply_thu = jsonFile.additional_question_thu;
+  let message_thu = JSON.stringify(reply_thu);
+  let send_thu = JSON.parse(message_thu);
+  return setTimeout(() => {client.replyMessage(data.replyToken, send_thu)}, 3000);
+}
 
 
 

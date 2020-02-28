@@ -430,7 +430,7 @@
     "altText": "最初の質問",
     "template": {
         "type": "confirm",
-        "text": "本日も予定通り学習できましたか？",
+        "text": "お疲れ様です！今日は予定通り学習を進めることができましたか？",
         "actions": [
             {
                   "type": "postback",
@@ -450,58 +450,73 @@
   "question2_yes_thu":
   {
     "type": "text",
-    "text": "さすがです！上手く進められた要因として何があげられますか？"
+    "text": "素晴らしいです！学習の質を高めるために意識したことを教えてください！"
   },
   "question2_no_thu":
   {
     "type": "text",
-    "text": "なるほど！予定通り進まなかった要因として何があげられますか？"
+    "text": "予定通り進まなかった原因として何があげられますか？"
   },
-  "question3_yes_thu":
+  "question3_yes1_thu":
   {
     "type": "text",
-    "text": "なるほど！それではスケジュールノートをもとに明日の学習計画を見直していきましょう！"
+    "text": "なるほど！"
+  },
+  "question3_yes2_thu":
+  {
+    "type": "text",
+    "text": "より質の高い学習にするために他にも意識できることは何がありますか？"
   },
   "question3_no1_thu":
   {
     "type": "text",
-    "text": "なるほど！ 明日は同じことがないように気をつけていきましょう！"
+    "text": "なるほど！"
   },
   "question3_no2_thu":
   {
     "type": "text",
-    "text": "それではスケジュールノートをもとに明日の学習計画を見直していきます!"
+    "text": "明日以降の学習の質を高めるためにどう改善していきましょう？"
   },
-  "last_question_yes_thu":
+  "last_question_yes1_thu":
+  {
+    "type": "text",
+    "text": "良いですね！"
+  },
+  "last_question_no1_thu":
+  {
+    "type": "text",
+    "text": "良いですね！"
+  },
+  "last_question_yes2_thu":
   {
     "type": "template",
     "altText": "最後の質問",
     "template": {
         "type": "confirm",
-        "text": "明日の学習計画は変更しなくても良さそうですか？",
+        "text": "明日以降の学習計画に何か変更点はありますか？",
         "actions": [
           {
             "type": "postback",
             "label": "はい",
-            "data": "last_message_thu",
+            "data": "additional_question_thu",
             "displayText": "はい"
           },
           {
             "type": "postback",
             "label": "いいえ",
-            "data": "additional_question_thu",
+            "data": "last_message_thu",
             "displayText": "いいえ"
           }
-        ]
+      ]
     }
   },
-  "last_question_no_thu":
+  "last_question_no2_thu":
   {
     "type": "template",
     "altText": "最後の質問",
     "template": {
         "type": "confirm",
-        "text": "明日の学習計画は変更した方が良さそうですか？",
+        "text": "明日以降の学習計画に何か変更点はありますか？",
         "actions": [
             {
               "type": "postback",
@@ -521,7 +536,17 @@
   "additional_question_thu":
   {
     "type": "text",
-    "text": "変わってる？"
+    "text": "変更点を教えてください！"
+  },
+  "last_message_yes_thu":
+  {
+     "type": "text",
+     "text": "かしこまりました！また何か分からない点があれば連絡ください！"
+  },
+  "last_message_no_thu":
+  {
+     "type": "text",
+     "text": "かしこまりました！また何か分からない点があれば連絡ください！"
   },
   "question1_fri":
   {
@@ -695,17 +720,7 @@
      "type": "text",
      "text": "かしこまりました！壁にあたり思うように進まない日がきても乗り越えていきましょう！"
   },
-  "last_message_mon":
-  {
-     "type": "text",
-     "text": "ikeうー！"
-  },
   "last_message_wed":
-  {
-     "type": "text",
-     "text": "また分からない点や悩んでいることがあったら連絡ください！頑張っていきましょうー！"
-  },
-  "last_message_thu":
   {
      "type": "text",
      "text": "また分からない点や悩んでいることがあったら連絡ください！頑張っていきましょうー！"
