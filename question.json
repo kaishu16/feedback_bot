@@ -4,22 +4,12 @@
      "type": "text",
      "text": "さんお疲れ様です！今日も学習を振り返っていきましょう！"
   },
-  "first_message_mon":
-  {
-     "type": "text",
-     "text": "さんお疲れ様です！今日も学習を振り返っていきましょう！"
-  },
   "first_message_tue":
   {
      "type": "text",
      "text": "さんお疲れ様です！今日も振返りをしていきましょう！"
   },
   "first_message_wed":
-  {
-     "type": "text",
-     "text": "さんお疲れ様です！今日も学習を振り返っていきましょう！"
-  },
-  "first_message_thu":
   {
      "type": "text",
      "text": "さんお疲れ様です！今日も学習を振り返っていきましょう！"
@@ -103,7 +93,7 @@
     "altText": "最初の質問",
     "template": {
         "type": "confirm",
-        "text": "本日も予定通り学習できましたか？",
+        "text": "今日は予定通り学習を進めることができましたか？",
         "actions": [
             {
                   "type": "postback",
@@ -123,69 +113,84 @@
   "question2_yes_mon":
   {
     "type": "text",
-    "text": "月曜日です"
+    "text": "さすがです！予定通り進めるために意識したことを教えてください！"
   },
   "question2_no_mon":
   {
     "type": "text",
-    "text": "月曜日のう"
+    "text": "うまく進められなかった要因として何が考えられますか？"
   },
-  "question3_yes_mon":
-  {  
+  "question3_yes1_mon":
+  {
     "type": "text",
-    "text": "月曜専用"
+    "text": "なるほどなるほど！"
+  },
+  "question3_yes2_mon":
+  {
+    "type": "text",
+    "text": "明日より良い学習するために新たに意識することは何があげられますか？"
   },
   "question3_no1_mon":
   {
     "type": "text",
-    "text": "月曜だよー！"
+    "text": "なるほど！"
   },
   "question3_no2_mon":
   {
     "type": "text",
-    "text": "月曜かか"
+    "text": "明日同じことが無いように何を意識して学習に取り組みますか？"
   },
-  "last_question_yes_mon":
+  "last_question_yes1_mon":
+  {
+    "type": "text",
+    "text": "良いですね！"
+  },
+  "last_question_no1_mon":
+  {
+    "type": "text",
+    "text": "良いですね！"
+  },
+  "last_question_yes2_mon":
   {
     "type": "template",
     "altText": "最後の質問",
     "template": {
         "type": "confirm",
-        "text": "明日の学習計画は変更しなくても良さそうですか？",
+        "text": "明日以降の学習計画に何か変更点はありますか？",
         "actions": [
           {
             "type": "postback",
             "label": "はい",
-            "data": "last_message_mon",
+            "data": "additional_question_tue",
             "displayText": "はい"
           },
           {
             "type": "postback",
             "label": "いいえ",
-            "data": "additional_question_mon",
+            "data": "last_message_tue",
             "displayText": "いいえ"
           }
-        ]
+      ]
     }
   },
-  "last_question_no_mon":
+  "last_question_no2_mon":
   {
     "type": "template",
     "altText": "最後の質問",
     "template": {
         "type": "confirm",
-        "text": "明日の学習計画は変更した方が良さそうですか？",
+        "text": "明日以降の学習計画に何か変更点はありますか？",
         "actions": [
             {
               "type": "postback",
               "label": "はい",
-              "data": "additional_question_mon",
+              "data": "additional_question_tue",
               "displayText": "はい"
             },
             {
               "type": "postback",
               "label": "いいえ",
-              "data": "last_message_mon",
+              "data": "last_message_tue",
               "displayText": "いいえ"
             }
         ]
@@ -194,7 +199,17 @@
   "additional_question_mon":
   {
     "type": "text",
-    "text": "変わってる？"
+    "text": "変更点を教えてください！"
+  },
+  "last_message_yes_mon":
+  {
+     "type": "text",
+     "text": "かしこまりました！また何か分からない点があれば連絡ください！"
+  },
+  "last_message_no_mon":
+  {
+     "type": "text",
+     "text": "かしこまりました！また何か分からない点があれば連絡ください！"
   },
   "question1_tue":
   {
