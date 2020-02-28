@@ -239,7 +239,7 @@ function lineBot(req, res) {
             
         
         
-            if (first_tue_mon == 'question1_mon' && second_mon == 'question2_yes_mon' && third_mon == '' && fourth_mon == '' && end_mon == '' && event.type == 'message')
+            if (first_mon == 'question1_mon' && second_mon == 'question2_yes_mon' && third_mon == '' && fourth_mon == '' && end_mon == '' && event.type == 'message')
               {
                 third_mon = 'question3_yes_mon'
                 promises.push(
