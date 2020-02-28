@@ -76,7 +76,8 @@ function lineBot(req, res) {
   const promises = [];
   var today = new Date();
     today.setTime(today.getTime() + 1000*60*60*9);
-    var weekday = today.getDay();
+    // var weekday = today.getDay();
+    var weekday = 6;
     console.log(weekday);
 
 
