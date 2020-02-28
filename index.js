@@ -25,6 +25,12 @@ express()
   let fourth_sun;
   let fifth_sun;
   let end_sun;
+  let first_tue;
+  let second_tue;
+  let third_tue;
+  let fourth_tue;
+  let end_tue;
+  let add_tue;
   let first_fri;
   let second_fri;
   let third_fri;
@@ -55,7 +61,7 @@ function lineBot(req, res) {
     console.log(weekday);
 
     switch(weekday){
-      case 0:
+      case 2:
 
       events.forEach((event) => {
         replyToken = event.replyToken;
@@ -164,6 +170,127 @@ function lineBot(req, res) {
           });   
           break;
 
+        
+        
+        
+          case 2:
+
+          events.forEach((event) => {
+            replyToken = event.replyToken;
+            //入力メッセージ
+            console.log(event);
+        
+            if (event.type == 'postback'){
+              if (event.postback.data == 'question2_yes_tue')
+              {
+                second_tue = 'question2_yes_tue';
+                promises.push(
+                  getSecondQuestionObjTue(event, jsonFile)
+                )
+              }
+             else if (event.postback.data == 'question2_no_tue')
+              {
+                second_tue = 'question2_no_tue';
+                promises.push(
+                  getSecondQuestionObjTue(event, jsonFile)
+                )
+              }
+              else if (event.postback.data == 'last_message_tue')
+              {
+                end_tue = 'complete';
+                promises.push(
+                  getLastMessageYesObjTue(event, jsonFile)
+                )
+              }
+              else if (event.postback.data == 'additional_question_tue')
+              {
+                add_tue = 'additional_question_tue';
+                promises.push(
+                  getAdditionalQuestionObjTue(event, jsonFile)
+                )
+              }
+  
+            }
+        
+        
+            if (event.type == 'message'){
+              if (event.message.text == '振り返り')
+              {
+                first_tue = '';
+                second_tue = '';
+                third_tue = '';
+                fourth_tue = '';
+                add_tue = '';
+                end_tue = '';
+              }
+            }
+        
+            console.log(first_tue);
+            console.log(second_tue);
+            console.log(third_tue);
+            console.log(fourth_tue);
+            console.log(add_tue);
+            console.log(end_tue);
+            
+        
+        
+            if (first_tue == 'question1_tue' && second_tue == 'question2_yes_tue' && third_tue == '' && fourth_tue == '' && end_tue == '' && event.type == 'message')
+              {
+                third_tue = 'question3_yes_tue'
+                promises.push(
+                  getThirdQuestionYesObjTue(event, jsonFile)
+                )
+              }
+            else if(first_tue == 'question1_tue' && second_tue == 'question2_no_tue' && third_tue == '' && fourth_tue == '' && add_tue == '' && end_tue == '' && event.type == 'message')
+            {
+              third_tue = 'question3_no_tue'
+              promises.push(
+                getThirdQuestionNoObjTue(event, jsonFile)
+              )
+            }
+            else if(first_tue == 'question1_tue' && second_tue == 'question2_yes_tue' && third_tue == 'question3_yes_tue' && fourth_tue == '' && add_tue == '' && end_tue == '' && event.type == 'message')
+              {
+                fourth_tue = 'question4_yes_tue'
+                promises.push(
+                  getLastQuestionYesObjTue(event, jsonFile)
+                )
+              }
+              else if(first_tue == 'question1_tue' && second_tue == 'question2_no_tue' && third_tue == 'question3_no_tue' && fourth_tue == '' && add_tue == '' && end_tue == '' && event.type == 'message')
+              {
+                fourth_tue = 'question4_no_tue'
+                promises.push(
+                  getLastQuestionNoObjTue(event, jsonFile)
+                )
+              }
+            else if(first_tue == 'question1_tue' && second_tue !== null && third_tue !== null && fourth_tue !== null && add_tue == 'additional_question_tue' && end_tue == '' && event.type == 'message')
+              {
+                console.log('今ここ');
+                end_tue = 'complete';
+                promises.push(
+                  getLastMessageNoObjTue(event, jsonFile)
+                )
+              }
+            else if(first_tue == '' && event.type == 'message' && event.message.text !== '振り返り'){
+              promises.push()
+            }
+            else if(first_tue == '' && event.type == 'message' && event.message.text == '振り返り'){
+              first_tue = 'question1_tue';
+              promises.push(
+              getFirstQuestionObjTue(event, jsonFile)
+            )
+            }
+            else if (first_tue !== null && second_tue !== null && third_tue !== null && fourth_tue !== null && add_tue !== null && end_tue == 'complete' && event.type == "messsage")
+            {
+              console.log('もう終わり');
+              promises.push()
+            }
+            Promise.all(promises).then(console.log("pass"));
+          });
+          break;
+          
+          
+
+
 
         case 5:
 
@@ -255,133 +382,136 @@ function lineBot(req, res) {
             }
             Promise.all(promises).then(console.log("pass"));
           });
+
+          break;
+
     
 
 
         
-          // case 6:
+          case 6:
 
-          // events.forEach((event) => {
-          //   replyToken = event.replyToken;
-          //   //入力メッセージ
-          //   console.log(event);
+          events.forEach((event) => {
+            replyToken = event.replyToken;
+            //入力メッセージ
+            console.log(event);
         
-          //   if (event.type == 'postback'){
-          //     if (event.postback.data == 'question2_yes_sat')
-          //     {
-          //       second = 'question2_yes_sat';
-          //       promises.push(
-          //         getSecondQuestionObjSat(event, jsonFile)
-          //       )
-          //       console.log(second);
-          //     }
-          //    else if (event.postback.data == 'question2_no_sat')
-          //     {
-          //       second = 'question2_no_sat';
-          //       promises.push(
-          //         getSecondQuestionObjSat(event, jsonFile)
-          //       )
-          //       console.log(second);
-          //     }
-          //     else if (event.postback.data == 'last_message_sat')
-          //     {
-          //       end = 'complete';
-          //       promises.push(
-          //         getLastMessageYesObjSat(event, jsonFile)
-          //       )
-          //       console.log(end);
-          //     }
-          //     else if (event.postback.data == 'additional_question_sat')
-          //     {
-          //       add = 'additional_question_sat';
-          //       promises.push(
-          //         getAdditionalQuestionObjSat(event, jsonFile)
-          //       )
-          //       console.log(add);
-          //     }
+            if (event.type == 'postback'){
+              if (event.postback.data == 'question2_yes_sat')
+              {
+                second = 'question2_yes_sat';
+                promises.push(
+                  getSecondQuestionObjSat(event, jsonFile)
+                )
+                console.log(second);
+              }
+             else if (event.postback.data == 'question2_no_sat')
+              {
+                second = 'question2_no_sat';
+                promises.push(
+                  getSecondQuestionObjSat(event, jsonFile)
+                )
+                console.log(second);
+              }
+              else if (event.postback.data == 'last_message_sat')
+              {
+                end = 'complete';
+                promises.push(
+                  getLastMessageYesObjSat(event, jsonFile)
+                )
+                console.log(end);
+              }
+              else if (event.postback.data == 'additional_question_sat')
+              {
+                add = 'additional_question_sat';
+                promises.push(
+                  getAdditionalQuestionObjSat(event, jsonFile)
+                )
+                console.log(add);
+              }
   
-          //   }
+            }
         
         
-          //   if (event.type == 'message'){
-          //     if (event.message.text == '振り返り')
-          //     {
-          //       first = '';
-          //       second = '';
-          //       third = '';
-          //       fourth = '';
-          //       add = '';
-          //       end = '';
-          //     }
-          //   }
+            if (event.type == 'message'){
+              if (event.message.text == '振り返り')
+              {
+                first = '';
+                second = '';
+                third = '';
+                fourth = '';
+                add = '';
+                end = '';
+              }
+            }
         
-          //   console.log(first);
-          //   console.log(second);
-          //   console.log(third);
-          //   console.log(fourth);
-          //   console.log(add);
-          //   console.log(end);
+            console.log(first);
+            console.log(second);
+            console.log(third);
+            console.log(fourth);
+            console.log(add);
+            console.log(end);
             
         
         
-          //   if (first == 'question1_sat' && second == 'question2_yes_sat' && third == '' && fourth == '' && end == '' && event.type == 'message')
-          //     {
-          //       third = 'question3_yes_sat'
-          //       promises.push(
-          //         getThirdQuestionYesObjSat(event, jsonFile)
-          //       )
-          //       console.log(third);
-          //     }
-          //   else if(first == 'question1_sat' && second == 'question2_no_sat' && third == '' && fourth == '' && add == '' && end == '' && event.type == 'message')
-          //   {
-          //     third = 'question3_no_sat'
-          //     promises.push(
-          //       getThirdQuestionNoObjSat(event, jsonFile)
-          //     )
-          //     console.log(third);
-          //   }
-          //   else if(first == 'question1_sat' && second == 'question2_yes_sat' && third == 'question3_yes_sat' && fourth == '' && add == '' && end == '' && event.type == 'message')
-          //     {
-          //       fourth = 'question4_yes_sat'
-          //       promises.push(
-          //         getLastQuestionYesObjSat(event, jsonFile)
-          //       )
-          //       console.log(fourth);
-          //     }
-          //     else if(first == 'question1_sat' && second == 'question2_no_sat' && third == 'question3_no_sat' && fourth == '' && add == '' && end == '' && event.type == 'message')
-          //     {
-          //       fourth = 'question4_no_sat'
-          //       promises.push(
-          //         getLastQuestionNoObjSat(event, jsonFile)
-          //       )
-          //       console.log(fourth);
-          //     }
-          //   else if(first == 'question1_sat' && second !== null && third !== null && fourth !== null && add == 'additional_question_sat' && end == '' && event.type == 'message')
-          //     {
-          //       console.log('今ここ');
-          //       end = 'complete';
-          //       promises.push(
-          //         getLastMessageNoObjSat(event, jsonFile)
-          //       )
-          //       console.log(end);
-          //     }
-          //   else if(first == '' && event.type == 'message' && event.message.text !== '振り返り'){
-          //     promises.push()
-          //   }
-          //   else if(first == '' && event.type == 'message' && event.message.text == '振り返り'){
-          //     first = 'question1_sat';
-          //     promises.push(
-          //     getFirstQuestionObjSat(event, jsonFile)
-          //   )
-          //   }
-          //   else if (first !== null && second !== null && third !== null && fourth !== null && add !== null && end == 'complete' && event.type == "messsage")
-          //   {
-          //     console.log('もう終わり');
-          //     promises.push()
-          //   }
-          //   Promise.all(promises).then(console.log("pass"));
-          // });
-          
+            if (first == 'question1_sat' && second == 'question2_yes_sat' && third == '' && fourth == '' && end == '' && event.type == 'message')
+              {
+                third = 'question3_yes_sat'
+                promises.push(
+                  getThirdQuestionYesObjSat(event, jsonFile)
+                )
+                console.log(third);
+              }
+            else if(first == 'question1_sat' && second == 'question2_no_sat' && third == '' && fourth == '' && add == '' && end == '' && event.type == 'message')
+            {
+              third = 'question3_no_sat'
+              promises.push(
+                getThirdQuestionNoObjSat(event, jsonFile)
+              )
+              console.log(third);
+            }
+            else if(first == 'question1_sat' && second == 'question2_yes_sat' && third == 'question3_yes_sat' && fourth == '' && add == '' && end == '' && event.type == 'message')
+              {
+                fourth = 'question4_yes_sat'
+                promises.push(
+                  getLastQuestionYesObjSat(event, jsonFile)
+                )
+                console.log(fourth);
+              }
+              else if(first == 'question1_sat' && second == 'question2_no_sat' && third == 'question3_no_sat' && fourth == '' && add == '' && end == '' && event.type == 'message')
+              {
+                fourth = 'question4_no_sat'
+                promises.push(
+                  getLastQuestionNoObjSat(event, jsonFile)
+                )
+                console.log(fourth);
+              }
+            else if(first == 'question1_sat' && second !== null && third !== null && fourth !== null && add == 'additional_question_sat' && end == '' && event.type == 'message')
+              {
+                console.log('今ここ');
+                end = 'complete';
+                promises.push(
+                  getLastMessageNoObjSat(event, jsonFile)
+                )
+                console.log(end);
+              }
+            else if(first == '' && event.type == 'message' && event.message.text !== '振り返り'){
+              promises.push()
+            }
+            else if(first == '' && event.type == 'message' && event.message.text == '振り返り'){
+              first = 'question1_sat';
+              promises.push(
+              getFirstQuestionObjSat(event, jsonFile)
+            )
+            }
+            else if (first !== null && second !== null && third !== null && fourth !== null && add !== null && end == 'complete' && event.type == "messsage")
+            {
+              console.log('もう終わり');
+              promises.push()
+            }
+            Promise.all(promises).then(console.log("pass"));
+          });
+          break;
       }
     }
 
@@ -477,6 +607,102 @@ async function getLastMessageNoObjSun(data, jsonFile){
 
 
 
+async function getFirstQuestionObjTue(data, jsonFile){
+  console.log('メッセージの場合');
+            const pro = await client.getProfile(data.source.userId);
+            let reply1_tue = jsonFile.first_message_tue;
+            let reply2_tue = jsonFile.question1_tue;
+            let message1_tue = JSON.stringify(reply1_tue);
+            let message2_tue = JSON.stringify(reply2_tue);
+            let send_tue = JSON.parse(message1_tue);
+            let question_tue = JSON.parse(message2_tue);
+            send_tue.text = pro.displayName + send_tue.text
+            setTimeout(() => {client.pushMessage(data.source.userId, question_tue)}, 6000);
+            return setTimeout(() => {client.replyMessage(data.replyToken, send_tue)}, 3000);    
+  
+};
+
+
+async function getSecondQuestionObjTue(data, jsonFile){
+console.log('postbackの場合');
+let reply = jsonFile[data.postback.data];
+let message = JSON.stringify(reply);
+let question = JSON.parse(message);
+return setTimeout(() => {client.replyMessage(data.replyToken, question)}, 3000);
+}
+
+async function getThirdQuestionYesObjTue(data, jsonFile){
+let reply1_tue = jsonFile.question3_yes_tue;
+let message1_tue = JSON.stringify(reply1_tue);
+let send_tue = JSON.parse(message1_tue);
+return setTimeout(() => {client.replyMessage(data.replyToken, send_tue)}, 3000);  
+}
+
+async function getThirdQuestionNoObjTue(data, jsonFile){
+
+let reply1_tue = jsonFile.question3_no_tue;
+let message1_tue = JSON.stringify(reply1_tue);
+let send_tue = JSON.parse(message1_tue);
+return setTimeout(() => {client.replyMessage(data.replyToken, send_tue)}, 3000);  
+
+}
+
+async function getLastQuestionYesObjTue(data, jsonFile){
+
+let reply1_tue = jsonFile.last_question_yes1_tue;
+let reply2_tue = jsonFile.last_question_yes2_tue;
+let message1_tue = JSON.stringify(reply1_tue);
+let message2_tue = JSON.stringify(reply2_tue);
+let send_tue = JSON.parse(message1_tue);
+let question_tue = JSON.parse(message2_tue);
+setTimeout(() => {client.pushMessage(data.source.userId, question_tue)}, 6000);
+return setTimeout(() => {client.replyMessage(data.replyToken, send_tue)}, 3000);  
+
+}
+
+async function getLastQuestionNoObjTue(data, jsonFile){
+
+let reply1_tue = jsonFile.last_question_no1_tue;
+let reply2_tue = jsonFile.last_question_no2_tue;
+let message1_tue = JSON.stringify(reply1_tue);
+let message2_tue = JSON.stringify(reply2_tue);
+let send_tue = JSON.parse(message1_tue);
+let question_tue = JSON.parse(message2_tue);
+setTimeout(() => {client.pushMessage(data.source.userId, question_tue)}, 6000);
+return setTimeout(() => {client.replyMessage(data.replyToken, send_tue)}, 3000);  
+
+}
+
+async function getLastMessageYesObjTue(data, jsonFile){
+let reply_tue = jsonFile.last_message_yes_tue;
+let message_tue = JSON.stringify(reply_tue);
+let send_tue = JSON.parse(message_tue);
+return setTimeout(() => {client.replyMessage(data.replyToken, send_tue)}, 3000);
+}
+
+async function getLastMessageNoObjTue(data, jsonFile){
+let reply_tue = jsonFile.last_message_no_tue;
+let message_tue = JSON.stringify(reply_tue);
+let send_tue = JSON.parse(message_tue);
+return setTimeout(() => {client.replyMessage(data.replyToken, send_tue)}, 3000);
+}
+
+
+async function getAdditionalQuestionObjTue(data, jsonFile){
+
+      let reply_tue = jsonFile.additional_question_tue;
+      let message_tue = JSON.stringify(reply_tue);
+      let send_tue = JSON.parse(message_tue);
+      return setTimeout(() => {client.replyMessage(data.replyToken, send_tue)}, 3000);
+
+}
+
+
+
+
+
+
+
 
 async function getFirstQuestionObjFri(data, jsonFile){
           console.log('メッセージの場合');
@@ -495,20 +721,6 @@ async function getFirstQuestionObjFri(data, jsonFile){
                 //     return setTimeout(() => {client.replyMessage(data.replyToken, send_mon)}, 3000);    
                 //   }
 
-                //   case 2:
-                //     if (data.message.text == '振り返り') {
-                //       const pro = await client.getProfile(data.source.userId);
-                //       let reply1_tue = jsonFile.first_message;
-                //       let reply2_tue = jsonFile.question1_tue;
-                //       let message1_tue = JSON.stringify(reply1_tue);
-                //       let message2_tue = JSON.stringify(reply2_tue);
-                //       let send_tue = JSON.parse(message1_tue);
-                //       let question_tue = JSON.parse(message2_tue);
-                //       send_tue.text = pro.displayName + send_tue.text
-                //       setTimeout(() => {client.pushMessage(data.source.userId, question_tue)}, 6000);
-                //       return setTimeout(() => {client.replyMessage(data.replyToken, send_tue)}, 3000);    
-                //     }
-                 
                 // case 3:
                 //   if (data.message.text == '振り返り') {
                 //     const pro = await client.getProfile(data.source.userId);
@@ -567,20 +779,6 @@ async function getSecondQuestionObjFri(data, jsonFile){
       //   setTimeout(() => {client.pushMessage(data.source.userId, question_mon)}, 9000);
       //   return setTimeout(() => {client.replyMessage(data.replyToken, send1_mon)}, 3000);
 
-      // case 2:
-      //   let reply1_tue = jsonFile.question3_no1_tue;
-      //   let reply1_1_tue = jsonFile.question3_no2_tue;
-      //   let reply2_tue = jsonFile.last_question_no_tue;
-      //   let message1_tue = JSON.stringify(reply1_tue);
-      //   let message1_1_tue = JSON.stringify(reply1_1_tue);
-      //   let message2_tue = JSON.stringify(reply2_tue);
-      //   let send1_tue = JSON.parse(message1_tue);
-      //   let send2_tue = JSON.parse(message1_1_tue)
-      //   let question_tue = JSON.parse(message2_tue);
-      //   setTimeout(() => {client.pushMessage(data.source.userId, send2_tue)}, 6000);
-      //   setTimeout(() => {client.pushMessage(data.source.userId, question_tue)}, 9000);
-      //   return setTimeout(() => {client.replyMessage(data.replyToken, send1_tue)}, 3000);  
-        
       //  case 3:
       //   let reply1_wed = jsonFile.question3_no1_wed;
       //   let reply1_1_wed = jsonFile.question3_no2_wed;
@@ -636,16 +834,6 @@ async function getLastQuestionYesObjFri(data, jsonFile){
       //   setTimeout(() => {client.pushMessage(data.source.userId, question_mon)}, 6000);
       //   return setTimeout(() => {client.replyMessage(data.replyToken, send_mon)}, 3000);
 
-      // case 2:
-      //   let reply1_tue = jsonFile.question3_yes_tue;
-      //   let reply2_tue = jsonFile.last_question_yes_tue;
-      //   let message1_tue = JSON.stringify(reply1_tue);
-      //   let message2_tue = JSON.stringify(reply2_tue);
-      //   let send_tue = JSON.parse(message1_tue);
-      //   let question_tue = JSON.parse(message2_tue);
-      //   setTimeout(() => {client.pushMessage(data.source.userId, question_tue)}, 6000);
-      //   return setTimeout(() => {client.replyMessage(data.replyToken, send_tue)}, 3000);
-
       // case 3:
       //   let reply1_wed = jsonFile.question3_yes_wed;
       //   let reply2_wed = jsonFile.last_question_yes_wed;
@@ -685,16 +873,6 @@ async function getLastQuestionNoObjFri(data, jsonFile){
       //   setTimeout(() => {client.pushMessage(data.source.userId, question_mon)}, 6000);
       //   return setTimeout(() => {client.replyMessage(data.replyToken, send_mon)}, 3000);
 
-      // case 2:
-      //   let reply1_tue = jsonFile.question3_yes_tue;
-      //   let reply2_tue = jsonFile.last_question_yes_tue;
-      //   let message1_tue = JSON.stringify(reply1_tue);
-      //   let message2_tue = JSON.stringify(reply2_tue);
-      //   let send_tue = JSON.parse(message1_tue);
-      //   let question_tue = JSON.parse(message2_tue);
-      //   setTimeout(() => {client.pushMessage(data.source.userId, question_tue)}, 6000);
-      //   return setTimeout(() => {client.replyMessage(data.replyToken, send_tue)}, 3000);
-
       // case 3:
       //   let reply1_wed = jsonFile.question3_yes_wed;
       //   let reply2_wed = jsonFile.last_question_yes_wed;
@@ -733,12 +911,6 @@ async function getLastMessageObjFri(data, jsonFile){
       //   let message_mon = JSON.stringify(reply_mon);
       //   let send_mon = JSON.parse(message_mon);
       //   return setTimeout(() => {client.replyMessage(data.replyToken, send_mon)}, 3000);
-
-      // case 2:
-      //   let reply_tue = jsonFile.last_message_tue;
-      //   let message_tue = JSON.stringify(reply_tue);
-      //   let send_tue = JSON.parse(message_tue);
-      //   return setTimeout(() => {client.replyMessage(data.replyToken, send_tue)}, 3000);
 
       // case 3:
       //   let reply_wed = jsonFile.last_message_wed;
@@ -853,11 +1025,6 @@ async function getAdditionalQuestionObjSat(data, jsonFile){
       //   let send_mon = JSON.parse(message_mon);
       //   return setTimeout(() => {client.replyMessage(data.replyToken, send_mon)}, 3000);
 
-      // case 2:
-      //   let reply_tue = jsonFile.additional_question_tue;
-      //   let message_tue = JSON.stringify(reply_tue);
-      //   let send_tue = JSON.parse(message_tue);
-      //   return setTimeout(() => {client.replyMessage(data.replyToken, send_tue)}, 3000);
 
       // case 3:
       //   let reply_wed = jsonFile.additional_question_wed;
