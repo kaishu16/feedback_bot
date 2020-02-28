@@ -61,12 +61,7 @@ express()
   let end;
   let add;
 
-  var today = new Date();
-    today.setTime(today.getTime() + 1000*60*60*9);
-    // var weekday = today.getDay();
-    var weekday = Math.floor( Math.random() * 7 );
-    console.log(weekday);
-
+  
 
 function lineBot(req, res) {
 
@@ -79,6 +74,11 @@ function lineBot(req, res) {
 
   const events = req.body.events;
   const promises = [];
+  var today = new Date();
+    today.setTime(today.getTime() + 1000*60*60*9);
+    var weekday = today.getDay();
+    console.log(weekday);
+
 
     switch(weekday){
       case 0:
