@@ -76,8 +76,7 @@ function lineBot(req, res) {
   const promises = [];
   var today = new Date();
     today.setTime(today.getTime() + 1000*60*60*9);
-    // var weekday = today.getDay();
-    var weekday = 6;
+    var weekday = today.getDay();
     console.log(weekday);
 
 
@@ -1358,35 +1357,6 @@ async function getAdditionalQuestionObjThu(data, jsonFile){
 
 async function getFirstQuestionObjFri(data, jsonFile){
           console.log('メッセージの場合');
-
-                // case 3:
-                //   if (data.message.text == '振り返り') {
-                //     const pro = await client.getProfile(data.source.userId);
-                //     let reply1_wed = jsonFile.first_message;
-                //     let reply2_wed = jsonFile.question1_wed;
-                //     let message1_wed = JSON.stringify(reply1_wed);
-                //     let message2_wed = JSON.stringify(reply2_wed);
-                //     let send_wed = JSON.parse(message1_wed);
-                //     let question_wed = JSON.parse(message2_wed);
-                //     send_wed.text = pro.displayName + send_wed.text
-                //     setTimeout(() => {client.pushMessage(data.source.userId, question_wed)}, 6000);
-                //     return setTimeout(() => {client.replyMessage(data.replyToken, send_wed)}, 3000);    
-                //   }
-
-                // case 4:
-                //   if (data.message.text == '振り返り') {
-                //     const pro = await client.getProfile(data.source.userId);
-                //     let reply1_thu = jsonFile.first_message;
-                //     let reply2_thu = jsonFile.question1_thu;
-                //     let message1_thu = JSON.stringify(reply1_thu);
-                //     let message2_thu = JSON.stringify(reply2_thu);
-                //     let send_thu = JSON.parse(message1_thu);
-                //     let question_thu = JSON.parse(message2_thu);
-                //     send_thu.text = pro.displayName + send_thu.text
-                //     setTimeout(() => {client.pushMessage(data.source.userId, question_thu)}, 6000);
-                //     return setTimeout(() => {client.replyMessage(data.replyToken, send_thu)}, 3000);    
-                //   } 
-
                     const pro = await client.getProfile(data.source.userId);
                     let reply1_fri = jsonFile.first_message_fri;
                     let reply2_fri = jsonFile.question1_fri;
@@ -1403,34 +1373,6 @@ async function getFirstQuestionObjFri(data, jsonFile){
 
 async function getSecondQuestionObjFri(data, jsonFile){
 
-      //  case 3:
-      //   let reply1_wed = jsonFile.question3_no1_wed;
-      //   let reply1_1_wed = jsonFile.question3_no2_wed;
-      //   let reply2_wed = jsonFile.last_question_no_wed;
-      //   let message1_wed = JSON.stringify(reply1_wed);
-      //   let message1_1_wed = JSON.stringify(reply1_1_wed);
-      //   let message2_wed = JSON.stringify(reply2_wed);
-      //   let send1_wed = JSON.parse(message1_wed);
-      //   let send2_wed = JSON.parse(message1_1_wed)
-      //   let question_wed = JSON.parse(message2_wed);
-      //   setTimeout(() => {client.pushMessage(data.source.userId, send2_wed)}, 6000);
-      //   setTimeout(() => {client.pushMessage(data.source.userId, question_wed)}, 9000);
-      //   return setTimeout(() => {client.replyMessage(data.replyToken, send1_wed)}, 3000); 
-        
-      // case 4:
-      //   let reply1_thu = jsonFile.question3_no1_thu;
-      //   let reply1_1_thu = jsonFile.question3_no2_thu;
-      //   let reply2_thu = jsonFile.last_question_no_thu;
-      //   let message1_thu = JSON.stringify(reply1_thu);
-      //   let message1_1_thu = JSON.stringify(reply1_1_thu);
-      //   let message2_thu = JSON.stringify(reply2_thu);
-      //   let send1_thu = JSON.parse(message1_thu);
-      //   let send2_thu = JSON.parse(message1_1_thu)
-      //   let question_thu = JSON.parse(message2_thu);
-      //   setTimeout(() => {client.pushMessage(data.source.userId, send2_thu)}, 6000);
-      //   setTimeout(() => {client.pushMessage(data.source.userId, question_thu)}, 9000);
-      //   return setTimeout(() => {client.replyMessage(data.replyToken, send1_thu)}, 3000);
-
         let reply1_fri = jsonFile.question2_fri;
         let message1_fri = JSON.stringify(reply1_fri);
         let send1_fri = JSON.parse(message1_fri);
@@ -1446,28 +1388,7 @@ async function getThirdQuestionObjFri(data, jsonFile){
   return setTimeout(() => {client.replyMessage(data.replyToken, question)}, 3000);
 }
 
-async function getLastQuestionYesObjFri(data, jsonFile){
-
-      // case 3:
-      //   let reply1_wed = jsonFile.question3_yes_wed;
-      //   let reply2_wed = jsonFile.last_question_yes_wed;
-      //   let message1_wed = JSON.stringify(reply1_wed);
-      //   let message2_wed = JSON.stringify(reply2_wed);
-      //   let send_wed = JSON.parse(message1_wed);
-      //   let question_wed = JSON.parse(message2_wed);
-      //   setTimeout(() => {client.pushMessage(data.source.userId, question_wed)}, 6000);
-      //   return setTimeout(() => {client.replyMessage(data.replyToken, send_wed)}, 3000);  
-      
-      // case 4:
-      //   let reply1_thu = jsonFile.question3_yes_thu;
-      //   let reply2_thu = jsonFile.last_question_yes_thu;
-      //   let message1_thu = JSON.stringify(reply1_thu);
-      //   let message2_thu = JSON.stringify(reply2_thu);
-      //   let send_thu = JSON.parse(message1_thu);
-      //   let question_thu = JSON.parse(message2_thu);
-      //   setTimeout(() => {client.pushMessage(data.source.userId, question_thu)}, 6000);
-      //   return setTimeout(() => {client.replyMessage(data.replyToken, send_thu)}, 3000);  
-    
+async function getLastQuestionYesObjFri(data, jsonFile){    
         let reply1_fri = jsonFile.question4_yes_fri;
         let message1_fri = JSON.stringify(reply1_fri);
         let send_fri = JSON.parse(message1_fri);
@@ -1477,26 +1398,6 @@ async function getLastQuestionYesObjFri(data, jsonFile){
 
 async function getLastQuestionNoObjFri(data, jsonFile){
 
-      // case 3:
-      //   let reply1_wed = jsonFile.question3_yes_wed;
-      //   let reply2_wed = jsonFile.last_question_yes_wed;
-      //   let message1_wed = JSON.stringify(reply1_wed);
-      //   let message2_wed = JSON.stringify(reply2_wed);
-      //   let send_wed = JSON.parse(message1_wed);
-      //   let question_wed = JSON.parse(message2_wed);
-      //   setTimeout(() => {client.pushMessage(data.source.userId, question_wed)}, 6000);
-      //   return setTimeout(() => {client.replyMessage(data.replyToken, send_wed)}, 3000);  
-      
-      // case 4:
-      //   let reply1_thu = jsonFile.question3_yes_thu;
-      //   let reply2_thu = jsonFile.last_question_yes_thu;
-      //   let message1_thu = JSON.stringify(reply1_thu);
-      //   let message2_thu = JSON.stringify(reply2_thu);
-      //   let send_thu = JSON.parse(message1_thu);
-      //   let question_thu = JSON.parse(message2_thu);
-      //   setTimeout(() => {client.pushMessage(data.source.userId, question_thu)}, 6000);
-      //   return setTimeout(() => {client.replyMessage(data.replyToken, send_thu)}, 3000);  
-      
         let reply1_fri = jsonFile.question4_no1_fri;
         let reply2_fri = jsonFile.question4_no2_fri;
         let message1_fri = JSON.stringify(reply1_fri);
@@ -1509,19 +1410,6 @@ async function getLastQuestionNoObjFri(data, jsonFile){
 }
 
 async function getLastMessageObjFri(data, jsonFile){
-
-      // case 3:
-      //   let reply_wed = jsonFile.last_message_wed;
-      //   let message_wed = JSON.stringify(reply_wed);
-      //   let send_wed = JSON.parse(message_wed);
-      //   return setTimeout(() => {client.replyMessage(data.replyToken, send_wed)}, 3000);
-
-      // case 4:
-      //   let reply_thu = jsonFile.last_message_thu;
-      //   let message_thu = JSON.stringify(reply_thu);
-      //   let send_thu = JSON.parse(message_thu);
-      //   return setTimeout(() => {client.replyMessage(data.replyToken, send_thu)}, 3000);
-
 
         let reply_fri = jsonFile.last_message_fri;
         let message_fri = JSON.stringify(reply_fri);
@@ -1616,18 +1504,6 @@ async function getLastMessageNoObjSat(data, jsonFile){
 
 
 async function getAdditionalQuestionObjSat(data, jsonFile){
-
-      // case 3:
-      //   let reply_wed = jsonFile.additional_question_wed;
-      //   let message_wed = JSON.stringify(reply_wed);
-      //   let send_wed = JSON.parse(message_wed);
-      //   return setTimeout(() => {client.replyMessage(data.replyToken, send_wed)}, 3000);
-        
-      // case 4:
-      //   let reply_thu = jsonFile.additional_question_thu;
-      //   let message_thu = JSON.stringify(reply_thu);
-      //   let send_thu = JSON.parse(message_thu);
-      //   return setTimeout(() => {client.replyMessage(data.replyToken, send_thu)}, 3000);
 
         let reply_sat = jsonFile.additional_question_sat;
         let message_sat = JSON.stringify(reply_sat);
